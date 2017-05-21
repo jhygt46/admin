@@ -27,7 +27,7 @@
         <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui.js"></script>
-        <script src='http://localhost:3000/socket.io/socket.io.js'></script>
+        <!--<script src='http://localhost:3000/socket.io/socket.io.js'></script>-->
         <script type="text/javascript" src="js/sockets.js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <?php for($i=0; $i<count($header[$page]['js']); $i++){?>
