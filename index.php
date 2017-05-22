@@ -2,9 +2,10 @@
     session_start();
     
     if($_SERVER['HTTP_HOST'] == "localhost"){
+        $path = "";
         echo "LOCAL";
     }else{
-        echo "SERVER";
+        $path = $_SERVER['DOCUMENT_ROOT'];
     }
     
     
