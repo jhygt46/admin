@@ -1,6 +1,6 @@
 <?php
 
-require_once($_SERVER['DOCUMENT_ROOT']."/fireapp/class/config.php");
+//require_once($_SERVER['DOCUMENT_ROOT']."/fireapp/class/config.php");
 
 class Conexion {
 
