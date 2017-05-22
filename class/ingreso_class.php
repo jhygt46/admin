@@ -45,7 +45,6 @@ class Ingreso extends Core{
                         
                         $_SESSION['user'] = $this->session($user['resultado'][0]);
                         // ATENCION ACA SE CREAN LOS PERMISOS //
-                        echo "WENA WEAN";
                         $info['op'] = 1;
                         $info['message'] = "Ingreso Exitoso";
                         
