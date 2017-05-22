@@ -3,7 +3,7 @@ session_start();
 
 require_once 'mysql_class.php';
 
-class Ingreso extends Core{
+class Ingreso{
     
     public $con = null;
     
