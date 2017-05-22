@@ -10,7 +10,7 @@ if($_SERVER['HTTP_HOST'] == "localhost"){
     $path = $_SERVER['DOCUMENT_ROOT']."admin/class";
 }
 
-//echo $path+"/ingreso_class.php";
+echo $path;
 
 //require_once($path+"/mysql_class.php");
 //require_once($path+"/ingreso_class.php");
