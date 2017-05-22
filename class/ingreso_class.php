@@ -1,11 +1,13 @@
 <?php
 
+require_once 'mysql_class.php';
+
 class Ingreso {
     
     public $con = null;
     
     public function __construct(){
-        //$this->con = new Conexion();
+        $this->con = new Conexion();
     }
     
     public function ingresar_user(){
@@ -21,7 +23,7 @@ class Ingreso {
 /*
 session_start();
 
-require_once 'mysql_class.php';
+
 
 class Ingreso {
     
