@@ -4,7 +4,15 @@ session_start();
 header('Content-type: text/json');
 header('Content-type: application/json');
 
-require_once("../class/ingreso_class.php");
+if($_SERVER['HTTP_HOST'] == "localhost"){
+    $path = $_SERVER['DOCUMENT_ROOT']."/admin/class";
+}else{
+    $path = $_SERVER['DOCUMENT_ROOT']."admin/class";
+}
+
+echo $path;
+
+//require_once("../class/ingreso_class.php");
 //$ingreso = new Ingreso();
 //$info = $ingreso->ingresar_user();
 //echo json_encode($info);
