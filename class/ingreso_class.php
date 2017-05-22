@@ -3,12 +3,14 @@ session_start();
 
 require_once 'mysql_class.php';
 
-class Ingreso{
+class Ingreso {
     
     public $con = null;
     
     public function __construct(){
+        
         $this->con = new Conexion();
+        
     }
     
     public function ingresar_user(){
@@ -20,6 +22,7 @@ class Ingreso{
                 // CORREO NO SE ENCUENTERA EN LA BASE DE DATOS
                 $info['op'] = 2;
                 $info['message'] = "Error: Usuario no existe";
+                
             }
             if($user['count'] == 1){
                 
@@ -40,6 +43,7 @@ class Ingreso{
                 }
                 
                 if($block == 0){
+                    
                     $pass = $user['resultado'][0]['pass'];
                     if($pass == md5($_POST['pass'])){
                         
