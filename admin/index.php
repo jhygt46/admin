@@ -1,6 +1,13 @@
 <?php
     session_start();
     
+    if($_SERVER['HTTP_HOST'] == "localhost"){
+        echo "LOCAL";
+    }else{
+        echo "SERVER";
+    }
+    
+    
     echo "<pre>";
     print_r($_SERVER);
     echo "</pre>";
