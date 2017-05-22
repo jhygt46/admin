@@ -1,6 +1,6 @@
 <?php
 
-require_once("mysql_class.php");
+echo $path;
 class Ingreso {
     
     public $con = null;
