@@ -3,11 +3,11 @@ session_start();
 
 header('Content-type: text/json');
 header('Content-type: application/json');
-
+/*
 echo "<pre>";
 print_r($_SERVER);
 echo "</pre>";
-
+*/
 if($_SERVER['HTTP_HOST'] == "localhost"){
     $path = $_SERVER['DOCUMENT_ROOT']."/admin/class";
 }else{
