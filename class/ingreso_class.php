@@ -7,7 +7,7 @@ class Ingreso {
     public $con = null;
     
     public function __construct(){
-        $this->con = new Conexion();
+        //$this->con = new Conexion();
     }
     
     public function ingresar_user(){
