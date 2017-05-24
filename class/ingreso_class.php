@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+echo $path_."/mysql_class.php";
 exit;
 require_once($path_."/mysql_class.php");
 
