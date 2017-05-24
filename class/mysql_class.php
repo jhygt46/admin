@@ -1,8 +1,8 @@
 <?php
 
 echo $path.'config/config.php';
-exit;
 require_once($path.'config/config.php');
+exit;
 
 class Conexion {
 
