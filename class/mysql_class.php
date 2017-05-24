@@ -1,5 +1,6 @@
 <?php
 
+exit;
 require_once($path.'config/config.php');
 
 class Conexion {
