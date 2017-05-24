@@ -6,7 +6,7 @@
         exit;   
     }
     if(file_exists("../config.php") && file_exists("install.php")){
-        //rename("install.php", "resp_install.php");
+        rename("install.php", "resp_install.php");
         //unlink("install.php");
     }
     
