@@ -1,13 +1,11 @@
 <?php
 
-echo $path.'config/config.php';
 require_once($path.'config/config.php');
-exit;
 
 class Conexion {
 
     public $host = null;
-    public $usuario	= null;
+    public $usuario = null;
     public $password = null;
     public $base_datos = null;
 
