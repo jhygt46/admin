@@ -1,7 +1,11 @@
 <?php
 session_start();
 
+echo $path_;
+exit;
+
 require_once("mysql_class.php");
+
 
 class Ingreso {
     
