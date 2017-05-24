@@ -5,10 +5,6 @@
         include("install.php");
         exit;   
     }
-    if(file_exists("../config.php") && file_exists("install.php")){
-        rename("install.php", "resp_install.php");
-        //unlink("install.php");
-    }
     
     if(!isset($_SESSION['user']['info']['id_user'])){
         include("login.php");
