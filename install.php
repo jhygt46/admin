@@ -12,17 +12,14 @@ if($_POST["accion"] == "crear"){
         $data .= " ".$peso."titulo_bk = '".$_POST["titulo"]."'; ".$peso."db_host[".$i."] = '".$_POST["server"]."'; ".$peso."db_user[".$i."] = '".$_POST["user"]."'; ".$peso."db_database[".$i."] = 'inicio'; ".$peso."db_password[".$i."] = '".$_POST["pass"]."';";
     }
     $data .= " ?>";
-    if(file_put_contents("../config/config.php", $data)){
-        echo "ESCRIBIO";
-    }else{
-        echo "NO ESC...";
-    }
+    file_put_contents("../config/config.php", $data);
     
     // CONFIGURAR BASE DE DATOS
     require_once("class/mysql_class.php");
     $con = new Conexion();
     $usuarios = "CREATE TABLE IF NOT EXISTS `usuarios` ( `id_user` int(4) NOT NULL, `nombre` varchar(255) COLLATE utf8_spanish2_ci NOT NULL, `correo` varchar(100) COLLATE utf8_spanish2_ci NOT NULL, `pass` varchar(32) COLLATE utf8_spanish2_ci NOT NULL, `intentos` smallint(2) NOT NULL, `fecha_creado` datetime NOT NULL, `block` tinyint(1) NOT NULL, `fecha_block` datetime NOT NULL ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;";
     $con->sql($usuarios);
+    $con->sql("INSERT INTO usuarios (nombre, correo, fecha_creado, pass) VALUES ('Diego Gomez', 'diegomez13@hotmail.com', now(), '25d55ad283aa400af464c76d713c07ad')");
     
 }
     
