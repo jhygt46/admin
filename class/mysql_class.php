@@ -52,7 +52,7 @@ class Conexion {
 	public function sql($sql) {
 		
             if (preg_match("/select/i", $sql)) {
-                $r = rand(1,2);
+                $r = rand(1, count($this->host) - 1);
             }else{
                 $r = 0;
             }
@@ -62,23 +62,24 @@ class Conexion {
             $error_mysql = mysql_error();
             
             if($error_mysql != ''){
-                    $resultado['estado']	= false;
-                    $resultado['query']     = $sql;
+                    $resultado['estado'] = false;
+                    $resultado['query'] = $sql;
                     $resultado['error']	= $error_mysql;
             }else{
-                    $resultado['estado']	= true;
+                    $resultado['estado'] = true;
                     $resultado['query']	= $sql;
             }
 
-            if (preg_match("/insert/i", $sql)) {
+            if (preg_match("/insert/i", $sql)){
                     $resultado['insert_id'] = mysql_insert_id();
             }
-            if (preg_match("/update/i", $sql)) {
+            if (preg_match("/update/i", $sql)){
                     $resultado['update_rows'] = mysql_affected_rows();
             }
-            if (preg_match("/delete/i", $sql)) {
+            if (preg_match("/delete/i", $sql)){
+                
             }
-            if (preg_match("/select/i", $sql)) {
+            if (preg_match("/select/i", $sql)){
                     while($row = @mysql_fetch_array($result, MYSQL_ASSOC)){
                             $resultado['resultado'][] = $row;
                     }
