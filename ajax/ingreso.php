@@ -5,7 +5,8 @@ header('Content-type: text/json');
 header('Content-type: application/json');
 
 if($_SERVER['HTTP_HOST'] == "localhost"){
-    $path = $_SERVER['DOCUMENT_ROOT']."/admin/class";
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    $path_ = $path."/admin/class";
 }else{
     $path = $_SERVER['DOCUMENT_ROOT'];
     $path_ = $path."admin/class";
