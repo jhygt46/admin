@@ -12,8 +12,11 @@ if($_POST["accion"] == "crear"){
         $data .= " ".$peso."titulo_bk = '".$_POST["titulo"]."'; ".$peso."db_host[".$i."] = '".$_POST["server"]."'; ".$peso."db_user[".$i."] = '".$_POST["user"]."'; ".$peso."db_database[".$i."] = 'inicio'; ".$peso."db_password[".$i."] = '".$_POST["pass"]."';";
     }
     $data .= " ?>";
-    $a = file_put_contents("../config.php", $data);
-    print_r($a);
+    if(file_put_contents("../config.php", $data)){
+        echo "ESCRIBIO";
+    }else{
+        echo "NO ESC...";
+    }
     
     // CONFIGURAR BASE DE DATOS
     require_once("class/mysql_class.php");
