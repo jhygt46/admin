@@ -2,7 +2,7 @@
 session_start();
 
 require_once($path_."/mysql_class.php");
-
+exit;
 
 class Ingreso {
     

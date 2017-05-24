@@ -9,7 +9,7 @@ if($_POST["accion"] == "crear"){
     $peso = "$";
     $data = "<?php";
     for($i=0; $i<=2; $i++){
-        $data .= " ".$peso."titulo_bk = '".$_POST["titulo"]."'; ".$peso."db_host[".$i."] = '".$_POST["server"]."'; ".$peso."db_user[".$i."] = '".$_POST["user"]."'; ".$peso."db_database[".$i."] = 'inicio'; ".$peso."db_password[".$i."] = '".$_POST["pass"]."';";
+        $data .= " ".$peso."db_host[".$i."] = '".$_POST["server"]."'; ".$peso."db_user[".$i."] = '".$_POST["user"]."'; ".$peso."db_database[".$i."] = 'inicio'; ".$peso."db_password[".$i."] = '".$_POST["pass"]."';";
     }
     $data .= " ?>";
     file_put_contents("../config/config.php", $data);
