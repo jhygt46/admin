@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-echo $path_;
-exit;
-
-require_once("mysql_class.php");
+require_once($path_."/mysql_class.php");
 
 
 class Ingreso {
