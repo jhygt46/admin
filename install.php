@@ -6,12 +6,15 @@ if(file_exists("../config/config.php")){
 
 if($_POST["accion"] == "crear"){
 
-    $peso = "$";
-    $data = "<?php";
+    $peso = '$';
+    $data = '<?php '.$peso.'titulo_bk="'.$_POST['titulo'].'"; \n';
     for($i=0; $i<=2; $i++){
-        $data .= " ".$peso."db_host[".$i."] = '".$_POST["server"]."'; ".$peso."db_user[".$i."] = '".$_POST["user"]."'; ".$peso."db_database[".$i."] = 'inicio'; ".$peso."db_password[".$i."] = '".$_POST["pass"]."';";
+        $data .= ' '.$peso.'db_host['.$i.'] = "'.$_POST['server'].'"; \n';
+        $data .= ' '.$peso.'db_user['.$i.'] = "'.$_POST['user'].'"; \n';
+        $data .= ' '.$peso.'db_database['.$i.'] = "inicio"; \n';
+        $data .= ' '.$peso.'db_password['.$i.'] = "'.$_POST['pass'].'"; \n\n';
     }
-    $data .= " ?>";
+    $data .= ' ?>';
     file_put_contents("../config/config.php", $data);
     
     // CONFIGURAR BASE DE DATOS
