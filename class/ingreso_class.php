@@ -1,31 +1,7 @@
 <?php
-
-require_once("mysql_class.php");
-
-class Ingreso {
-    
-    public $con = null;
-    
-    public function __construct(){
-        $this->con = new Conexion();
-    }
-    
-    public function ingresar_user(){
-        $aux['op'] = 1;
-        $aux['message'] = "OK";
-        return $aux;
-    }
-    
-}
-
-
-
-
-
-/*
 session_start();
 
-
+require_once("mysql_class.php");
 
 class Ingreso {
     
