@@ -35,9 +35,12 @@ if($_POST["accion"] == "crear"){
     $destination = "pages/item1.zip";
 
     $data = file_get_contents($url);
-    file_put_contents($destination, $data);
+    if(file_put_contents($destination, $data)){
+        echo $data;
+        echo $destination;
+    }
     
-    echo '<meta http-equiv="refresh" content="0" />';
+    echo '<meta http-equiv="refresh" content="3" />';
     exit;
     
 }
