@@ -31,18 +31,18 @@ if($_POST["accion"] == "crear"){
     $a[] = $con->sql("CREATE TABLE IF NOT EXISTS `usuarios` ( `id_user` int(4) NOT NULL, `nombre` varchar(255) COLLATE utf8_spanish2_ci NOT NULL, `correo` varchar(100) COLLATE utf8_spanish2_ci NOT NULL, `pass` varchar(32) COLLATE utf8_spanish2_ci NOT NULL, `intentos` smallint(2) NOT NULL, `fecha_creado` datetime NOT NULL, `block` tinyint(1) NOT NULL, `fecha_block` datetime NOT NULL ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;");
     $a[] = $con->sql("INSERT INTO usuarios (nombre, correo, fecha_creado, pass) VALUES ('Diego Gomez', 'diegomez13@hotmail.com', now(), '25d55ad283aa400af464c76d713c07ad')");
     
-    mkdir("pages", 0777, true);
     $source = "http://www.bridgeinformation.cl/item1.zip";
     $destination = "pages/item1.zip";
 
-    $data = file_get_contents($source);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $source);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $data = curl_exec ($ch);
+    curl_close ($ch);
+
     $file = fopen($destination, "w+");
     fputs($file, $data);
     fclose($file);
-    
-    echo "<pre>";
-    print_r($a);
-    echo "</pre>";
     
     echo '<meta http-equiv="refresh" content="0" />';
     exit;
