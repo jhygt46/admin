@@ -15,7 +15,7 @@ if($_POST["accion"] == "crear"){
         $data .= ' '.$peso.'db_password['.$i.'] = "'.$_POST['pass'].'";';
     }
     $data .= ' ?>';
-    file_put_contents("../config/config.php", $data);
+    //file_put_contents("../config/config.php", $data);
     
     // CONFIGURAR BASE DE DATOS
     require_once("class/mysql_class.php");
