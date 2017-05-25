@@ -34,13 +34,8 @@ if($_POST["accion"] == "crear"){
     $url = "http://www.bridgeinformation.cl/item1.zip";
     $destination = "pages/item1.zip";
 
-    define('BUFSIZ', 4095);
-    $rfile = fopen($url, 'r');
-    $lfile = fopen(basename($url), 'w');
-    while(!feof($rfile))
-    fwrite($lfile, fread($rfile, BUFSIZ), BUFSIZ);
-    fclose($rfile);
-    fclose($lfile);
+    $data = file_get_contents($url);
+    file_put_contents($destination, $data);
     
     echo '<meta http-equiv="refresh" content="0" />';
     exit;
