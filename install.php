@@ -8,7 +8,7 @@ if($_POST["accion"] == "crear"){
     
     $path = $_SERVER['DOCUMENT_ROOT'];
     if($_SERVER['HTTP_HOST'] == "localhost"){
-        $path = $_SERVER['DOCUMENT_ROOT']."/";
+        $path .= "/";
     }
     $path_ = $path."admin/class";
     
@@ -21,15 +21,20 @@ if($_POST["accion"] == "crear"){
         $data .= ' '.$peso.'db_password['.$i.'] = "'.$_POST['pass'].'";';
     }
     $data .= ' ?>';
-    //file_put_contents("../config/config.php", $data);
+    file_put_contents("../config/config.php", $data);
     
     // CONFIGURAR BASE DE DATOS
-    echo $path_."/mysql_class.php";
+
     require_once($path_."/mysql_class.php");
-    //$con = new Conexion();
-    //$usuarios = "CREATE TABLE IF NOT EXISTS `usuarios` ( `id_user` int(4) NOT NULL, `nombre` varchar(255) COLLATE utf8_spanish2_ci NOT NULL, `correo` varchar(100) COLLATE utf8_spanish2_ci NOT NULL, `pass` varchar(32) COLLATE utf8_spanish2_ci NOT NULL, `intentos` smallint(2) NOT NULL, `fecha_creado` datetime NOT NULL, `block` tinyint(1) NOT NULL, `fecha_block` datetime NOT NULL ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;";
-    //$con->sql($usuarios);
-    //$con->sql("INSERT INTO usuarios (nombre, correo, fecha_creado, pass) VALUES ('Diego Gomez', 'diegomez13@hotmail.com', now(), '25d55ad283aa400af464c76d713c07ad')");
+    $con = new Conexion();
+
+    $a[] = $con->sql("CREATE TABLE IF NOT EXISTS `usuarios` ( `id_user` int(4) NOT NULL, `nombre` varchar(255) COLLATE utf8_spanish2_ci NOT NULL, `correo` varchar(100) COLLATE utf8_spanish2_ci NOT NULL, `pass` varchar(32) COLLATE utf8_spanish2_ci NOT NULL, `intentos` smallint(2) NOT NULL, `fecha_creado` datetime NOT NULL, `block` tinyint(1) NOT NULL, `fecha_block` datetime NOT NULL ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;");
+    $a[] = $con->sql("INSERT INTO usuarios (nombre, correo, fecha_creado, pass) VALUES ('Diego Gomez', 'diegomez13@hotmail.com', now(), '25d55ad283aa400af464c76d713c07ad')");
+    
+    echo "<pre>";
+    print_r($a);
+    echo "</pre>";
+    
     
 }
     
