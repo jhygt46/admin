@@ -46,7 +46,7 @@ if($_POST["accion"] == "crear"){
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="refresh" content="0;URL='admin/'" />
+        <meta http-equiv="refresh" content="0;URL=''" />
         <style>
             .form{
                 display: block;
