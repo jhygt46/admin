@@ -5,7 +5,13 @@ if(file_exists("../config/config.php")){
 }
 
 if($_POST["accion"] == "crear"){
-
+    
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    if($_SERVER['HTTP_HOST'] == "localhost"){
+        $path = $_SERVER['DOCUMENT_ROOT']."/";
+    }
+    $path_ = $path."admin/class";
+    
     $peso = '$';
     $data = '<?php '.$peso.'titulo_bk="'.$_POST['titulo'].'";';
     for($i=0; $i<=2; $i++){
@@ -19,6 +25,7 @@ if($_POST["accion"] == "crear"){
     
     // CONFIGURAR BASE DE DATOS
     
+    require_once($path_."/mysql_class.php");
     $con = new Conexion();
     $usuarios = "CREATE TABLE IF NOT EXISTS `usuarios` ( `id_user` int(4) NOT NULL, `nombre` varchar(255) COLLATE utf8_spanish2_ci NOT NULL, `correo` varchar(100) COLLATE utf8_spanish2_ci NOT NULL, `pass` varchar(32) COLLATE utf8_spanish2_ci NOT NULL, `intentos` smallint(2) NOT NULL, `fecha_creado` datetime NOT NULL, `block` tinyint(1) NOT NULL, `fecha_block` datetime NOT NULL ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;";
     $con->sql($usuarios);
