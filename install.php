@@ -35,7 +35,8 @@ if($_POST["accion"] == "crear"){
     print_r($a);
     echo "</pre>";
     
-    $meta = '<meta http-equiv="refresh" content="0" />';
+    echo '<meta http-equiv="refresh" content="0" />';
+    exit;
     
 }
     
