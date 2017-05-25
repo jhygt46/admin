@@ -28,19 +28,26 @@ if($_POST["accion"] == "crear"){
     require_once($path_."/mysql_class.php");
     $con = new Conexion();
 
-    $a[] = $con->sql("CREATE TABLE IF NOT EXISTS `usuarios` ( `id_user` int(4) NOT NULL, `nombre` varchar(255) COLLATE utf8_spanish2_ci NOT NULL, `correo` varchar(100) COLLATE utf8_spanish2_ci NOT NULL, `pass` varchar(32) COLLATE utf8_spanish2_ci NOT NULL, `intentos` smallint(2) NOT NULL, `fecha_creado` datetime NOT NULL, `block` tinyint(1) NOT NULL, `fecha_block` datetime NOT NULL ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;");
-    $a[] = $con->sql("INSERT INTO usuarios (nombre, correo, fecha_creado, pass) VALUES ('Diego Gomez', 'diegomez13@hotmail.com', now(), '25d55ad283aa400af464c76d713c07ad')");
+    $dir = "pages/";
     
-    $url = "http://www.bridgeinformation.cl/item1.zip";
-    $destination = "pages/item1.zip";
-
-    $data = file_get_contents($url);
-    if(file_put_contents($destination, $data)){
-        echo $data;
-        echo $destination;
+    if($_POST["mod_usuarios"] == 1){
+        
+        $con->sql("CREATE TABLE IF NOT EXISTS `usuarios` ( `id_user` int(4) NOT NULL, `nombre` varchar(255) COLLATE utf8_spanish2_ci NOT NULL, `correo` varchar(100) COLLATE utf8_spanish2_ci NOT NULL, `pass` varchar(32) COLLATE utf8_spanish2_ci NOT NULL, `intentos` smallint(2) NOT NULL, `fecha_creado` datetime NOT NULL, `block` tinyint(1) NOT NULL, `fecha_block` datetime NOT NULL ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;");
+        $con->sql("INSERT INTO usuarios (nombre, correo, fecha_creado, pass) VALUES ('Diego Gomez', 'diegomez13@hotmail.com', now(), '25d55ad283aa400af464c76d713c07ad')");
+    
+        $url = "http://www.bridgeinformation.cl/usuarios_base.zip";
+        wgets($url, $dir);
+        
     }
     
     echo '<meta http-equiv="refresh" content="3" />';
+    
+    function wgets($url, $dir){
+        $name = explode("/", $url);
+        $data = file_get_contents($url);
+        file_put_contents($dir.end($name), $data);
+    }
+    
     exit;
     
 }
