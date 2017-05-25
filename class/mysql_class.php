@@ -2,6 +2,7 @@
 
 echo $path.'config/config.php';
 require_once($path.'config/config.php');
+echo "WHATS";
 
 class Conexion {
 
