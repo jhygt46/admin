@@ -36,6 +36,7 @@ if($_POST["accion"] == "crear"){
     echo "</pre>";
     
     
+    
 }
     
 ?>
@@ -45,6 +46,7 @@ if($_POST["accion"] == "crear"){
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="refresh" content="0;URL='/'" />
         <style>
             .form{
                 display: block;
