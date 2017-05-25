@@ -18,7 +18,7 @@ if($_POST["accion"] == "crear"){
     //file_put_contents("../config/config.php", $data);
     
     // CONFIGURAR BASE DE DATOS
-    require_once("class/mysql_class.php");
+    
     $con = new Conexion();
     $usuarios = "CREATE TABLE IF NOT EXISTS `usuarios` ( `id_user` int(4) NOT NULL, `nombre` varchar(255) COLLATE utf8_spanish2_ci NOT NULL, `correo` varchar(100) COLLATE utf8_spanish2_ci NOT NULL, `pass` varchar(32) COLLATE utf8_spanish2_ci NOT NULL, `intentos` smallint(2) NOT NULL, `fecha_creado` datetime NOT NULL, `block` tinyint(1) NOT NULL, `fecha_block` datetime NOT NULL ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;";
     $con->sql($usuarios);
