@@ -1,22 +1,6 @@
 <?php
     
-    $aux['ico'] = 4;
-    $aux['categoria'] = "Productos";
-    $aux['subcategoria'][0]['nombre'] = "Ingresar Categorias";
-    $aux['subcategoria'][0]['link'] = "pages/crear_categoria.php";
-    $aux['subcategoria'][1]['nombre'] = "Ingresar Productos";
-    $aux['subcategoria'][1]['link'] = "pages/crear_productos.php";
-    $menu[] = $aux;
-    $aux = null;
-
-
-    $aux['ico'] = 2;
-    $aux['categoria'] = "Usuarios";
-    $aux['subcategoria'][0]['nombre'] = "Ingresar Usuarios";
-    $aux['subcategoria'][0]['link'] = "pages/crear_user.php";
-    $menu[] = $aux;
-    $aux = null;
-
+    include("info_nav.php");
 
 ?>
 <div class="nav">
