@@ -4,12 +4,6 @@ if(file_exists("../config/config.php")){
 }
 if($_POST["accion"] == "crear"){
     
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    if($_SERVER['HTTP_HOST'] == "localhost"){
-        $path .= "/";
-    }
-    $path_ = $path."admin/class";
-    
     $peso = '$';
     $data = '<?php '.$peso.'titulo_bk="'.$_POST['titulo'].'";';
     for($i=0; $i<=2; $i++){
@@ -21,25 +15,19 @@ if($_POST["accion"] == "crear"){
     $data .= ' ?>';
     //file_put_contents("../config/config.php", $data);
     
-    // CONFIGURAR BASE DE DATOS
-    //require_once($path_."/mysql_class.php");
-    //$con = new Conexion();
-    
     $db_name = "admin";
     $enlace = mysql_connect($_POST['server'], $_POST['user'], $_POST['pass']);
     $sql = 'CREATE DATABASE IF NOT EXISTS '.$db_name.' COLLATE utf8_spanish_ci';
     
-    $tablas[0] = "CREATE TABLE usuarios( id_user INT NOT NULL AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL, correo VARCHAR(255) NOT NULL, pass VARCHAR(32) NOT NULL, intentos smallint(2) NOT NULL, fecha_creado DATETIME, block tinyint(1), fecha_block DATETIME, PRIMARY KEY ( id_user )); ";
-    $tablas[1] = "INSERT INTO usuarios (nombre, correo, fecha_creado, pass) VALUES ('Diegomez', 'diegomez13@hotmail.com', now(), '25d55ad283aa400af464c76d713c07ad')";
+    $exec[0] = "CREATE TABLE usuarios( id_user INT(4) NOT NULL AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL, correo VARCHAR(255) NOT NULL, pass VARCHAR(32) NOT NULL, intentos SMALLINT(2) NOT NULL, fecha_creado DATETIME, block TINYINT(1), fecha_block DATETIME, PRIMARY KEY ( id_user )); ";
+    $exec[1] = "INSERT INTO usuarios (nombre, correo, fecha_creado, pass, block) VALUES ('Diegomez', 'diegomez13@hotmail.com', now(), '25d55ad283aa400af464c76d713c07ad', 0)";
     
     if (mysql_query($sql, $enlace)) {
         echo "BASE DE DATOS CREADA <br>";
         mysql_select_db($db_name, $enlace);
-        for($i=0; $i<count($tablas); $i++){
-            if(mysql_query($tablas[$i])){
-                echo $tablas[$i];
-            }else{
-                echo "Error CREAR TABLA: " . mysql_error() . "<br>";
+        for($i=0; $i<count($exec); $i++){
+            if(!mysql_query($exec[$i])){
+                echo "Error al ejecutar (". $exec[$i] . ") -> mysql_error: " .mysql_error();
             }
         }
     } else {
@@ -58,6 +46,7 @@ if($_POST["accion"] == "crear"){
     }
     
     exit;
+
     
 }
     
