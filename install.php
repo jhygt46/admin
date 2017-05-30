@@ -158,8 +158,7 @@ if($_POST["accion"] == "crear"){
             .form_cont{
                 display: block;
                 width: 900px;
-                margin: 0 auto;
-                background: #ccc;
+                margin: 10px auto;
             }
             .form_cont ul{
                 list-style:none;
@@ -174,6 +173,7 @@ if($_POST["accion"] == "crear"){
             .form_cont .server{
                 width: 900px;
                 margin-bottom: 20px;
+                background: #ccc;
             }
             .form_cont .server li{
                 width: 280px;
@@ -189,6 +189,24 @@ if($_POST["accion"] == "crear"){
                 width: 100%;
                 height: 25px;
             }
+            .form_cont .modulos{
+                width: 900px;
+                margin-bottom: 20px;
+                background: #ccc;
+            }
+            .form_cont .modulos li{
+                width: 205px;
+                float: left;
+                padding: 10px;
+            }
+            .form_cont .modulos li div:nth-child(0){
+                width: 25px;
+                float: left;
+            }
+            .form_cont .modulos li div:nth-child(1){
+                width: 180px;
+                float: left;
+            }
         </style>
     </head>
     <body>
@@ -197,15 +215,54 @@ if($_POST["accion"] == "crear"){
         <div class="form_cont">
             <h1>Base de Datos</h1>
             <ul class="server clearfix">
-                <li><span>Server:</span><input type="text" id="server" value="localhost" /></li>
-                <li><span>Usuario:</span><input type="text" id="user" value="root" /></li>
-                <li><span>Password:</span><input type="text" id="pass" /></li>
+                <li><span>Server:</span><input type="text" name="server" value="localhost" /></li>
+                <li><span>Usuario:</span><input type="text" name="user" value="root" /></li>
+                <li><span>Password:</span><input type="text" name="pass" /></li>
             </ul>
             <h1>Informacion</h1>
             <ul class="server clearfix">
-                <li><span>Titulo:</span><input type="text" id="server" placeholder="Administrador" /></li>
-                <li><span>Subtitulo:</span><input type="text" id="user" value="root" /></li>
-                <li><span>Password:</span><input type="text" id="pass" /></li>
+                <li><span>Titulo:</span><input type="text" name="titulo" placeholder="Nombre de Fantasia" /></li>
+                <li><span>Subtitulo:</span><input type="text" name="subtitulo" placeholder="Software de Gestion" /></li>
+                <li></li>
+            </ul>
+            <h1>Modulos</h1>
+            <ul class="modulos clearfix">
+                <li class="clearfix">
+                    <div class="op clearfix">
+                        <div><input type="checkbox" name="modulo1" /></div>
+                        <div>Modulo1</div>
+                    </div>
+                    <div class="op clearfix">
+                        <div><input type="checkbox" name="modulo2" /></div>
+                        <div>Modulo2</div>
+                    </div>
+                    <div class="op clearfix">
+                        <div><input type="checkbox" name="modulo3" /></div>
+                        <div>Modulo3</div>
+                    </div>
+                    <div class="op clearfix">
+                        <div><input type="checkbox" name="modulo4" /></div>
+                        <div>Modulo4</div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div>E</div>
+                    <div>F</div>
+                    <div>G</div>
+                    <div>H</div>
+                </li>
+                <li class="clearfix">
+                    <div>I</div>
+                    <div>J</div>
+                    <div>K</div>
+                    <div>L</div>
+                </li>
+                <li class="clearfix">
+                    <div>M</div>
+                    <div>N</div>
+                    <div>O</div>
+                    <div>P</div>
+                </li>
             </ul>
         </div>
         </form>
