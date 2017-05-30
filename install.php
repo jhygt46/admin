@@ -29,13 +29,12 @@ if($_POST["accion"] == "crear"){
     $enlace = mysql_connect($_POST['server'], $_POST['user'], $_POST['pass']);
     $sql = 'CREATE DATABASE IF NOT EXISTS '.$db_name.' COLLATE utf8_spanish_ci';
     
-    $tablas[0] = "CREATE TABLE IF NOT EXISTS usuarios ( 'id_user' int(4) NOT NULL auto_increment, 'nombre' varchar(255) NOT NULL, 'correo' varchar(255) NOT NULL, 'pass' varchar(32) NOT NULL, 'intentos' smallint(2) NOT NULL, 'block' tinyint(1) NOT NULL, 'fecha_creado' datetime NOT NULL, 'fecha_block' datetime NOT NULL, PRIMARY KEY ('id_user') ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci";
+    $tabla[0] = "CREATE TABLE usuarios( id_user INT NOT NULL AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL, correo VARCHAR(255) NOT NULL, fecha_creado DATETIME, PRIMARY KEY ( id_user )); ";
     
     if (mysql_query($sql, $enlace)) {
         echo "BASE DE DATOS CREADA <br>";
         mysql_select_db($db_name, $enlace);
         for($i=0; $i<count($tablas); $i++){
-            echo $tablas[$i]."<br>";
             if(mysql_query($tablas[$i])){
                 echo $tablas[$i];
             }else{
