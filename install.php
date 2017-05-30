@@ -19,15 +19,19 @@ if($_POST["accion"] == "crear"){
     $enlace = mysql_connect($_POST['server'], $_POST['user'], $_POST['pass']);
     $sql = 'CREATE DATABASE IF NOT EXISTS '.$db_name.' COLLATE utf8_spanish_ci';
     
-    $exec[0] = "CREATE TABLE usuarios( id_user INT(4) NOT NULL AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL, correo VARCHAR(255) NOT NULL, pass VARCHAR(32) NOT NULL, intentos SMALLINT(2) NOT NULL, fecha_creado DATETIME NOT NULL, block TINYINT(1) NOT NULL, fecha_block DATETIME NOT NULL, PRIMARY KEY ( id_user )); ";
-    $exec[1] = "INSERT INTO usuarios (nombre, correo, fecha_creado, pass, block) VALUES ('Diegomez', 'diegomez13@hotmail.com', now(), '25d55ad283aa400af464c76d713c07ad', 0)";
+    $exec[0]['sql'] = "CREATE TABLE usuarios( id_user INT(4) NOT NULL AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL, correo VARCHAR(255) NOT NULL, pass VARCHAR(32) NOT NULL, intentos SMALLINT(2) NOT NULL, fecha_creado DATETIME NOT NULL, block TINYINT(1) NOT NULL, fecha_block DATETIME NOT NULL, PRIMARY KEY ( id_user )); ";
+    $exec[0]['txt'] = "TABLAS USUARIOS CREADA";
+    $exec[1]['sql'] = "INSERT INTO usuarios (nombre, correo, fecha_creado, pass, block) VALUES ('Diegomez', 'diegomez13@hotmail.com', now(), '25d55ad283aa400af464c76d713c07ad', 0)";
+    $exec[1]['txt'] = "USUARIO INGRESADO";
     
     if (mysql_query($sql, $enlace)) {
-        echo "BASE DE DATOS CREADA <br>";
+        echo "BASE DE DATOS CREADA: <br>";
         mysql_select_db($db_name, $enlace);
         for($i=0; $i<count($exec); $i++){
-            if(!mysql_query($exec[$i])){
-                echo "Error al ejecutar (". $exec[$i] . ") -> mysql_error: " .mysql_error();
+            if(!mysql_query($exec[$i]['sql'])){
+                echo "Error al ejecutar (". $exec[$i]['sql'] . ") -> mysql_error: " .mysql_error();
+            }else{
+                echo $exec[$i]['txt'];
             }
         }
     } else {
@@ -37,7 +41,7 @@ if($_POST["accion"] == "crear"){
     //$url_file = "http://www.bridgeinformation.cl/usuarios_base.tar";
     //wgets($url_file, "pages/");
         
-    $meta = '<meta http-equiv="refresh" content="5" />';
+    $meta = '<meta http-equiv="refresh" content="0" />';
     
     function wgets($url, $dir){
         $name = explode("/", $url);
