@@ -28,20 +28,20 @@ class Conexion {
         $this->con = mysql_connect($this->host[$r], $this->usuario[$r], $this->password[$r]);
         $error_mysql = mysql_error();
         if($error_mysql != ''){
-                $resultado['estado']	= false;
-                $resultado['mensaje']	= 'Error en la conexion con servidor';
-                $resultado['error']	= $error_mysql;
+            $resultado['estado']	= false;
+            $resultado['mensaje']	= 'Error en la conexion con servidor';
+            $resultado['error']	= $error_mysql;
         }else {
-                $db = mysql_select_db($this->base_datos[$r]);
-                $error_mysql = mysql_error();
-                if($error_mysql != '') {
-                        $resultado['estado']	= false;
-                        $resultado['mensaje']	= 'Error al seleccionar la base de datos';
-                        $resultado['error']	= $error_mysql;
-                }
-                else {
-                        $resultado['estado']	= true;
-                }
+            $db = mysql_select_db($this->base_datos[$r]);
+            $error_mysql = mysql_error();
+            if($error_mysql != '') {
+                    $resultado['estado']	= false;
+                    $resultado['mensaje']	= 'Error al seleccionar la base de datos';
+                    $resultado['error']	= $error_mysql;
+            }
+            else {
+                    $resultado['estado']	= true;
+            }
         }
         return $resultado;
 
@@ -61,12 +61,12 @@ class Conexion {
         $error_mysql = mysql_error();
 
         if($error_mysql != ''){
-                $resultado['estado'] = false;
-                $resultado['query'] = $sql;
-                $resultado['error']	= $error_mysql;
+            $resultado['estado'] = false;
+            $resultado['query'] = $sql;
+            $resultado['error'] = $error_mysql;
         }else{
-                $resultado['estado'] = true;
-                $resultado['query']	= $sql;
+            $resultado['estado'] = true;
+            $resultado['query'] = $sql;
         }
 
         if (preg_match("/insert/i", $sql)){
@@ -79,9 +79,9 @@ class Conexion {
 
         }
         if (preg_match("/select/i", $sql)){
-                while($row = @mysql_fetch_array($result, MYSQL_ASSOC)){
-                        $resultado['resultado'][] = $row;
-                }
+            while($row = @mysql_fetch_array($result, MYSQL_ASSOC)){
+                $resultado['resultado'][] = $row;
+            }
         }
         $resultado['count'] = count($resultado['resultado']);	
         @mysql_free_result($result);
@@ -90,7 +90,7 @@ class Conexion {
     }
 
     public function __destruct(){
-            @mysql_close($this->con);
+        @mysql_close($this->con);
     }
 
 
