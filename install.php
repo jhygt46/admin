@@ -37,6 +37,8 @@ if($_POST["accion"] == "crear"){
         for($i=0; $i<count($tablas); $i++){
             if(mysql_query($tablas[$i])){
                 echo $tablas[$i];
+            }else{
+                echo "Error CREAR TABLA: " . mysql_error() . "<br>";
             }
         }
     } else {
