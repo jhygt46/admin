@@ -41,7 +41,7 @@ if($_POST["accion"] == "crear"){
     //$url_file = "http://www.bridgeinformation.cl/usuarios_base.tar";
     //wgets($url_file, "pages/");
         
-    $meta = '<meta http-equiv="refresh" content="0" />';
+    $meta = '<meta http-equiv="refresh" content="3">';
     
     function wgets($url, $dir){
         $name = explode("/", $url);
