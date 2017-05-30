@@ -19,7 +19,7 @@ if($_POST["accion"] == "crear"){
         $data .= ' '.$peso.'db_password['.$i.'] = "'.$_POST['pass'].'";';
     }
     $data .= ' ?>';
-    file_put_contents("../config/config.php", $data);
+    //file_put_contents("../config/config.php", $data);
     
     // CONFIGURAR BASE DE DATOS
     //require_once($path_."/mysql_class.php");
@@ -35,6 +35,7 @@ if($_POST["accion"] == "crear"){
         echo "BASE DE DATOS CREADA <br>";
         mysql_select_db($db_name, $enlace);
         for($i=0; $i<count($tablas); $i++){
+            echo $tablas[$i]."<br>";
             if(mysql_query($tablas[$i])){
                 echo $tablas[$i];
             }else{
