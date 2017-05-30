@@ -17,6 +17,7 @@ class Ingreso {
                 
         if(filter_var($_POST['user'], FILTER_VALIDATE_EMAIL)){
             $user = $this->con->sql("SELECT * FROM usuarios WHERE correo='".$_POST['user']."'");
+            $info['ss'] = $user;
             
             if($user['count'] == 0){
                 // CORREO NO SE ENCUENTERA EN LA BASE DE DATOS
