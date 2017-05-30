@@ -1,59 +1,19 @@
 <?php
-
-    $aux['ico'] = 1;
-    $aux['categoria'] = "Configuracion Cia";
-    
-    $aux['subcategoria'][0]['nombre'] = "Perfiles";
-    $aux['subcategoria'][0]['link'] = "pages/perfiles_cia.php";
-    $aux['subcategoria'][1]['nombre'] = "Cargos";
-    $aux['subcategoria'][1]['link'] = "pages/cargos_cia.php";
-    $aux['subcategoria'][2]['nombre'] = "Usuarios";
-    $aux['subcategoria'][2]['link'] = "pages/usuarios_cia.php";
-    $aux['subcategoria'][3]['nombre'] = "Configuracion";
-    $aux['subcategoria'][3]['link'] = "pages/config_cia.php";
-    $aux['subcategoria'][4]['nombre'] = "Tipos de Claves";
-    $aux['subcategoria'][4]['link'] = "pages/tipos_de_claves_cia.php";
-    $aux['subcategoria'][5]['nombre'] = "Grupos Asistentes";
-    $aux['subcategoria'][5]['link'] = "pages/grupos_cia.php";
-    
-    $menu[] = $aux;
-    $aux = null;
-    
-    
-    $aux['ico'] = 3;
-    $aux['categoria'] = "Configuracion Cuerpo";
-    $aux['subcategoria'][3]['nombre'] = "Configuracion";
-    $aux['subcategoria'][3]['link'] = "pages/config_cue.php";
-    $aux['subcategoria'][0]['nombre'] = "Perfiles";
-    $aux['subcategoria'][0]['link'] = "pages/perfiles_cue.php";
-    $aux['subcategoria'][2]['nombre'] = "Usuarios";
-    $aux['subcategoria'][2]['link'] = "pages/usuarios_cue.php";
-    $aux['subcategoria'][1]['nombre'] = "Cargos";
-    $aux['subcategoria'][1]['link'] = "pages/cargos_cue.php";
-    $aux['subcategoria'][4]['nombre'] = "Compañias";
-    $aux['subcategoria'][4]['link'] = "pages/crear_cias.php";
-    $aux['subcategoria'][5]['nombre'] = "Tipos de Maquina";
-    $aux['subcategoria'][5]['link'] = "pages/tipos_de_maquina.php";
-    $aux['subcategoria'][6]['nombre'] = "Tipos de Claves";
-    $aux['subcategoria'][6]['link'] = "pages/tipos_de_claves_cue.php";
-    $aux['subcategoria'][7]['nombre'] = "Grupos Asistentes";
-    $aux['subcategoria'][7]['link'] = "pages/grupos_cue.php";
-    $menu[] = $aux;
-    $aux = null;
-
     
     $aux['ico'] = 4;
-    $aux['categoria'] = "Despacho";
-    $aux['subcategoria'][0]['nombre'] = "Nuevo Despacho";
-    $aux['subcategoria'][0]['link'] = "pages/despacho.php";
+    $aux['categoria'] = "Productos";
+    $aux['subcategoria'][0]['nombre'] = "Ingresar Categorias";
+    $aux['subcategoria'][0]['link'] = "pages/crear_categoria.php";
+    $aux['subcategoria'][1]['nombre'] = "Ingresar Productos";
+    $aux['subcategoria'][1]['link'] = "pages/crear_productos.php";
     $menu[] = $aux;
     $aux = null;
 
 
     $aux['ico'] = 2;
-    $aux['categoria'] = "Super Admin";
-    $aux['subcategoria'][0]['nombre'] = "Crear Cuerpo de Bomberos";
-    $aux['subcategoria'][0]['link'] = "pages/crear_cuerpo.php";
+    $aux['categoria'] = "Usuarios";
+    $aux['subcategoria'][0]['nombre'] = "Ingresar Usuarios";
+    $aux['subcategoria'][0]['link'] = "pages/crear_user.php";
     $menu[] = $aux;
     $aux = null;
 
