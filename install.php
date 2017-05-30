@@ -199,103 +199,128 @@ if($_POST["accion"] == "crear"){
                 float: left;
                 padding: 10px;
             }
-            .form_cont .modulos li div:nth-child(0){
-                width: 25px;
+            .form_cont .modulos li .op{
+                
+            }
+            .form_cont .modulos li .op div:nth-child(1){
+                width: 15px;
                 float: left;
             }
-            .form_cont .modulos li div:nth-child(1){
+            .form_cont .modulos li .op div:nth-child(1) input{
+                width: 15px;
+                height: 15px;
+            }
+            .form_cont .modulos li .op div:nth-child(2){
                 width: 180px;
                 float: left;
+                font-size: 13px;
+                margin-left: 10px;
+            }
+            .form_cont .sub{
+                display: block;
+                text-align: center;
+            }
+            .form_cont .sub input{
+                width: 150px;
+                padding: 10px;
+                font-size: 16px;
             }
         </style>
     </head>
     <body>
+        <?php if($_POST["accion"] != "crear"){ ?>
         <form action="" method="POST">
-        <input type="hidden" name="accion" value="crear">
-        <div class="form_cont">
-            <h1>Base de Datos</h1>
-            <ul class="server clearfix">
-                <li><span>Server:</span><input type="text" name="server" value="localhost" /></li>
-                <li><span>Usuario:</span><input type="text" name="user" value="root" /></li>
-                <li><span>Password:</span><input type="text" name="pass" /></li>
-            </ul>
-            <h1>Informacion</h1>
-            <ul class="server clearfix">
-                <li><span>Titulo:</span><input type="text" name="titulo" placeholder="Nombre de Fantasia" /></li>
-                <li><span>Subtitulo:</span><input type="text" name="subtitulo" placeholder="Software de Gestion" /></li>
-                <li></li>
-            </ul>
-            <h1>Modulos</h1>
-            <ul class="modulos clearfix">
-                <li class="clearfix">
-                    <div class="op clearfix">
-                        <div><input type="checkbox" name="modulo1" /></div>
-                        <div>Modulo1</div>
-                    </div>
-                    <div class="op clearfix">
-                        <div><input type="checkbox" name="modulo2" /></div>
-                        <div>Modulo2</div>
-                    </div>
-                    <div class="op clearfix">
-                        <div><input type="checkbox" name="modulo3" /></div>
-                        <div>Modulo3</div>
-                    </div>
-                    <div class="op clearfix">
-                        <div><input type="checkbox" name="modulo4" /></div>
-                        <div>Modulo4</div>
-                    </div>
-                </li>
-                <li class="clearfix">
-                    <div>E</div>
-                    <div>F</div>
-                    <div>G</div>
-                    <div>H</div>
-                </li>
-                <li class="clearfix">
-                    <div>I</div>
-                    <div>J</div>
-                    <div>K</div>
-                    <div>L</div>
-                </li>
-                <li class="clearfix">
-                    <div>M</div>
-                    <div>N</div>
-                    <div>O</div>
-                    <div>P</div>
-                </li>
-            </ul>
-        </div>
-        </form>
-        
-        
-        <?php exit; if($_POST["accion"] != "crear"){ ?>
-        
-            <div class="modulo">
-                <h1>Base de datos</h1>
-                <label>Servidor</label>
-                <input type="text" name="server" value="localhost">
-                <label>Usuario</label>
-                <input type="text" name="user" value="root">
-                <label>Password</label>
-                <input type="password" name="pass" value="12345678">
-            </div> 
-            <div class="modulo">
-                <h1>Pagina</h1>
-                <label>Titulo</label>
-                <input type="text" name="titulo">
-                <label>Site Map</label>
-                <input type="text" name="site_map">
-                <label>Background</label>
-                <input type="text" name="background">
+            <input type="hidden" name="accion" value="crear">
+            <div class="form_cont">
+                <h1>Base de Datos</h1>
+                <ul class="server clearfix">
+                    <li><span>Server:</span><input type="text" name="server" value="localhost" /></li>
+                    <li><span>Usuario:</span><input type="text" name="user" value="root" /></li>
+                    <li><span>Password:</span><input type="text" name="pass" /></li>
+                </ul>
+                <h1>Informacion</h1>
+                <ul class="server clearfix">
+                    <li><span>Titulo:</span><input type="text" name="titulo" placeholder="Nombre de Fantasia" /></li>
+                    <li><span>Subtitulo:</span><input type="text" name="subtitulo" placeholder="Software de Gestion" /></li>
+                    <li></li>
+                </ul>
+                <h1>Modulos</h1>
+                <ul class="modulos clearfix">
+                    <li class="clearfix">
+                        <div class="op clearfix">
+                            <div><input type="checkbox" name="modulo1" /></div>
+                            <div>Usuarios Simple</div>
+                        </div>
+                        <div class="op clearfix">
+                            <div><input type="checkbox" name="modulo2" /></div>
+                            <div>Usuarios Permisos Tareas</div>
+                        </div>
+                        <div class="op clearfix">
+                            <div><input type="checkbox" name="modulo3" /></div>
+                            <div>Modulo3</div>
+                        </div>
+                        <div class="op clearfix">
+                            <div><input type="checkbox" name="modulo4" /></div>
+                            <div>Modulo4</div>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="op clearfix">
+                            <div><input type="checkbox" name="modulo5" /></div>
+                            <div>Modulo1</div>
+                        </div>
+                        <div class="op clearfix">
+                            <div><input type="checkbox" name="modulo6" /></div>
+                            <div>Modulo2</div>
+                        </div>
+                        <div class="op clearfix">
+                            <div><input type="checkbox" name="modulo7" /></div>
+                            <div>Modulo3</div>
+                        </div>
+                        <div class="op clearfix">
+                            <div><input type="checkbox" name="modulo8" /></div>
+                            <div>Modulo4</div>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="op clearfix">
+                            <div><input type="checkbox" name="modulo9" /></div>
+                            <div>Modulo1</div>
+                        </div>
+                        <div class="op clearfix">
+                            <div><input type="checkbox" name="modulo10" /></div>
+                            <div>Modulo2</div>
+                        </div>
+                        <div class="op clearfix">
+                            <div><input type="checkbox" name="modulo11" /></div>
+                            <div>Modulo3</div>
+                        </div>
+                        <div class="op clearfix">
+                            <div><input type="checkbox" name="modulo12" /></div>
+                            <div>Modulo4</div>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="op clearfix">
+                            <div><input type="checkbox" name="modulo13" /></div>
+                            <div>Modulo1</div>
+                        </div>
+                        <div class="op clearfix">
+                            <div><input type="checkbox" name="modulo14" /></div>
+                            <div>Modulo2</div>
+                        </div>
+                        <div class="op clearfix">
+                            <div><input type="checkbox" name="modulo15" /></div>
+                            <div>Modulo3</div>
+                        </div>
+                        <div class="op clearfix">
+                            <div><input type="checkbox" name="modulo16" /></div>
+                            <div>Modulo4</div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="sub"><input type="submit" value="Submit"></div>
             </div>
-            <div class="modulo">
-                <h1>MODULOS</h1>
-                <label>Usuarios</label>
-                <input type="checkbox" name="mod_usuarios" value="1">
-                <label>Productos</label>
-                <input type="checkbox" name="mod_productos" value="1">
-            </div>
-            <input type="submit" value="Submit">
         </form>
         <?php } ?>
     </body>
