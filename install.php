@@ -35,7 +35,7 @@ if($_POST["accion"] == "crear"){
         echo "BASE DE DATOS CREADA <br>";
         mysql_select_db($db_name, $enlace);
         for($i=0; $i<count($tablas); $i++){
-            if(mysql_query($tablas[$i], $enlace)){
+            if(mysql_query($tablas[$i])){
                 echo $tablas[$i];
             }
         }
