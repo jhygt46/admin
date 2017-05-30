@@ -13,7 +13,7 @@ if($_POST["accion"] == "crear"){
         $data .= ' '.$peso.'db_password['.$i.'] = "'.$_POST['pass'].'";';
     }
     $data .= ' ?>';
-    //file_put_contents("../config/config.php", $data);
+    file_put_contents("../config/config.php", $data);
     
     $db_name = "admin";
     $enlace = mysql_connect($_POST['server'], $_POST['user'], $_POST['pass']);
