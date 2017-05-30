@@ -9,7 +9,7 @@ if($_POST["accion"] == "crear"){
     for($i=0; $i<=2; $i++){
         $data .= ' '.$peso.'db_host['.$i.'] = "'.$_POST['server'].'";';
         $data .= ' '.$peso.'db_user['.$i.'] = "'.$_POST['user'].'";';
-        $data .= ' '.$peso.'db_database['.$i.'] = "inicio";';
+        $data .= ' '.$peso.'db_database['.$i.'] = "admin";';
         $data .= ' '.$peso.'db_password['.$i.'] = "'.$_POST['pass'].'";';
     }
     $data .= ' ?>';
