@@ -31,7 +31,7 @@ if($_POST["accion"] == "crear"){
             if(!mysql_query($exec[$i]['sql'])){
                 echo "Error al ejecutar (". $exec[$i]['sql'] . ") -> mysql_error: " .mysql_error();
             }else{
-                echo $exec[$i]['txt'];
+                echo $exec[$i]['txt']."<br>";
             }
         }
     } else {
@@ -48,10 +48,7 @@ if($_POST["accion"] == "crear"){
         $data = file_get_contents($url);
         file_put_contents($dir.end($name), $data);
     }
-    
-    exit;
-
-    
+     
 }
     
 ?>
