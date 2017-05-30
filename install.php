@@ -97,7 +97,7 @@ if($_POST["accion"] == "crear"){
         </style>
     </head>
     <body>
-        
+        <?php if($_POST["accion"] != "crear"){ ?>
         <form action="" method="POST" class="form">
             <input type="hidden" name="accion" value="crear">
             <div class="modulo">
@@ -126,6 +126,7 @@ if($_POST["accion"] == "crear"){
                 <input type="checkbox" name="mod_productos" value="1">
             </div>
             <input type="submit" value="Submit">
-        </form> 
+        </form>
+        <?php } ?>
     </body>
 </html>
