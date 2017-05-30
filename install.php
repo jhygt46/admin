@@ -25,11 +25,14 @@ if($_POST["accion"] == "crear"){
     //require_once($path_."/mysql_class.php");
     //$con = new Conexion();
     
+    $db_name = "admin";
     $enlace = mysql_connect($_POST['server'], $_POST['user'], $_POST['pass']);
-    $sql = 'CREATE DATABASE IF NOT EXISTS admin COLLATE utf8_spanish_ci';
+    $sql = 'CREATE DATABASE IF NOT EXISTS '.$db_name.' COLLATE utf8_spanish_ci';
     
     if (mysql_query($sql, $enlace)) {
         echo "BASE DE DATOS CREADA <br>";
+        mysql_select_db($db_name, $enlace);
+        echo "CREAR TABLAS <br>";
     } else {
         echo "Error: " . mysql_error() . "<br>";
     }
