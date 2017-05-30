@@ -29,7 +29,7 @@ if($_POST["accion"] == "crear"){
     $enlace = mysql_connect($_POST['server'], $_POST['user'], $_POST['pass']);
     $sql = 'CREATE DATABASE IF NOT EXISTS '.$db_name.' COLLATE utf8_spanish_ci';
     
-    $tabla[0] = "CREATE TABLE usuarios( id_user INT NOT NULL AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL, correo VARCHAR(255) NOT NULL, fecha_creado DATETIME, PRIMARY KEY ( id_user )); ";
+    $tablas[0] = "CREATE TABLE usuarios( id_user INT NOT NULL AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL, correo VARCHAR(255) NOT NULL, fecha_creado DATETIME, PRIMARY KEY ( id_user )); ";
     
     if (mysql_query($sql, $enlace)) {
         echo "BASE DE DATOS CREADA <br>";
