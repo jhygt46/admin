@@ -5,15 +5,40 @@ if(file_exists("../config/config.php")){
 if($_POST["accion"] == "crear"){
     
     $peso = '$';
-    $data = '<?php '.$peso.'titulo_bk="'.$_POST['titulo'].'";';
+    
+    // CONFIG
+    $config = '<?php ';
     for($i=0; $i<=2; $i++){
-        $data .= ' '.$peso.'db_host['.$i.'] = "'.$_POST['server'].'";';
-        $data .= ' '.$peso.'db_user['.$i.'] = "'.$_POST['user'].'";';
-        $data .= ' '.$peso.'db_database['.$i.'] = "admin";';
-        $data .= ' '.$peso.'db_password['.$i.'] = "'.$_POST['pass'].'";';
+        $config .= ' '.$peso.'db_host['.$i.'] = "'.$_POST['server'].'";';
+        $config .= ' '.$peso.'db_user['.$i.'] = "'.$_POST['user'].'";';
+        $config .= ' '.$peso.'db_database['.$i.'] = "admin";';
+        $config .= ' '.$peso.'db_password['.$i.'] = "'.$_POST['pass'].'";';
     }
-    $data .= ' ?>';
-    file_put_contents("../config/config.php", $data);
+    $config .= ' ?>';
+    file_put_contents("../config/config.php", $config);
+    // CONFIG
+    
+    // NAV
+    $nav = '<?php ';
+    $nav .= ' '.$peso.'aux["ico"] = 4;';
+    $nav .= ' '.$peso.'aux["categoria"] = "Productos";';
+    $nav .= ' '.$peso.'aux["subcategoria"][0]["nombre"] = "Ingresar Categorias";';
+    $nav .= ' '.$peso.'aux["subcategoria"][0]["link"] = "pages/crear_categoria.php";';
+    $nav .= ' '.$peso.'aux["subcategoria"][1]["nombre"] = "Ingresar Productos";';
+    $nav .= ' '.$peso.'aux["subcategoria"][1]["link""] = "pages/crear_productos.php";';
+    $nav .= ' '.$peso.'menu[] = $aux;';
+    $nav .= ' '.$peso.'aux = null;';
+
+    $nav .= ' '.$peso.'aux["ico"] = 2;';
+    $nav .= ' '.$peso.'aux["categoria"] = "Usuarios";';
+    $nav .= ' '.$peso.'aux["subcategoria"][0]["nombre"] = "Ingresar Usuarios";';
+    $nav .= ' '.$peso.'aux["subcategoria"][0]["link"] = "pages/crear_user.php";';
+    $nav .= ' '.$peso.'menu[] = $aux;';
+    $nav .= ' '.$peso.'aux = null;';
+    $nav .= ' ?>';
+    
+    file_put_contents("includes/info_nav.php", $nav);
+    // NAV
     
     $db_name = "admin";
     $enlace = mysql_connect($_POST['server'], $_POST['user'], $_POST['pass']);
@@ -21,10 +46,11 @@ if($_POST["accion"] == "crear"){
     
     $exec[0]['sql'] = "CREATE TABLE usuarios( id_user INT(4) NOT NULL AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL, correo VARCHAR(255) NOT NULL, pass VARCHAR(32) NOT NULL, intentos SMALLINT(2) NOT NULL, fecha_creado DATETIME NOT NULL, block TINYINT(1) NOT NULL, fecha_block DATETIME NOT NULL, PRIMARY KEY ( id_user )); ";
     $exec[0]['txt'] = "TABLAS USUARIOS CREADA";
+    
     $exec[1]['sql'] = "INSERT INTO usuarios (nombre, correo, fecha_creado, pass, block) VALUES ('Diegomez', 'diegomez13@hotmail.com', now(), '25d55ad283aa400af464c76d713c07ad', 0)";
     $exec[1]['txt'] = "USUARIO INGRESADO";
     
-    if (mysql_query($sql, $enlace)) {
+    if (mysql_query($sql, $enlace)){
         echo "BASE DE DATOS CREADA: <br>";
         mysql_select_db($db_name, $enlace);
         for($i=0; $i<count($exec); $i++){
@@ -60,9 +86,26 @@ if($_POST["accion"] == "crear"){
     <head>
         <?php echo $meta; ?>
         <style>
-            .form{
+            .clearfix:after{
+                visibility: hidden;
                 display: block;
-                width: 150px;
+                font-size: 0;
+                content: " ";
+                clear: both;
+                height: 0;
+            }
+            .clearfix{
+                display: inline-block;
+            }
+            /*\*/* html .clearfix {
+                height: 1%;
+            }
+            .clearfix {
+                display: block;
+            }/**/
+            .form_cont{
+                display: block;
+                width: 800px;
                 margin: 0 auto;
             }
             .form h1{
@@ -97,7 +140,12 @@ if($_POST["accion"] == "crear"){
         </style>
     </head>
     <body>
-        <?php if($_POST["accion"] != "crear"){ ?>
+        
+        <div class="form_cont"></div>
+        
+        
+        
+        <?php exit; if($_POST["accion"] != "crear"){ ?>
         <form action="" method="POST" class="form">
             <input type="hidden" name="accion" value="crear">
             <div class="modulo">
