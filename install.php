@@ -86,6 +86,47 @@ if($_POST["accion"] == "crear"){
     <head>
         <?php echo $meta; ?>
         <style>
+            body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,span{
+                margin:0;
+                padding:0;
+                outline:none;
+            }
+            body{
+                font: 62.5% Arial, Helvetica, sans-serif;
+            }
+            pre{
+                font-size: 2em;
+            }
+            table{
+                /*border-collapse:collapse;
+                border-spacing:0;*/
+                width:100%;
+            }
+            fieldset,img, abbr, acronym{
+                border:0;
+            }
+            address,caption,cite,code,dfn,th,var{
+                font-style:normal;
+                font-weight:normal;
+            }
+            ol,ul,dl{
+                list-style:none;
+            }
+            caption,th{
+                text-align:left;
+            }
+            img{
+                border:0;
+            }
+            h1,h2,h3,h4,h5,h6{
+                font-size:1em;
+                font-size:100%;
+                font-weight:normal;
+            }
+            a{
+                outline:none;
+            }
+            /*PROPIEDADES*******************************/
             .clearfix:after{
                 visibility: hidden;
                 display: block;
@@ -103,51 +144,75 @@ if($_POST["accion"] == "crear"){
             .clearfix {
                 display: block;
             }/**/
+            .margen_bloque{
+                margin-right:10px;
+            }
+            .flotar_izq{
+                float:left;
+                display:inline;
+            }
+            .flotar_der{
+                float:right;
+                display:inline;
+            }
             .form_cont{
                 display: block;
-                width: 800px;
+                width: 900px;
                 margin: 0 auto;
-            }
-            .form h1{
-                display: block;
-                padding: 5px;
-                font-size: 14px;
                 background: #ccc;
+            }
+            .form_cont ul{
+                list-style:none;
+            }
+            .form_cont h1{
+                display: block;
+                padding: 10px 5px;
+                font-size: 18px;
+                background: #aaa;
                 margin: 0px;
             }
-            .form .modulo{
-                display: block;
-                background: #ddd;
-                padding: 10px 10px;
+            .form_cont .server{
+                width: 900px;
+                margin-bottom: 20px;
             }
-            .form .modulo label{
-                padding: 5px 0;
-                display: block;
+            .form_cont .server li{
+                width: 280px;
+                float: left;
+                padding: 10px;
             }
-            .form .modulo input[type=text], input[type=password]{
+            .form_cont .server li span{
+                display: block;
+                font-size: 18px;
+            }
+            .form_cont .server li input{
                 display: block;
                 width: 100%;
-            }
-            .form .modulo input[type=checkbox]{
-                display: block;
-            }
-            .form input[type=submit]{
-                width: 150px;
-                padding: 10px;
-                text-align: center;
-                margin-top: 5px;
+                height: 25px;
             }
         </style>
     </head>
     <body>
-        
-        <div class="form_cont"></div>
-        
+        <form action="" method="POST">
+        <input type="hidden" name="accion" value="crear">
+        <div class="form_cont">
+            <h1>Base de Datos</h1>
+            <ul class="server clearfix">
+                <li><span>Server:</span><input type="text" id="server" value="localhost" /></li>
+                <li><span>Usuario:</span><input type="text" id="user" value="root" /></li>
+                <li><span>Password:</span><input type="text" id="pass" /></li>
+            </ul>
+            <h1>Informacion</h1>
+            <ul class="server clearfix">
+                <li><span>Titulo:</span><input type="text" id="server" placeholder="Administrador" /></li>
+                <li><span>Subtitulo:</span><input type="text" id="user" value="root" /></li>
+                <li><span>Password:</span><input type="text" id="pass" /></li>
+            </ul>
+        </div>
+        </form>
         
         
         <?php exit; if($_POST["accion"] != "crear"){ ?>
-        <form action="" method="POST" class="form">
-            <input type="hidden" name="accion" value="crear">
+        
             <div class="modulo">
                 <h1>Base de datos</h1>
                 <label>Servidor</label>
