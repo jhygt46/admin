@@ -74,6 +74,23 @@ class Ingreso {
             
     }
     
+    public function recuperar_password(){
+        
+        $id = $_POST['id'];
+        $code = $_POST['code'];
+        $pass1 = $_POST['pass1'];
+        $pass2 = $_POST['pass2'];
+        
+        $user = $this->con->sql("SELECT * FROM ilusuarios WHERE id_user='".$id."'");
+        if($user['resultado'][0]['mailcode'] == $code && $pass1 == $pass2 && strlen($pass1) >= 8){
+            $this->con->sql("UPDATE ilusuarios SET password='".md5($pass1)."', mailcode='' WHERE id_user='".$id."'");
+            $info['op'] = 1;
+            $info['user'] = $user['resultado'][0]['correo'];
+        }
+        return $info;
+        
+    }
+    
     private function session($user){
         
         $aux['info']['id_user'] = $user['id_user'];
