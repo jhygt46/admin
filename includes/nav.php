@@ -1,7 +1,7 @@
 <?php
     
     include("info_nav.php");
-
+    
 ?>
 <div class="nav">
     <input id="navw" type="hidden" value="1" />

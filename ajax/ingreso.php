@@ -11,6 +11,7 @@ if($_SERVER['HTTP_HOST'] == "localhost"){
 }
 $path_ = $path."admin/class";
 
+
 require_once($path_."/ingreso_class.php");
 $ingreso = new Ingreso();
 $info = $ingreso->ingresar_user();
