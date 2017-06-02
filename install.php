@@ -44,11 +44,17 @@ if($_POST["accion"] == "crear"){
     $enlace = mysql_connect($_POST['server'], $_POST['user'], $_POST['pass']);
     $sql = 'CREATE DATABASE IF NOT EXISTS '.$db_name.' COLLATE utf8_spanish_ci';
     
-    $exec[0]['sql'] = "CREATE TABLE usuarios( id_user INT(4) NOT NULL AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL, correo VARCHAR(255) NOT NULL, pass VARCHAR(32) NOT NULL, intentos SMALLINT(2) NOT NULL, fecha_creado DATETIME NOT NULL, block TINYINT(1) NOT NULL, fecha_block DATETIME NOT NULL, PRIMARY KEY ( id_user )); ";
+    $exec[0]['sql'] = "CREATE TABLE usuarios( id_user INT(4) NOT NULL AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL, correo VARCHAR(255) NOT NULL, pass VARCHAR(32) NOT NULL, intentos SMALLINT(2) NOT NULL, fecha_creado DATETIME NOT NULL, block TINYINT(1) NOT NULL, fecha_block DATETIME NOT NULL, PRIMARY KEY ( id_user ));";
     $exec[0]['txt'] = "TABLAS USUARIOS CREADA";
     
     $exec[1]['sql'] = "INSERT INTO usuarios (nombre, correo, fecha_creado, pass, block) VALUES ('Diegomez', 'diegomez13@hotmail.com', now(), '25d55ad283aa400af464c76d713c07ad', 0)";
     $exec[1]['txt'] = "USUARIO INGRESADO";
+    
+    $exec[2]['sql'] = "CREATE TABLE categorias( id_cat INT(4) NOT NULL AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL, parent_id INT(4) NOT NULL, orders INT(4) NOT NULL, id_page INT(4) NOT NULL, fecha_creado DATETIME NOT NULL, block TINYINT(1) NOT NULL, fecha_block DATETIME NOT NULL, PRIMARY KEY ( id_cat ));";
+    $exec[2]['txt'] = "TABLAS CATEGORIA CREADA";
+    
+    $exec[3]['sql'] = "CREATE TABLE cat_pro( id_cat INT(4) NOT NULL, id_pro INT(4) NOT NULL, PRIMARY KEY ( id_cat, id_pro ));";
+    $exec[3]['txt'] = "TABLAS CATEGORIA-PRODUCTOS CREADA";
     
     if (mysql_query($sql, $enlace)){
         echo "BASE DE DATOS CREADA: <br>";
