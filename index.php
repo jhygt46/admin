@@ -9,7 +9,7 @@
     }
     if(file_exists("../config/config.php") && file_exists("install.php")){
         
-        unlink("install.php");
+        //unlink("install.php");
         
     }
     

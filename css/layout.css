@@ -489,43 +489,56 @@ body {
     padding-left: 10px;
     width: 30px;
     height: 30px;
-    cursor: pointer;
 }
 .listUser .user ul .asociar{
     background: url('../images/icons-set.png') no-repeat;
     background-position: -765px -672px;
+    cursor: pointer;
 }
 .listUser .user ul .listareas{
     background: url('../images/icons-set.png') no-repeat;
     background-position: -405px -480px;
+    cursor: pointer;
 }
 .listUser .user ul .modificar{
     background: url('../images/icons-set.png') no-repeat;
     background-position: -171px -432px;
+    cursor: pointer;
 }
 .listUser .user ul .carros{
     background: url('../images/icons-set.png') no-repeat;
     background-position: -526px -45px;
+    cursor: pointer;
 }
 .listUser .user ul .carusuario{
     background: url('../images/icons-set.png') no-repeat;
     background-position: -706px -383px;
+    cursor: pointer;
 }
 .listUser .user ul .borrar{
     background: url('../images/icons-set.png') no-repeat;
     background-position: -770px -46px;
+    cursor: pointer;
 }
 .listUser .user ul .database{
     background: url('../images/icons-set.png') no-repeat;
     background-position: -706px -481px;
+    cursor: pointer;
 }
 .listUser .user ul .setadmin{
     background: url('../images/icons-set.png') no-repeat;
     background-position: -705px -383px;
+    cursor: pointer;
 }
 .listUser .user ul .agregaradmin{
     background: url('../images/icons-set.png') no-repeat;
     background-position: -586px -383px;
+    cursor: pointer;
+}
+.listUser .user ul .prods{
+    background: url('../images/icons-set.png') no-repeat;
+    background-position: -48px -383px;
+    cursor: pointer;
 }
 .basic-grey {
     margin-left: 0px;

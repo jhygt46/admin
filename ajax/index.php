@@ -4,18 +4,12 @@ session_start();
 header('Content-type: text/json');
 header('Content-type: application/json');
 
-
-
-
-if($_POST["accion"] == "ingreso"){
-    require_once("../../class/admin.php");
-    $admin = new Admin();
-    $info = $admin->ingreso();
-    echo json_encode($info);
-    exit;
+$path = $_SERVER['DOCUMENT_ROOT'];
+if($_SERVER['HTTP_HOST'] == "localhost"){
+    $path .= "/";
 }
-
-require_once("../../class/guardar.php");
+$path_ = $path."admin/class";
+require_once($path_."/guardar.php");
 $guardar = new Guardar();
 $data = $guardar->process();
 echo json_encode($data);
