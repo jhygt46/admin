@@ -1,6 +1,6 @@
 <input type="hidden" id="id_user" value="1">
 <div class="header clearfix">
-    <div class="titles"><?php echo $_SESSION['user']['info']['titulo']; ?>s</div>
+    <div class="titles"><?php echo $_SESSION['user']['info']['titulo']; ?></div>
     <div class="user-guide">
         <div class="image"></div>
         <div class="name"><?php echo $_SESSION['user']['info']['nombre']; ?></div>

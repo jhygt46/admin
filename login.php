@@ -8,7 +8,7 @@ include("includes/header.php");
         <tr>
             <td align='center' valign='middle'>
                 <div class='login'>
-                    <div class='titulo'><img src='images/logo.png'></div>
+                    <div class='titulo'></div>
                     <div class='contlogin'>
                         <div class='us'>
                             <div class='txt'>Correo</div>
