@@ -17,7 +17,7 @@ $admin->seguridad(1);
 
 /* CONFIG PAGE */
 
-$list = $admin->con->sql("SELECT * FROM jardin_alumnos");
+//$list = $admin->con->sql("SELECT * FROM jardin_alumnos");
 
 echo "<pre>";
 prinmt_r($list);
