@@ -10,8 +10,8 @@
                 <li>
                     <div><?php echo $_SESSION['user']['info']['nombre']; ?></div>
                     <div>Administrador</div>
-                    <div><a href="">Editar Perfil</a></div>
-                    <div><a href="" onclick="salir()">Salir</a></div>
+                    <div></div>
+                    <div><a href="index.php?accion=logout">Salir</a></div>
                 </li>
             </ul>
         </div>
