@@ -21,7 +21,7 @@
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="es-CL">
     <head>
-        <title><?php echo $header[$page]['title']; ?></title>
+        <title><?php echo $_SESSION['user']['info']['titulo']; ?></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="shortcut icon" type="image/x-icon" href="images/fire.ico" />
         <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
