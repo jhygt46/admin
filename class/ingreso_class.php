@@ -99,6 +99,7 @@ class Ingreso {
         
         $page = $this->con->sql("SELECT * FROM paginas WHERE id_page='".$user["id_page"]."'");
         $aux['info']['tareas'] = $page['resultado'][0]['tareas'];
+        $aux['info']['titulo'] = $page['resultado'][0]['titulo'];
         
         if($aux['info']['tareas'] == 1){
             $aux['permisos'] = $this->permisos_ususarios($user['id_user']);
