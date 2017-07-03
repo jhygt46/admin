@@ -2,11 +2,6 @@
 session_start();
 error_reporting(E_ALL);
 
-
-echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";
-
 if(isset($_SESSION['user']['info']['id_user'])){
         
     $page = "layout";
@@ -35,15 +30,12 @@ if(isset($_SESSION['user']['info']['id_user'])){
                     <ul class="sock_cont"></ul>
                     <div class='conthtml'>
                         
-                        <?php if(isset($_GET['clave']) && (isset($_GET['direccion']) || (isset($_GET['lat']) && isset($_GET['lng'])))){
+                        <?php
                         
-                            include('pages/despacho.php');
-                            
-                        }else{
+                            echo "<pre>";
+                            print_r($_SESSION);
+                            echo "</pre>";
                         
-                            include('pages/muro.php');
-                        
-                        }
                         ?>
                             
                     </div>
