@@ -4,7 +4,7 @@ ehthumbs.db
 
 pages/*
 nbproject/*
-includes/info_nav.php
+#includes/info_nav.php
 
 # Folder config file
 Desktop.ini
