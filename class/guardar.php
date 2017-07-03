@@ -40,8 +40,8 @@ class Guardar extends Core{
         
         
         // ELIMINAR //
-        if($_POST['accion'] == "eliminarperfilcia"){
-            return $this->eliminarperfilcia();
+        if($_POST['accion'] == "eliminarusuarios"){
+            return $this->eliminarusuarios();
         }
         
         
@@ -125,8 +125,7 @@ class Guardar extends Core{
         $correo = $_POST['correo'];
 
         if($id == 0){
-            $a = $this->con->sql("INSERT INTO usuarios (nombre, correo, fecha_creado, id_page) VALUES ('".$nombre."', '".$correo."', now(), '".$this->id_page."')");
-            $info['db'] = $a;
+            $this->con->sql("INSERT INTO usuarios (nombre, correo, fecha_creado, id_page) VALUES ('".$nombre."', '".$correo."', now(), '".$this->id_page."')");
             $info['op'] = 1;
             $info['mensaje'] = "Usuario ingresado exitosamente";
         }
@@ -205,6 +204,28 @@ class Guardar extends Core{
         $info['texto'] = "Producto ".$_POST["nombre"]." Eliminado";
         $info['reload'] = 1;
         $info['page'] = "crear_producto.php";
+
+        return $info;
+        
+    }
+    public function eliminarusuarios(){
+        
+        /*
+        if(!$this->seguridad(1)){
+            $info['op'] = 2;
+            $info['mensaje'] = "No tiene los permisos para ejecutar esta Tarea";
+            return $info;
+        }
+        */
+        
+        $id = $_POST['id'];
+        $a = $this->con->sql("DELETE FROM usuarios WHERE id_user='".$id."' AND id_page='".$this->id_page."' AND admin='0'");
+        $info['tipo'] = $a;
+        $info['tipo'] = "success";
+        $info['titulo'] = "Eliminado";
+        $info['texto'] = "Usuario ".$_POST["nombre"]." Eliminado";
+        $info['reload'] = 1;
+        $info['page'] = "crear_usuario.php";
 
         return $info;
         
