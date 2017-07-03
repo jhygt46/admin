@@ -2,6 +2,11 @@
 session_start();
 error_reporting(E_ALL);
 
+
+echo "<pre>";
+print_r($_SESSION);
+echo "</pre>";
+
 if(isset($_SESSION['user']['info']['id_user'])){
         
     $page = "layout";
