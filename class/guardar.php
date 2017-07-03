@@ -125,7 +125,8 @@ class Guardar extends Core{
         $correo = $_POST['correo'];
 
         if($id == 0){
-            $this->con->sql("INSERT INTO usuarios (nombre, correo, fecha_creado, id_page) VALUES ('".$nombre."', '".$correo."', now(), '".$this->id_page."')");
+            $a = $this->con->sql("INSERT INTO usuarios (nombre, correo, fecha_creado, id_page) VALUES ('".$nombre."', '".$correo."', now(), '".$this->id_page."')");
+            $info['db'] = $a;
             $info['op'] = 1;
             $info['mensaje'] = "Usuario ingresado exitosamente";
         }
@@ -135,7 +136,7 @@ class Guardar extends Core{
             $info['mensaje'] = "Usuario modificada exitosamente";
         }
                 
-        $info['reload'] = 0;
+        $info['reload'] = 1;
         $info['page'] = "crear_usuario.php";
         return $info;
         
