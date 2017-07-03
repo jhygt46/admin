@@ -220,7 +220,7 @@ class Guardar extends Core{
         
         $id = $_POST['id'];
         $a = $this->con->sql("DELETE FROM usuarios WHERE id_user='".$id."' AND id_page='".$this->id_page."' AND admin='0'");
-        $info['tipo'] = $a;
+        $info['db'] = $a;
         $info['tipo'] = "success";
         $info['titulo'] = "Eliminado";
         $info['texto'] = "Usuario ".$_POST["nombre"]." Eliminado";
