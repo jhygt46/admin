@@ -13,7 +13,7 @@ class Admin{
     }
     public function seguridad($id_tar){
         
-        if(!in_array($id_tar, $_SESSION['user']['permisos'])){
+        if(in_array($id_tar, $_SESSION['user']['permisos'])){
             $this->riesgoseguridad();
             return false;
         }
