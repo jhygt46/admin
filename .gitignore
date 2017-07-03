@@ -2,7 +2,7 @@
 Thumbs.db
 ehthumbs.db
 
-pages/*
+#pages/*
 nbproject/*
 #includes/info_nav.php
 
