@@ -1,6 +1,5 @@
 <?php
 
-
 class Install{
     
     public $dbconfig = true;
