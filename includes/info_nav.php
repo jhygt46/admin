@@ -1,6 +1,14 @@
 <?php
 
-    
+    // PAGE 1 //
+    $aux["ico"] = 4;
+    $aux["categoria"] = "Informacion";
+    $aux["subcategoria"][0]["nombre"] = "Alumnos";
+    $aux["subcategoria"][0]["link"] = "pages/info_alumnos.php";
+    $menu[] = $aux;
+    unset($aux);
+    // PAGE 1 //
+
     $aux["ico"] = 2;
     $aux["categoria"] = "Usuarios";
     $aux["subcategoria"][0]["nombre"] = "Ingresar Usuarios";
