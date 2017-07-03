@@ -31,10 +31,12 @@ if(isset($_SESSION['user']['info']['id_user'])){
                     <div class='conthtml'>
                         
                         <?php
-                        
+                            
+                            /*
                             echo "<pre>";
                             print_r($_SESSION);
                             echo "</pre>";
+                            */
                         
                         ?>
                             
