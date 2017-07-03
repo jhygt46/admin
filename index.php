@@ -1,6 +1,11 @@
 <?php
 
     session_start();
+    if($_GET["accion"] == "logout"){
+        session_destroy();
+        echo '<meta http-equiv="refresh" content="0">';
+        exit;
+    }
     
     if(!file_exists("../config/config.php") && file_exists("install.php")){
         
