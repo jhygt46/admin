@@ -2,6 +2,10 @@
 
     session_start();
     
+    echo "<pre>";
+    print_r($_SESSION);
+    echo "</pre>";
+    
     if(!file_exists("../config/config.php") && file_exists("install.php")){
         
         include("install.php");
