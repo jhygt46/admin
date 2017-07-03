@@ -21,6 +21,9 @@ class Guardar extends Core{
         if($_POST['accion'] == "crearcategoria"){
             return $this->crearcategoria();
         }
+        if($_POST['accion'] == "crearusuarios"){
+            return $this->crearusuarios();
+        }
         
         // OTROS //
         if($_POST['accion'] == "ordercat"){
@@ -104,6 +107,36 @@ class Guardar extends Core{
                 
         $info['reload'] = 1;
         $info['page'] = "crear_categoria.php?parent_id=".$parent_id;
+        return $info;
+        
+    }
+    private function crearusuarios(){
+        
+        /*
+        if($this->seguridad(1)){
+            $info['op'] = 2;
+            $info['mensaje'] = "No tiene los permisos para ejecutar esta Tarea";
+            return $info;
+        }
+        */
+        
+        $id = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        $correo = $_POST['correo'];
+
+        if($id == 0){
+            $this->con->sql("INSERT INTO usuarios (nombre, correo, fecha_creado, id_page) VALUES ('".$nombre."', '".$correo."', now(), '".$this->id_page."')");
+            $info['op'] = 1;
+            $info['mensaje'] = "Usuario ingresado exitosamente";
+        }
+        if($id > 0){
+            $this->con->sql("UPDATE usuarios SET nombre='".$nombre."', correo='".$correo."' WHERE id_user='".$id."' AND id_page='".$this->id_page."'");
+            $info['op'] = 1;
+            $info['mensaje'] = "Usuario modificada exitosamente";
+        }
+                
+        $info['reload'] = 1;
+        $info['page'] = "crear_usuario.php";
         return $info;
         
     }
