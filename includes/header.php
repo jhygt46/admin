@@ -1,14 +1,11 @@
 <?php 
     
-    $header['password']['title'] = "Fireapp - Recuperar Contrase&ntilde;a";
     $header['password']['js'][0] = "js/password.js";
     $header['password']['css'][0] = "css/login.css";
 
-    $header['login']['title'] = "Fireapp - Ingresar al sistema";
     $header['login']['js'][0] = "js/login.js";
     $header['login']['css'][0] = "css/login.css";
 
-    $header['layout']['title'] = "Fireapp - Software de Configuracion";
     $header['layout']['js'][0] = "js/base_1.js";
     $header['layout']['js'][1] = "js/form_1.js";
     $header['layout']['js'][2] = "js/sweetalert.min.js";
@@ -21,7 +18,7 @@
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="es-CL">
     <head>
-        <title><?php echo $_SESSION['user']['info']['titulo']; ?></title>
+        <title><?php echo (isset($_SESSION['user']['info']['titulo'])) ? $_SESSION['user']['info']['titulo']: "Ingresar"; ?></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="shortcut icon" type="image/x-icon" href="images/fire.ico" />
         <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
