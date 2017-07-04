@@ -63,12 +63,27 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     <input id="id" type="hidden" value="<?php echo $id; ?>" />
                     <input id="accion" type="hidden" value="<?php echo $accion; ?>" />
                     <label>
-                        <span>Nombre:</span>
+                        <span>Nombres:</span>
                         <input id="nombre" type="text" value="<?php echo $that['resultado'][0]['nombre']; ?>" require="" placeholder="Diego Gomez" />
                         <div class="mensaje"></div>
                     </label>
                     <label>
-                        <span>Correo:</span>
+                        <span>Apellidos:</span>
+                        <input id="nombre" type="text" value="<?php echo $that['resultado'][0]['nombre']; ?>" require="" placeholder="Diego Gomez" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Rut:</span>
+                        <input id="nombre" type="text" value="<?php echo $that['resultado'][0]['nombre']; ?>" require="" placeholder="Diego Gomez" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Direccion:</span>
+                        <input id="nombre" type="text" value="<?php echo $that['resultado'][0]['nombre']; ?>" require="" placeholder="Diego Gomez" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Fecha de Nacimiento:</span>
                         <input id="correo" type="text" value="<?php echo $that['correo']; ?>" require="" placeholder="diegomez13@hotmail.com" />
                         <div class="mensaje"></div>
                     </label>
