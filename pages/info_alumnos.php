@@ -52,6 +52,15 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
         float: left;
         width: 50%;
     }
+    .padres li .padre{
+        font-size: 25px;
+    }
+    .padres li span{
+        display: block;
+    }
+    .padres li input{
+        width: 90%;
+    }
 </style>
 <div class="title">
     <h1><?php echo $titulo; ?></h1>
@@ -99,10 +108,12 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     </label>
                     <ul class="padres clearfix">
                         <li>
+                            <div class="padre">Padre</div>
                             <span>Nombre:</span>
                             <input type="text"></input>
                         </li>
                         <li>
+                            <div class="padre">Madre</div>
                             <span>Nombre:</span>
                             <input type="text"></input>
                         </li>
