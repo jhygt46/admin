@@ -16,16 +16,16 @@ $admin->seguridad(1);
 /* CONFIG PAGE */
 $list = $admin->get_usuarios();
 
-$titulo = "Usuarios";
-$titulo_list = "Lista de Usuarios";
-$sub_titulo1 = "Ingresar Usuario";
-$sub_titulo2 = "Modificar Usuario";
-$accion = "crearusuarios";
+$titulo = "Alumnos";
+$titulo_list = "Lista de Alumnos";
+$sub_titulo1 = "Ingresar Alumno";
+$sub_titulo2 = "Modificar Alumno";
+$accion = "crearalumnos";
 
-$eliminaraccion = "eliminarusuarios";
-$id_list = "id_user";
-$eliminarobjeto = "Usuarios";
-$page_mod = "pages/crear_usuario.php";
+$eliminaraccion = "eliminaralumnos";
+$id_list = "id_alu";
+$eliminarobjeto = "Alumno";
+$page_mod = "pages/info_alumnos.php";
 /* CONFIG PAGE */
 
 $id = 0;
