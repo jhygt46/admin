@@ -64,7 +64,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     <input id="accion" type="hidden" value="<?php echo $accion; ?>" />
                     <label>
                         <span>Nombre:</span>
-                        <input id="nombre" type="text" value="<?php echo $that['nombre']; ?>" require="" placeholder="Diego Gomez" />
+                        <input id="nombre" type="text" value="<?php echo $that['resultado'][0]['nombre']; ?>" require="" placeholder="Diego Gomez" />
                         <div class="mensaje"></div>
                     </label>
                     <label>
