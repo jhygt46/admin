@@ -17,7 +17,7 @@ $admin->seguridad(1);
 $db_var_name = "_jardinva";
 $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_usuarios");
 $list = $list_['resultado'];
-
+print_r($list_);
 $titulo = "Alumnos";
 $titulo_list = "Lista de Alumnos";
 $sub_titulo1 = "Ingresar Alumno";
