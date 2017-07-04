@@ -60,6 +60,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     }
     .padres li input{
         width: 90%;
+        background: #0f0;
     }
 </style>
 <div class="title">
