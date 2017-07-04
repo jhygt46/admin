@@ -35,7 +35,7 @@ $sub_titulo = $sub_titulo1;
 if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     
     $sub_titulo = $sub_titulo2;
-    $that = $admin->get_usuario($_GET["id"]);
+    $that = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE id_alu='".$_GET["id"]."'");
     $id = $_GET["id"];
     
 }
