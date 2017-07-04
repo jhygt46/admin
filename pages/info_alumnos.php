@@ -14,11 +14,8 @@ $admin = new Admin();
 $admin->seguridad(1);
 
 /* CONFIG PAGE */
-$list = $admin->con->sql("SELECT * FROM usuarios");
-
-echo "<pre>";
-print_r($list);
-echo "<pre>";
+$list_ = $admin->con->sql("SELECT * FROM usuarios");
+$list = $list_['resultado'];
 
 $titulo = "Alumnos";
 $titulo_list = "Lista de Alumnos";
