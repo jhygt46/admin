@@ -14,7 +14,7 @@ $admin = new Admin();
 $admin->seguridad(1);
 
 /* CONFIG PAGE */
-$list = $admin->get_usuarios();
+$list = $admin->con->sql("SELECT * FROM usuarios");
 
 $titulo = "Alumnos";
 $titulo_list = "Lista de Alumnos";
