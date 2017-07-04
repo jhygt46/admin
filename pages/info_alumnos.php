@@ -16,6 +16,10 @@ $admin->seguridad(1);
 /* CONFIG PAGE */
 $list = $admin->con->sql("SELECT * FROM usuarios");
 
+echo "<pre>";
+print_r($list);
+echo "<pre>";
+
 $titulo = "Alumnos";
 $titulo_list = "Lista de Alumnos";
 $sub_titulo1 = "Ingresar Alumno";
