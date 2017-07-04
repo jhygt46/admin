@@ -4,7 +4,9 @@
     $aux["ico"] = 4;
     $aux["categoria"] = "Informacion";
     $aux["subcategoria"][0]["nombre"] = "Alumnos";
-    $aux["subcategoria"][0]["link"] = "pages/info_alumnos.php";
+    $aux["subcategoria"][0]["link"] = "pages/_jardinva_info_alumnos.php";
+    $aux["subcategoria"][1]["nombre"] = "Cursos";
+    $aux["subcategoria"][1]["link"] = "pages/_jardinva_crear_cursos.php";
     $menu[] = $aux;
     unset($aux);
     // PAGE 1 //
