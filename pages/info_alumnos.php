@@ -87,6 +87,10 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         <input id="correo" type="text" value="<?php echo $that['correo']; ?>" require="" placeholder="diegomez13@hotmail.com" />
                         <div class="mensaje"></div>
                     </label>
+                    <ul class="papas clearfix" style="">
+                        <li style="float: left; width: 50%">PAPA</li>
+                        <li style="float: left; width: 50%">MAMA</li>
+                    </ul>
                     <label style='margin-top:20px'>
                         <span>&nbsp;</span>
                         <a id='button' onclick="form()">Enviar</a>
