@@ -42,7 +42,17 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
 
 
 ?>
-
+<style>
+    .padres{
+        margin-left: 16%;
+        width: 75%;
+        padding: 15px 0px;
+    }
+    .padres li{
+        float: left;
+        width: 50%;
+    }
+</style>
 <div class="title">
     <h1><?php echo $titulo; ?></h1>
     <ul class="clearfix">
@@ -87,9 +97,15 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         <input id="correo" type="text" value="<?php echo $that['correo']; ?>" require="" placeholder="diegomez13@hotmail.com" />
                         <div class="mensaje"></div>
                     </label>
-                    <ul class="papas clearfix" style="margin-left: 16%; width: 75%; padding: 15px;">
-                        <li style="float: left; width: 50%">PAPA</li>
-                        <li style="float: left; width: 50%">MAMA</li>
+                    <ul class="padres clearfix">
+                        <li>
+                            <span>Nombre:</span>
+                            <input type="text"></input>
+                        </li>
+                        <li>
+                            <span>Nombre:</span>
+                            <input type="text"></input>
+                        </li>
                     </ul>
                     <label style='margin-top:20px'>
                         <span>&nbsp;</span>
