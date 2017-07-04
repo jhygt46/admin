@@ -1,9 +1,7 @@
 <?php
 // TODOS LOS ARCHIVOS EN PAGES//
 session_start();
-if(!isset($_SESSION['user']['info']['id_user'])){
-    exit;
-}
+
 $path = $_SERVER['DOCUMENT_ROOT'];
 if($_SERVER['HTTP_HOST'] == "localhost"){
     $path .= "/";
