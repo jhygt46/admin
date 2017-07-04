@@ -14,7 +14,8 @@ $admin = new Admin();
 $admin->seguridad(1);
 
 /* CONFIG PAGE */
-$list_ = $admin->con->sql("SELECT * FROM usuarios");
+$db_var_name = "_jardinva";
+$list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_usuarios");
 $list = $list_['resultado'];
 
 $titulo = "Alumnos";
