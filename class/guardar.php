@@ -169,7 +169,6 @@ class Guardar extends Core{
         $name = $_FILES['file_image0']['name']; // filename to get file's extension
         $size = $_FILES['file_image0']['size'];
         
-        return $name;
         if (strlen($name)){
             $ext = end(explode(".", $name));
             if (in_array($ext, $file_formats)) { // check it if it's a valid format or not
