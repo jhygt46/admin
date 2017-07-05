@@ -67,7 +67,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     <input id="accion" type="hidden" value="<?php echo $accion; ?>" />
                     <label>
                         <span>Nombre:</span>
-                        <input id="file_image" type="text" value="<?php echo $that['resultado'][0]['nombre']; ?>" require="" placeholder="Electro" />
+                        <input id="nombre" type="text" value="<?php echo $that['resultado'][0]['nombre']; ?>" require="" placeholder="Electro" />
                         <div class="mensaje"></div>
                     </label>
                     <label style='margin-top:20px'>

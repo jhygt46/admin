@@ -63,7 +63,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     <input id="accion" type="hidden" value="<?php echo $accion; ?>" />
                     <label>
                         <span>Nombre:</span>
-                        <input id="nombre" type="file" />
+                        <input id="file_image0" type="file" />
                         <div class="mensaje"></div>
                     </label>
                     <label style='margin-top:20px'>
