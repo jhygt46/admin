@@ -1,4 +1,6 @@
 <?php
+    
+
 
     // PAGE 1 //
     $aux["ico"] = 4;
@@ -10,7 +12,16 @@
     $menu[] = $aux;
     unset($aux);
     // PAGE 1 //
-
+    
+    // PAGE 1 //
+    $aux["ico"] = 3;
+    $aux["categoria"] = "Configuracion";
+    $aux["subcategoria"][0]["nombre"] = "Tour Virtual";
+    $aux["subcategoria"][0]["link"] = "pages/_jardinva_tour_virtual.php";
+    $menu[] = $aux;
+    unset($aux);
+    // PAGE 1 //
+    
     $aux["ico"] = 2;
     $aux["categoria"] = "Usuarios";
     $aux["subcategoria"][0]["nombre"] = "Ingresar Usuarios";

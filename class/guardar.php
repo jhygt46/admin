@@ -24,6 +24,10 @@ class Guardar extends Core{
         if($_POST['accion'] == "crearusuarios"){
             return $this->crearusuarios();
         }
+        // IMAGEN //
+        if($_POST['accion'] == "ingresarimagen"){
+            return $this->ingresarimagen();
+        }
         // OTROS //
         if($_POST['accion'] == "order"){
             return $this->order();
@@ -124,6 +128,75 @@ class Guardar extends Core{
         $info['page'] = "crear_categoria.php?parent_id=".$parent_id;
         return $info;
         
+    }
+    private function ingresarimagen(){
+        
+        $foto = $this->subirfoto();
+        
+        if($_POST["db"] == "tour"){
+            $db_name = "_jardinva_tour";
+            $id = "id_tour";
+        }
+        
+        $info['op'] = $foto;
+        $info['mensaje'] = "Error al subir la imagen";
+        
+        if($foto['op'] == 1 && isset($db_name)){
+            
+            $info = $this->con->sql("SELECT * FROM ".$db_name." WHERE ".$id."='".$_GET["id"]."' AND id_page='1'");
+            $images = json_decode($info['resultado'][0]['images']);
+            array_push($images, $foto['name']);
+            $this->con->sql("UPDATE ".$db_name." SET images='".json_encode($images)."' WHERE  ".$id."='".$_GET["id"]."' AND id_page='1'");
+            
+            $info['op'] = 1;
+            $info['mensaje'] = "Imagen subida";
+            $info['reload'] = 1;
+            $info['page'] = "asignar_imagen.php?db=".$_POST["db"]."&id=".$_POST["id"];
+            
+            
+        }  
+            
+        return $info;
+        
+        
+    }
+
+    private function subirfoto(){
+        
+        $file_formats = array("jpg", "png", "gif");        
+        $filepath = "/var/www/html/jardinvalleencantado.cl/public_html/admin/images/uploads/";
+        
+        $name = $_FILES['file_image0']['name']; // filename to get file's extension
+        $size = $_FILES['file_image0']['size'];
+        
+        return $name;
+        if (strlen($name)){
+            $ext = end(explode(".", $name));
+            if (in_array($ext, $file_formats)) { // check it if it's a valid format or not
+                if ($size < (2048 * 1024)) { // check it if it's bigger than 2 mb or no
+                    $imagename = md5(uniqid() . time()) . "." . $ext;
+                    $tmp = $_FILES['file_image0']['tmp_name'];
+                    if (move_uploaded_file($tmp, $filepath . $imagename)){
+                        $info['op'] = 1;
+                        $info['mensaje'] = "Imagen subida";
+                        $info['name'] = $imagename;
+                    } else {
+                        $info['op'] = 2;
+                        $info['mensaje'] = "No se pudo subir la imagen";
+                    }
+                } else {
+                    $info['op'] = 2;
+                    $info['mensaje'] = "Imagen sobrepasa los 2MB establecidos";
+                }
+            } else {
+                $info['op'] = 2;
+                $info['mensaje'] = "Formato Invalido";
+            }
+        } else {
+            $info['op'] = 2;
+            $info['mensaje'] =  "No ha seleccionado una imagen";
+        }
+        return $info;
     }
     private function crearusuarios(){
         

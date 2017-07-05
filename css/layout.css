@@ -540,6 +540,11 @@ body {
     background-position: -48px -383px;
     cursor: pointer;
 }
+.listUser .user ul .fotos{
+    background: url('../images/icons-set.png') no-repeat;
+    background-position: -108px -575px;
+    cursor: pointer;
+}
 .basic-grey {
     margin-left: 0px;
     padding: 25px 15px 25px 10px;
