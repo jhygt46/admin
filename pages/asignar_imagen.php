@@ -23,7 +23,7 @@ $accion = "ingresarimagen";
 
 $eliminaraccion = "eliminarimage";
 $eliminarobjeto = "Imagen";
-$page_mod = "pages/asignar_imagen.php?db=".$_GET["db"];
+$page_resize = "pages/resize_imagen.php";
 /* CONFIG PAGE */
 
 $id = 0;
@@ -32,8 +32,9 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     
     if($_GET["db"] == "tour"){
         $db_name = "_jardinva_tour";
+        $db_id = "id_tour";
     }
-    $that = $admin->con->sql("SELECT * FROM ".$db_name." WHERE id_tour='".$_GET["id"]."' AND id_page='1'");
+    $that = $admin->con->sql("SELECT * FROM ".$db_name." WHERE ".$db_id."='".$_GET["id"]."' AND id_page='1'");
     $id = $_GET["id"];
     $images = json_decode($that['resultado'][0]['images']);
     
@@ -63,7 +64,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     <input id="accion" type="hidden" value="<?php echo $accion; ?>" />
                     <label>
                         <span>Nombre:</span>
-                        <input id="file_image0" type="file" />
+                        <input id="file_image" type="file" />
                         <div class="mensaje"></div>
                     </label>
                     <label style='margin-top:20px'>
@@ -96,8 +97,10 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                 <li class="user">
                     <ul class="clearfix">
                         <li class="nombre"><?php echo $nombre; ?></li>
-                        <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', <?php echo $i; ?>, '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
-                        <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>&i=<?php echo $i; ?>')"></a>
+                        <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', '<?php echo $_GET["db"]; ?>/<?php echo $_GET["id"]; ?>/<?php echo $i; ?>', '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
+                        <?php if(false){ ?>
+                        <a title="Cuadrar" class="icn cuadrar" onclick="navlink('<?php echo $page_resize; ?>?nombre=<?php echo $nombre; ?>')"></a>
+                        <?php } ?>
                     </ul>
                 </li>
                 

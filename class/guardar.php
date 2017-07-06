@@ -43,6 +43,9 @@ class Guardar extends Core{
         if($_POST['accion'] == "eliminarusuarios"){
             return $this->eliminarusuarios();
         }
+        if($_POST['accion'] == "eliminarimage"){
+            return $this->eliminarimage();
+        }
         
         if($_POST['accion'] == "_jardinva_crearalumnos"){
             return $this->_jardinva_crearalumnos();
@@ -138,15 +141,17 @@ class Guardar extends Core{
             $id = "id_tour";
         }
         
-        $info['op'] = $foto;
+        $info['op'] = 2;
         $info['mensaje'] = "Error al subir la imagen";
         
         if($foto['op'] == 1 && isset($db_name)){
             
-            $info = $this->con->sql("SELECT * FROM ".$db_name." WHERE ".$id."='".$_GET["id"]."' AND id_page='1'");
+            $info = $this->con->sql("SELECT * FROM ".$db_name." WHERE ".$id."='".$_POST["id"]."' AND id_page='1'");
             $images = json_decode($info['resultado'][0]['images']);
-            array_push($images, $foto['name']);
-            $this->con->sql("UPDATE ".$db_name." SET images='".json_encode($images)."' WHERE  ".$id."='".$_GET["id"]."' AND id_page='1'");
+            $images[] = $foto['name'];
+            $info['images'] = $images;
+            
+            $this->con->sql("UPDATE ".$db_name." SET images='".json_encode($images)."' WHERE  ".$id."='".$_POST["id"]."' AND id_page='1'");
             
             $info['op'] = 1;
             $info['mensaje'] = "Imagen subida";
@@ -163,8 +168,13 @@ class Guardar extends Core{
 
     private function subirfoto(){
         
-        $file_formats = array("jpg", "png", "gif");        
-        $filepath = "/var/www/html/jardinvalleencantado.cl/public_html/admin/images/uploads/";
+        $file_formats = array("jpg", "png", "gif");
+        
+        if($_SERVER['HTTP_HOST'] == "localhost"){
+            $filepath = "C:/Appserv/www/admin/images/uploads/".$this->id_page."/";
+        }else{
+            $filepath = "/var/www/html/jardinvalleencantado.cl/public_html/admin/images/uploads/".$this->id_page."/";
+        }
         
         $name = $_FILES['file_image0']['name']; // filename to get file's extension
         $size = $_FILES['file_image0']['size'];
@@ -390,6 +400,52 @@ class Guardar extends Core{
         $info['texto'] = "Usuario ".$_POST["nombre"]." Eliminado";
         $info['reload'] = 1;
         $info['page'] = "crear_usuario.php";
+
+        return $info;
+        
+    }
+    public function eliminarimage(){
+        
+        /*
+        if(!$this->seguridad(1)){
+            $info['op'] = 2;
+            $info['mensaje'] = "No tiene los permisos para ejecutar esta Tarea";
+            return $info;
+        }
+        */
+        
+        if($_SERVER['HTTP_HOST'] == "localhost"){
+            $filepath = "C:/Appserv/www/admin/images/uploads/".$this->id_page."/";
+        }else{
+            $filepath = "/var/www/html/jardinvalleencantado.cl/public_html/admin/images/uploads/".$this->id_page."/";
+        }
+        
+        $e = explode("/", $_POST["id"]);
+        $db = $e[0];
+        $id = $e[1];
+        $pos = $e[2];
+        
+        if($db == "tour"){
+            $db_name = "_jardinva_tour";
+            $db_id = "id_tour";
+        }
+        
+        $info_image = $this->con->sql("SELECT images FROM ".$db_name." WHERE ".$db_id."='".$id."' AND id_page='1'");
+        $images = json_decode($info_image['resultado'][0]['images']);
+        
+        $file = $images[$pos];
+        array_splice($images, $pos, 1);
+        $this->con->sql("UPDATE ".$db_name." SET images='".json_encode($images)."' WHERE ".$db_id."='".$id."' AND id_page='1'");
+        
+        if(file_exists($filepath.$file)){
+            unlink($filepath.$file);
+        }
+        
+        $info['tipo'] = "success";
+        $info['titulo'] = "Eliminado";
+        $info['texto'] = "Imagen Eliminada";
+        $info['reload'] = 1;
+        $info['page'] = "asignar_imagen.php?db=".$db."&id=".$id;
 
         return $info;
         

@@ -505,6 +505,11 @@ body {
     background-position: -171px -432px;
     cursor: pointer;
 }
+.listUser .user ul .cuadrar{
+    background: url('../images/icons-set.png') no-repeat;
+    background-position: -406px -383px;
+    cursor: pointer;
+}
 .listUser .user ul .carros{
     background: url('../images/icons-set.png') no-repeat;
     background-position: -526px -45px;

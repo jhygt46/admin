@@ -5,6 +5,7 @@ ehthumbs.db
 #pages/*
 nbproject/*
 #includes/info_nav.php
+images/uploads/*
 
 # Folder config file
 Desktop.ini
