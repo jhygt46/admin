@@ -1,5 +1,5 @@
 <?php
-
+header('Content-Type: text/html; charset=UTF-8');
 // TODOS LOS ARCHIVOS EN PAGES//
 session_start();
 if(!isset($_SESSION['user']['info']['id_user'])){
