@@ -1,6 +1,8 @@
 <?php
-
+    
     session_start();
+    header('Content-Type: text/html; charset=UTF-8');
+    
     if($_GET["accion"] == "logout"){
         session_destroy();
         echo '<meta http-equiv="refresh" content="0; url=index.php">';
