@@ -396,6 +396,10 @@ body {
     background: url('../images/icons-set.png') no-repeat;
     background-position: -715px -189px;
 }
+.contenido .cont .contenedor .info .fc .options .ops .op ul .ic3{
+    background: url('../images/icons-set.png') no-repeat;
+    background-position: -297px -479px;
+}
 .contenido .cont .contenedor .info .fc .message{
     position: absolute;
     top: 0px;

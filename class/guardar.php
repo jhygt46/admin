@@ -56,8 +56,15 @@ class Guardar extends Core{
         if($_POST['accion'] == "_jardinva_eliminarcurso"){
             return $this->_jardinva_eliminarcurso();
         }
+        if($_POST['accion'] == "_jardinva_eliminarboleta"){
+            return $this->_jardinva_eliminarboleta();
+        }
+        
         if($_POST['accion'] == "_jardinva_eliminaralumnos"){
             return $this->_jardinva_eliminaralumnos();
+        }
+        if($_POST['accion'] == "_jardinva_crearboleta"){
+            return $this->_jardinva_crearboleta();
         }
         
         
@@ -285,6 +292,52 @@ class Guardar extends Core{
         return $info;
         
     }
+    private function _jardinva_crearboleta(){
+        
+        /*
+        if($this->seguridad(1)){
+            $info['op'] = 2;
+            $info['mensaje'] = "No tiene los permisos para ejecutar esta Tarea";
+            return $info;
+        }
+        */
+        
+        $id = $_POST['id'];
+        
+        $nula = $_POST['nula'];
+        $tipo = $_POST['tipo'];
+        if($tipo == 1)
+            $numero = $_POST['nboleta'];
+        
+        if($tipo == 2)
+            $numero = $_POST['nfactura'];
+        
+        $dia = $_POST['dia'];
+        $mes = $_POST['mes'];
+        $año = $_POST['año'];
+        
+        $matricula = $_POST['matricula'];
+        $mjardin = $_POST['mjardin'];
+        $msalacuna = $_POST['msalacuna'];
+        
+        if($id == 0){
+            $a = $this->con->sql("INSERT INTO _jardinva_boletas (numero, dia, mes, ano, tipo, nula, matricula, mjardin, msalacuna, id_page) VALUES ('".$numero."', '".$dia."', '".$mes."', '".$año."', '".$tipo."', '".$nula."', '".$matricula."', '".$mjardin."', '".$msalacuna."', '".$this->id_page."')");
+            $info['db'] = $a;
+            $info['op'] = 1;
+            $info['mensaje'] = "Curso ingresado exitosamente";
+        }
+        if($id > 0){
+            $a = $this->con->sql("UPDATE _jardinva_boletas SET numero='".$numero."', dia='".$dia."', mes='".$mes."', ano='".$año."', tipo='".$tipo."', nula='".$nula."', matricula='".$matricula."', mjardin='".$mjardin."', msalacuna='".$msalacuna."' WHERE id_bol='".$id."' AND id_page='".$this->id_page."'");
+            $info['db'] = $a;
+            $info['op'] = 1;
+            $info['mensaje'] = "Curso modificado exitosamente";
+        }
+                
+        $info['reload'] = 1;
+        $info['page'] = "_jardinva_crear_boletas.php?mes=".$mes."&ano=".$año."&dia=".$dia;
+        return $info;
+        
+    }
     private function _jardinva_crearcurso(){
         
         /*
@@ -489,6 +542,28 @@ class Guardar extends Core{
         $info['texto'] = "Curso ".$_POST["nombre"]." Eliminado";
         $info['reload'] = 1;
         $info['page'] = "_jardinva_crear_cursos.php";
+
+        return $info;
+        
+    }
+    public function _jardinva_eliminarboleta(){
+        
+        /*
+        if(!$this->seguridad(1)){
+            $info['op'] = 2;
+            $info['mensaje'] = "No tiene los permisos para ejecutar esta Tarea";
+            return $info;
+        }
+        */
+        $id = $_POST['id'];
+        $that = $this->con->sql("SELECT * FROM _jardinva_boletas WHERE id_bol='".$id."' AND id_page='".$this->id_page."'");
+        $this->con->sql("UPDATE _jardinva_boletas SET eliminado='1' WHERE id_bol='".$id."' AND id_page='".$this->id_page."'");
+        
+        $info['tipo'] = "success";
+        $info['titulo'] = "Eliminado";
+        $info['texto'] = "Curso ".$_POST["nombre"]." Eliminado";
+        $info['reload'] = 1;
+        $info['page'] = "_jardinva_crear_boletas.php?ano=".$that['resultado'][0]['ano']."&mes=".$that['resultado'][0]['mes']."&dia=".$that['resultado'][0]['dia'];
 
         return $info;
         

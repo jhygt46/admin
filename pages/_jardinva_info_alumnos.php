@@ -221,8 +221,9 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                 <?php
                 
                 for($i=0; $i<count($list); $i++){
+                    $k = $i + 1;
                     $id = $list[$i][$id_list];
-                    $nombre = $list[$i]['nombres'];
+                    $nombre = $k."- ".$list[$i]['nombres']." ".$list[$i]['apellidos'];
                     $id_cur = $list[$i]['id_cur'];
                 ?>
                 
