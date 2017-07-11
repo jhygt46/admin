@@ -16,10 +16,14 @@ class Guardar extends Core{
         return 1;
     }
     public function process(){
-
+        
+        
         // CRAER //
         if($_POST['accion'] == "crearcategoria"){
             return $this->crearcategoria();
+        }
+        if($_POST['accion'] == "crearproductos"){
+            return $this->crearproductos();
         }
         if($_POST['accion'] == "crearusuarios"){
             return $this->crearusuarios();
@@ -36,8 +40,8 @@ class Guardar extends Core{
             return $this->configuracion();
         }
         // ASIGNAR //
-        if($_POST['accion'] == "asignartareascia"){
-            return $this->asignartareascia();
+        if($_POST['accion'] == "guardar_asociar"){
+            return $this->guardar_asociar();
         }
         // ELIMINAR //
         if($_POST['accion'] == "eliminarusuarios"){
@@ -59,7 +63,6 @@ class Guardar extends Core{
         if($_POST['accion'] == "_jardinva_eliminarboleta"){
             return $this->_jardinva_eliminarboleta();
         }
-        
         if($_POST['accion'] == "_jardinva_eliminaralumnos"){
             return $this->_jardinva_eliminaralumnos();
         }
@@ -111,14 +114,44 @@ class Guardar extends Core{
         return $info;
         
     }
-    private function crearcategoria(){
-        
+    private function crearproductos(){
+        /*
         if($this->seguridad(1)){
             $info['op'] = 2;
             $info['mensaje'] = "No tiene los permisos para ejecutar esta Tarea";
             return $info;
         }
+        */
+        $id = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        $descripcion = $_POST['descripcion'];
+        $precio = $_POST['precio'];
+
+        if($id == 0){
+            $a = $this->con->sql("INSERT INTO productos (nombre, descripcion, precio, fecha_creado, id_page) VALUES ('".$nombre."', '".$descripcion."', '".$precio."', now(), '".$this->id_page."')");
+            $info['db'] = $a;
+            $info['op'] = 1;
+            $info['mensaje'] = "Producto creado exitosamente";
+        }
+        if($id > 0){
+            $this->con->sql("UPDATE productos SET nombre='".$nombre."', descripcion='".$descripcion."', precio='".$precio."' WHERE id_pro='".$id."' AND id_page='".$this->id_page."'");
+            $info['op'] = 1;
+            $info['mensaje'] = "Producto modificada exitosamente";
+        }
+                
+        $info['reload'] = 1;
+        $info['page'] = "crear_producto.php";
+        return $info;
         
+    }
+    private function crearcategoria(){
+        /*
+        if($this->seguridad(1)){
+            $info['op'] = 2;
+            $info['mensaje'] = "No tiene los permisos para ejecutar esta Tarea";
+            return $info;
+        }
+        */
         $id = $_POST['id'];
         $nombre = $_POST['nombre'];
         $parent_id = $_POST['parent_id'];
@@ -137,6 +170,20 @@ class Guardar extends Core{
         $info['reload'] = 1;
         $info['page'] = "crear_categoria.php?parent_id=".$parent_id;
         return $info;
+        
+    }
+    private function guardar_asociar(){
+        
+        /*
+        if($this->seguridad(1)){
+            $info['op'] = 2;
+            $info['mensaje'] = "No tiene los permisos para ejecutar esta Tarea";
+            return $info;
+        }
+        */
+        $id = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        
         
     }
     private function ingresarimagen(){

@@ -29,8 +29,14 @@ class Admin{
         return $this->mostrar_arbol($cats['resultado'], 0);
         
     }
+    public function arbol_categoria_html(){
+         
+        $cats = $this->con->sql("SELECT id_cat as id, nombre, parent_id FROM categorias WHERE id_page='1' AND eliminado='0' ORDER BY parent_id, orders");
+        return $this->mostrar_arbol_html($cats['resultado'], 0, 0);
+        
+    }
     private function mostrar_arbol($list, $parent_id){
-
+        
         for($i=0; $i<count($list); $i++){
             
             $id = $list[$i]['id'];
@@ -42,16 +48,55 @@ class Admin{
                 $aux['id'] = $id;
                 $aux['nombre'] = $nombre;
                 $child = $this->mostrar_arbol($list, $id);
+                
                 if(is_array($child)){
                     $aux['child'] = $child;
                 }
+                
                 $res[] = $aux;
                 unset($aux);
+                
+            }
+        }
+        
+        return $res;
+    }
+    private function mostrar_arbol_html($list, $parent_id, $nivel){
+        
+        $colores = ["#efefef", "#e6e6e6", "#e0e0e0", "#d9d9d9", "#d0d0d0", "#c9c9c9"];
+        $output = "<div class='categoria' style='background: ".$colores[$nivel].";'>";
+        
+        $nivel++;
+        for($i=0; $i<count($list); $i++){
+
+            $id = $list[$i]['id'];
+            $nombre = $list[$i]['nombre'];
+            $p_id = $list[$i]['parent_id'];
+
+            if($parent_id == $p_id){
+                
+                $child = $this->mostrar_arbol($list, $id);
+                
+                $dis = "";
+                if(is_array($child)){
+                    $dis = "disabled='true'";
+                }
+                
+                $output .= "<div class='oplist clearfix'><div class='inp'><input id='tareas' ".$dis." type='checkbox' value='categoria-".$id."' /></div><div class='nom'><div class='nom_t'>".$nombre."</div>";
+                
+                if(is_array($child)){
+                    $output .= $this->mostrar_arbol_html($list, $id, $nivel);
+                }
+                
+                $output .= "</div></div>";
+                
             }
             
+            
         }
-        return $res;
-
+        $output .= "</div>";
+        
+        return $output;
     }
     public function get_config(){
         
@@ -89,7 +134,7 @@ class Admin{
     }
     public function get_producto($id){
         
-        $cats = $this->con->sql("SELECT * FROM producto WHERE id_page='1' AND id_pro='".$id."'");
+        $cats = $this->con->sql("SELECT * FROM productos WHERE id_page='1' AND id_pro='".$id."'");
         return $cats['resultado'][0];
         
     }

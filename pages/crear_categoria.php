@@ -13,7 +13,7 @@ require_once($path_."/admin.php");
 // TODOS LOS ARCHIVOS EN PAGES//
 
 $admin = new Admin();
-$admin->seguridad(1);
+//$admin->seguridad(1);
 
 /* CONFIG PAGE */
 $parent_id = 0;

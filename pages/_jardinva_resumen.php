@@ -38,10 +38,11 @@ if($tipo == 2){
     $db_var_name = "_jardinva";
     $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE id_cur='".$id_cur."' AND eliminado='0' AND id_page='1'");
     $list = $list_['resultado'];
+    /*
     echo "<pre>";
-    print_r($list_);
+    print_r($list);
     echo "</pre>";
-
+    */
 }
 ?>
 <style>
@@ -49,13 +50,114 @@ if($tipo == 2){
         margin: 0px;
     }
     .tabla{
-        background: #0ff;
-        width: 100%;
-        height: 100%;
+        
+    }
+    .tabla tr{
+        
+    }
+    .td1{
+        height: 60px;
+        font-size: 22px;
+    }
+    .td1 td{
+        text-align: center;
+    }
+    .td2{
+        height: 40px;
+        font-size: 14px;
+    }
+    .td3{
+        height: 30px;
+        font-size: 12px;
+    }
+    .color01{
+        background: #efefef;
+    }
+    .color01a{
+        background: #e8e8e8;
+    }
+    .color01b{
+        background: #f9f9f9;
+    }
+    .color01c{
+        background: #f4f4f4;
+    }
+    .color02{
+        background: #eaeaea;
+    }
+    .color02a{
+        background: #e4e4e4;
+    }
+    .color02b{
+        background: #f8f8f8;
+    }
+    .color02c{
+        background: #f3f3f3;
+    }
+    .padd{
+        padding-left: 5px;
     }
 </style>
-<table cellspacing='0' cellpadding='0' class='tabla'>
-    <tr>
-        <td>AA</td>
+<table cellspacing="0" cellpadding="0" class="tabla" border="0" width="1300px">
+    <tr class="td1">
+        <td colspan="4" class="color01">Alumnos</td>
+        <td colspan="3" class="color02">Mama</td>
+        <td colspan="3" class="color01">Papa</td>
     </tr>
-</table>
+    <tr class="td2">
+        
+        <td width="30" class="color01a" align="center">#</td>
+        <td width="250" class="color01a">Nombre</td>
+        <td width="190" class="color01a">Fecha de Nacimiento</td>
+        <td width="130" class="color01a">Telefono Casa</td>
+
+        <td width="150" class="padd color02a">Nombre</td>
+        <td width="100" class="color02a">Fono Oficina</td>
+        <td width="100" class="color02a">Fono Celular</td>
+        
+        <td width="150" class="color01a padd">Nombre</td>
+        <td width="100" class="color01a">Fono Oficina</td>
+        <td width="100" class="color01a">Fono Celular</td>
+        
+    </tr>
+    
+    <?php for($i=0; $i<count($list); $i++){ $f = $i + 1; $f_n = explode("-", $list[$i]['fecha_nacimiento']); if($i % 2 == 0){ $class_01 = "color01b"; $class_02 = "color02b"; }else{ $class_01 = "color01c"; $class_02 = "color02c"; } ?>
+    
+    <tr class="td3">
+        
+        <td class="<?php echo $class_01; ?>" align="center"><?php echo $f; ?></td>
+        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['nombres']." ".$list[$i]['apellidos']; ?></td>
+        <td class="<?php echo $class_01; ?>" ><?php echo $f_n[2]; ?> de <?php echo mes(intval($f_n[1])); ?> de <?php echo $f_n[0]; ?></td>
+        <td class="<?php echo $class_01; ?>" >+56222044474</td>
+        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['nombre_01']; ?></td>
+        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['oficina_01']; ?></td>
+        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['celular_01']; ?></td>
+        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['nombre_02']; ?></td>
+        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['oficina_02']; ?></td>
+        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['celular_02']; ?></td>
+        
+    </tr>
+    
+    <?php } ?>
+     
+
+<?php
+
+    function mes($i){
+            
+        if($i == 1) return "Enero";
+        if($i == 2) return "Febrero";
+        if($i == 3) return "Marzo";
+        if($i == 4) return "Abril";
+        if($i == 5) return "Mayo";
+        if($i == 6) return "Junio";
+        if($i == 7) return "Julio";
+        if($i == 8) return "Agosto";
+        if($i == 9) return "Septiembre";
+        if($i == 10) return "Ocubre";
+        if($i == 11) return "Noviembre";
+        if($i == 12) return "Diciembre";
+            
+    }
+        
+?>

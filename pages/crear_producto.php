@@ -13,7 +13,7 @@ require_once($path_."/admin.php");
 // TODOS LOS ARCHIVOS EN PAGES//
 
 $admin = new Admin();
-$admin->seguridad(1);
+//$admin->seguridad(1);
 
 /* CONFIG PAGE */
 $id_cat = 0;
@@ -32,6 +32,7 @@ $eliminaraccion = "eliminarproductos";
 $id_list = "id_pro";
 $eliminarobjeto = "Producto";
 $page_mod = "pages/crear_producto.php";
+$page_asoc = "pages/asociar_producto.php";
 /* CONFIG PAGE */
 
 $id = 0;
@@ -107,7 +108,6 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                 for($i=0; $i<count($list); $i++){
                     $id = $list[$i][$id_list];
                     $nombre = $list[$i]['nombre'];
-                    $prods = $list[$i]['prods'];
                 ?>
                 
                 <li class="user">
@@ -115,11 +115,8 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         <li class="nombre"><?php echo $nombre; ?></li>
                         <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', <?php echo $id; ?>, '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
                         <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id=<?php echo $id; ?>&parent_id=<?php echo $parent_id; ?>')"></a>
-                        <?php if($prods == 0){ ?>
-                        <a title="SubCategorias" class="icn database" onclick="navlink('<?php echo $page_mod; ?>?parent_id=<?php echo $id; ?>')"></a>
-                        <?php }else{ ?>
-                        <a title="Ver Productos" class="icn prods" onclick="navlink('pages/ver_productos.php?id_cat=<?php echo $id; ?>')"></a>
-                        <?php } ?>
+                        <a title="SubCategorias" class="icn asociar" onclick="navlink('<?php echo $page_asoc; ?>?id=<?php echo $id; ?>')"></a>
+                        
                     </ul>
                 </li>
                 

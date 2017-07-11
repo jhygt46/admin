@@ -248,8 +248,8 @@ function confirm(message){
     });
     
 }
-function openwn(url){
-    var myWindow = window.open(url, "", "width=800,height=600");
+function openwn(url, w, h){
+    var myWindow = window.open(url, "", "width="+w+",height="+h);
 }
 function opcs(that, name){
     var ss = $(that).parents('.ss');
