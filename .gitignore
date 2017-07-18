@@ -2,6 +2,7 @@
 Thumbs.db
 ehthumbs.db
 
+db_config.php
 #pages/*
 nbproject/*
 #includes/info_nav.php

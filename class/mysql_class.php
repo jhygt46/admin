@@ -1,6 +1,12 @@
 <?php
 
-require_once($path.'config/config.php');
+$path = $_SERVER['DOCUMENT_ROOT'];
+if($_SERVER['HTTP_HOST'] == "localhost"){
+    $path .= "/";
+}
+
+require_once '../db_config.php';
+require_once $path.'config/config.php';
 
 class Conexion {
 
