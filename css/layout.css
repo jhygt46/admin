@@ -403,6 +403,10 @@ body {
     background: url('../images/icons-set.png') no-repeat;
     background-position: -297px -479px;
 }
+.contenido .cont .contenedor .info .fc .options .ops .op ul .ic4{
+    background: url('../images/icons-set.png') no-repeat;
+    background-position: -117px -479px;
+}
 .contenido .cont .contenedor .info .fc .message{
     position: absolute;
     top: 0px;
