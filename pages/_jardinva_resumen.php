@@ -54,7 +54,7 @@ if($tipo == 3){
     }
     .td1{
         height: 60px;
-        font-size: 22px;
+        font-size: 18px;
     }
     .td1 td{
         text-align: center;
