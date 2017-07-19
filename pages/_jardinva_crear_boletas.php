@@ -128,13 +128,13 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                 <li class="op">
                     <ul class="ss clearfix">
                         <li></li>
-                        <li class="ic3" onclick="openwn('pages/_jardinva_resumen.php?tipo=1', 1320, 450)" title="Ver Pagos"></li>
+                        <li class="ic3" onclick="openwn('pages/_jardinva_resumen.php?tipo=3', 1320, 450)" title="Asistencias"></li>
                     </ul>
                 </li>
                 <li class="op">
                     <ul class="ss clearfix">
                         <li></li>
-                        <li class="ic3" onclick="openwn('pages/_jardinva_resumen.php?tipo=1', 1320, 450)" title="Ver Pagos"></li>
+                        <li class="ic4" onclick="openwn('pages/_jardinva_resumen.php?tipo=1&ano=<?php echo $año; ?>&mes=<?php echo $mes; ?>', 1320, 450)" title="Ver Pagos"></li>
                     </ul>
                 </li>
             </ul>
