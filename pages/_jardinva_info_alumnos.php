@@ -20,6 +20,15 @@ $curs_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_cursos WHERE eliminado
 $list = $list_['resultado'];
 $curs = $curs_['resultado'];
 
+for($k=0; $k<count($list); $k++){
+    
+    //$apellidos = explode(" ", $list[$k]['apellidos']);
+    //$admin->con->sql("UPDATE ".$db_var_name."_alumnos SET apellido_p='".$apellidos[0]."', apellido_m='".$apellidos[1]."' WHERE id_alu='".$list[$k]['id_alu']."'");
+
+}
+
+
+
 $titulo = "Alumnos";
 $titulo_list = "Lista de Alumnos";
 $sub_titulo1 = "Ingresar Alumno";
@@ -112,13 +121,8 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     <input id="id" type="hidden" value="<?php echo $id; ?>" />
                     <input id="accion" type="hidden" value="<?php echo $accion; ?>" />
                     <label>
-                        <span>Nombres:</span>
-                        <input id="nombres" type="text" value="<?php echo $that['resultado'][0]['nombres']; ?>" require="" placeholder="" />
-                        <div class="mensaje"></div>
-                    </label>
-                    <label>
-                        <span>Apellidos:</span>
-                        <input id="apellidos" type="text" value="<?php echo $that['resultado'][0]['apellidos']; ?>" require="" placeholder="" />
+                        <span>N° de Matricula:</span>
+                        <input id="nmatricula" type="text" value="<?php echo $that['resultado'][0]['nmatricula']; ?>" require="" placeholder="" />
                         <div class="mensaje"></div>
                     </label>
                     <label>
@@ -127,13 +131,83 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         <div class="mensaje"></div>
                     </label>
                     <label>
+                        <span>Apellidos Paterno:</span>
+                        <input id="apellido_p" type="text" value="<?php echo $that['resultado'][0]['apellido_p']; ?>" require="" placeholder="" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Apellidos Materno:</span>
+                        <input id="apellido_m" type="text" value="<?php echo $that['resultado'][0]['apellido_m']; ?>" require="" placeholder="" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Nombres:</span>
+                        <input id="nombres" type="text" value="<?php echo $that['resultado'][0]['nombres']; ?>" require="" placeholder="" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Sexo:</span>
+                        <select id="sexo">
+                            <option value="0">Seleccionar</option>
+                            <option value="1" <?php if($that['resultado'][0]['sexo'] == 1){ echo "selected"; } ?>>Masculino</option>
+                            <option value="2" <?php if($that['resultado'][0]['sexo'] == 2){ echo "selected"; } ?>>Femenino</option>
+                        </select>
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Fecha Nacimiento:</span>
+                        <input id="fecha_nacimiento" type="text" value="<?php echo $that['resultado'][0]['fecha_nacimiento']; ?>" require="" placeholder="" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Fecha Matricula:</span>
+                        <input id="fecha_matricula" type="text" value="<?php echo $that['resultado'][0]['fecha_matricula']; ?>" require="" placeholder="" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Fecha Ingreso:</span>
+                        <input id="fecha_ingreso" type="text" value="<?php echo $that['resultado'][0]['fecha_ingreso']; ?>" require="" placeholder="" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
                         <span>Direccion:</span>
                         <input id="direccion" type="text" value="<?php echo $that['resultado'][0]['direccion']; ?>" require="" placeholder="" />
                         <div class="mensaje"></div>
                     </label>
                     <label>
-                        <span>Fecha Nacimiento:</span>
-                        <input id="fecha_nacimiento" type="text" value="<?php echo $that['resultado'][0]['fecha_nacimiento']; ?>" require="" placeholder="2017-06-27" />
+                        <span>Nombre Apoderado:</span>
+                        <input id="nombre_apoderado" type="text" value="<?php echo $that['resultado'][0]['nombre_apoderado']; ?>" require="" placeholder="" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Telefono Apoderado:</span>
+                        <input id="telefono_apoderado" type="text" value="<?php echo $that['resultado'][0]['telefono_apoderado']; ?>" require="" placeholder="" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Email Apoderado:</span>
+                        <input id="email_apoderado" type="text" value="<?php echo $that['resultado'][0]['email_apoderado']; ?>" require="" placeholder="" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Fecha Retiro:</span>
+                        <input id="fecha_retiro" type="text" value="<?php echo $that['resultado'][0]['fecha_retiro']; ?>" require="" placeholder="" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Motivo Retiro:</span>
+                        <select id="motivo_retiro">
+                            <option value="0">Seleccionar</option>
+                            <option value="1" <?php if($that['resultado'][0]['motivo_retiro'] == 1){ echo "selected"; } ?>>Cumpli&oacute; 2 a&ntilde;os</option>
+                            <option value="2" <?php if($that['resultado'][0]['motivo_retiro'] == 2){ echo "selected"; } ?>>Enfermedad</option>
+                            <option value="3" <?php if($that['resultado'][0]['motivo_retiro'] == 3){ echo "selected"; } ?>>Decision de Padres</option>
+                            <option value="4" <?php if($that['resultado'][0]['motivo_retiro'] == 4){ echo "selected"; } ?>>Egreso</option>
+                        </select>
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Observaciones:</span>
+                        <textarea id="observaciones"><?php echo $that['resultado'][0]['observaciones']; ?></textarea>
                         <div class="mensaje"></div>
                     </label>
                     <label>
@@ -146,6 +220,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         </select>
                         <div class="mensaje"></div>
                     </label>
+                    
                     <ul class="padres clearfix">
                         <li>
                             <div class="padre">Madre</div>
@@ -153,10 +228,6 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                             <input type="text" id="nombre_01" value="<?php echo $that['resultado'][0]['nombre_01']; ?>"></input>
                             <span>Tel celular:</span>
                             <input type="text" id="celular_01" value="<?php echo $that['resultado'][0]['celular_01']; ?>"></input>
-                            <span>Tel oficina:</span>
-                            <input type="text" id="oficina_01" value="<?php echo $that['resultado'][0]['oficina_01']; ?>"></input>
-                            <span>Tel casa:</span>
-                            <input type="text" id="casa_01" value="<?php echo $that['resultado'][0]['casa_01']; ?>"></input>
                             <span>Email :</span>
                             <input type="text" id="email_01" value="<?php echo $that['resultado'][0]['email_01']; ?>"></input>
                         </li>
@@ -166,14 +237,11 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                             <input type="text" id="nombre_02" value="<?php echo $that['resultado'][0]['nombre_02']; ?>"></input>
                             <span>Tel celular:</span>
                             <input type="text" id="celular_02" value="<?php echo $that['resultado'][0]['celular_02']; ?>"></input>
-                            <span>Tel Oficina:</span>
-                            <input type="text" id="oficina_02" value="<?php echo $that['resultado'][0]['oficina_02']; ?>"></input>
-                            <span>Tel casa:</span>
-                            <input type="text" id="casa_02" value="<?php echo $that['resultado'][0]['casa_02']; ?>"></input>
                             <span>Email :</span>
                             <input type="text" id="email_02" value="<?php echo $that['resultado'][0]['email_02']; ?>"></input>
                         </li>
                     </ul>
+                    
                     <label style='margin-top:20px'>
                         <span>&nbsp;</span>
                         <a id='button' onclick="form()">Enviar</a>
@@ -223,7 +291,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                 for($i=0; $i<count($list); $i++){
                     $k = $i + 1;
                     $id = $list[$i][$id_list];
-                    $nombre = $k."- ".$list[$i]['nombres']." ".$list[$i]['apellidos'];
+                    $nombre = $k."- ".$list[$i]['nombres']." ".$list[$i]['apellido_p']." ".$list[$i]['apellido_m'];
                     $id_cur = $list[$i]['id_cur'];
                 ?>
                 

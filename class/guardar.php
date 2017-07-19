@@ -300,38 +300,73 @@ class Guardar extends Core{
             return $info;
         }
         */
-        
         $id = $_POST['id'];
-        $nombres = $_POST['nombres'];
-        $apellidos = $_POST['apellidos'];
+        
+        $nmatricula = $_POST['nmatricula'];
         $rut = $_POST['rut'];
-        $direccion = $_POST['direccion'];
-        $curso = $_POST['curso'];
+        $apellido_p = $_POST['apellido_p'];
+        $apellido_m = $_POST['apellido_m'];
+        $nombres = $_POST['nombres'];
+        $sexo = $_POST['sexo'];
         $fecha_nacimiento = $_POST['fecha_nacimiento'];
+        $fecha_matricula = $_POST['fecha_matricula'];
+        $fecha_ingreso = $_POST['fecha_ingreso'];
+        $direccion = $_POST['direccion'];
+        $nombre_apoderado = $_POST['nombre_apoderado'];
+        $telefono_apoderado = $_POST['telefono_apoderado'];
+        $email_apoderado = $_POST['email_apoderado'];
+        $fecha_retiro = $_POST['fecha_retiro'];
+        $motivo_retiro = $_POST['motivo_retiro'];
+        $observaciones = $_POST['observaciones'];
+        $curso = $_POST['curso'];
         
         $nombre_01 = $_POST['nombre_01'];
-        $celular_01 = $_POST['celular_01'];
-        $casa_01 = $_POST['casa_01'];
-        $oficina_01 = $_POST['oficina_01'];
-        $email_01 = $_POST['email_01'];
-        
         $nombre_02 = $_POST['nombre_02'];
+        
+        $celular_01 = $_POST['celular_01'];
         $celular_02 = $_POST['celular_02'];
-        $casa_02 = $_POST['casa_02'];
-        $oficina_02 = $_POST['oficina_02'];
+        
+        $email_01 = $_POST['email_01'];
         $email_02 = $_POST['email_02'];
         
-        
         if($id == 0){
-            $a = $this->con->sql("INSERT INTO _jardinva_alumnos (nombres, apellidos, fecha_creado, fecha_nacimiento, rut, direccion, id_cur, id_page, nombre_01, celular_01, casa_01, oficina_01, email_01, nombre_02, celular_02, casa_02, oficina_02, email_02) VALUES ('".$nombres."', '".$apellidos."', now(), '".$fecha_nacimiento."', '".$rut."', '".$direccion."', '".$curso."', '".$this->id_page."', '".$nombre_01."', '".$celular_01."', '".$casa_01."', '".$oficina_01."', '".$email_01."', '".$nombre_02."', '".$celular_02."', '".$casa_02."', '".$oficina_02."', '".$email_02."')");
-            $info['db'] = $a;
+            
+            $a = $this->con->sql("INSERT INTO _jardinva_alumnos (id_page, id_cur) VALUES ('".$this->id_page."', '".$curso."')");
+            $id = $a['insert_id'];
             $info['op'] = 1;
             $info['mensaje'] = "Alumno ingresado exitosamente";
+            
         }
         if($id > 0){
-            $this->con->sql("UPDATE _jardinva_alumnos SET nombres='".$nombres."', apellidos='".$apellidos."', fecha_nacimiento='".$fecha_nacimiento."', rut='".$rut."', direccion='".$direccion."', id_cur='".$curso."', nombre_01='".$nombre_01."', casa_01='".$casa_01."', celular_01='".$celular_01."', oficina_01='".$oficina_01."', email_01='".$email_01."', nombre_02='".$nombre_02."', casa_02='".$casa_02."', celular_02='".$celular_02."', oficina_02='".$oficina_02."', email_02='".$email_02."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            
+            $this->con->sql("UPDATE _jardinva_alumnos SET nmatricula='".$nmatricula."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET rut='".$rut."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET apellido_p='".$apellido_p."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET apellido_m='".$apellido_m."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET nombres='".$nombres."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET sexo='".$sexo."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET fecha_nacimiento='".$fecha_nacimiento."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET fecha_matricula='".$fecha_matricula."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET fecha_ingreso='".$fecha_ingreso."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET direccion='".$direccion."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET nombre_apoderado='".$nombre_apoderado."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");$this->con->sql("UPDATE _jardinva_alumnos SET rut='".$rut."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET telefono_apoderado='".$telefono_apoderado."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET email_apoderado='".$email_apoderado."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET fecha_retiro='".$fecha_retiro."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET motivo_retiro='".$motivo_retiro."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET observaciones='".$observaciones."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET nombre_01='".$nombre_01."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET nombre_02='".$nombre_02."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            
+            $this->con->sql("UPDATE _jardinva_alumnos SET celular_01='".$celular_01."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET celular_02='".$celular_02."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            
+            $this->con->sql("UPDATE _jardinva_alumnos SET email_01='".$email_01."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _jardinva_alumnos SET email_02='".$email_02."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            
             $info['op'] = 1;
             $info['mensaje'] = "Alumno modificado exitosamente";
+            
         }
                 
         $info['reload'] = 1;
@@ -371,13 +406,13 @@ class Guardar extends Core{
             $a = $this->con->sql("INSERT INTO _jardinva_boletas (numero, dia, mes, ano, tipo, nula, matricula, mjardin, msalacuna, id_page) VALUES ('".$numero."', '".$dia."', '".$mes."', '".$año."', '".$tipo."', '".$nula."', '".$matricula."', '".$mjardin."', '".$msalacuna."', '".$this->id_page."')");
             $info['db'] = $a;
             $info['op'] = 1;
-            $info['mensaje'] = "Curso ingresado exitosamente";
+            $info['mensaje'] = "Boleta ingresado exitosamente";
         }
         if($id > 0){
             $a = $this->con->sql("UPDATE _jardinva_boletas SET numero='".$numero."', dia='".$dia."', mes='".$mes."', ano='".$año."', tipo='".$tipo."', nula='".$nula."', matricula='".$matricula."', mjardin='".$mjardin."', msalacuna='".$msalacuna."' WHERE id_bol='".$id."' AND id_page='".$this->id_page."'");
             $info['db'] = $a;
             $info['op'] = 1;
-            $info['mensaje'] = "Curso modificado exitosamente";
+            $info['mensaje'] = "Boleta modificado exitosamente";
         }
                 
         $info['reload'] = 1;

@@ -94,7 +94,7 @@ function form(){
         selects.push($(this));
     });
     $('.basic-grey').find('textarea').each(function(){
-        data.append($(this).attr('id'), $(this).html());
+        data.append($(this).attr('id'), $(this).val());
         textareas.push($(this));
     });
     
