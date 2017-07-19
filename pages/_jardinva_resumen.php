@@ -129,6 +129,8 @@ if($tipo == 3){
             <td class="<?php echo $c; ?>"></td>
             <td class="<?php echo $c; ?>"></td>
             <td class="<?php echo $c; ?>"></td>
+            <td class="<?php echo $c; ?>"></td>
+            <td class="<?php echo $c; ?>"></td>
         </tr>
         <?php } ?>
     </table>
