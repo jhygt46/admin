@@ -137,6 +137,8 @@ if($tipo == 3){
 
 
 <?php } ?>
+
+<?php if($tipo == 2){ ?>
 <table cellspacing="0" cellpadding="0" class="tabla" border="0" width="1300px">
     <tr class="td1">
         <td colspan="4" class="color01">Alumnos</td>
@@ -178,7 +180,7 @@ if($tipo == 3){
     </tr>
     
     <?php } ?>
-     
+<?php } ?>
 
 <?php
 
