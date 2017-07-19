@@ -116,19 +116,19 @@ if($tipo == 3){
             <td width="100" class="color01">Nomviembre</td>
             <td width="100" class="color01">Diciembre</td>
         </tr>
-        <?php for($i=0; $i<count($list); $i++){ $r=$i+1; ?>
+        <?php for($i=0; $i<count($list); $i++){ $r=$i+1; if($i % 2 == 0){ $c = "color2"; }else{ $c = "color1"; } ?>
         <tr>
-            <td><?php echo $r; ?></td>
-            <td><?php echo $list[$i]['nombres']; ?> <?php echo $list[$i]['apellido_p']; ?></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td class="<?php echo $c; ?>"><?php echo $r; ?></td>
+            <td class="<?php echo $c; ?>"><?php echo $list[$i]['nombres']; ?> <?php echo $list[$i]['apellido_p']; ?></td>
+            <td class="<?php echo $c; ?>"></td>
+            <td class="<?php echo $c; ?>"></td>
+            <td class="<?php echo $c; ?>"></td>
+            <td class="<?php echo $c; ?>"></td>
+            <td class="<?php echo $c; ?>"></td>
+            <td class="<?php echo $c; ?>"></td>
+            <td class="<?php echo $c; ?>"></td>
+            <td class="<?php echo $c; ?>"></td>
+            <td class="<?php echo $c; ?>"></td>
         </tr>
         <?php } ?>
     </table>
