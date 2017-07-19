@@ -22,7 +22,9 @@ if($tipo == 1){
     $db_var_name = "_jardinva";
     $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE eliminado='0' AND id_page='1'");
     $list = $list_['resultado'];
-    
+    echo "<pre>";
+    print_r($list);
+    echo "</pre>";
 
 }
 if($tipo == 2){
