@@ -15,27 +15,32 @@ require_once($path_."/admin.php");
 $admin = new Admin();
 //$admin->seguridad(1);
 $tipo = $_GET["tipo"];
-
+$id_cur = $_GET["curso"];
+$db_var_name = "_jardinva";
 
 if($tipo == 1){
     
-    $db_var_name = "_jardinva";
     $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE eliminado='0' AND id_page='1'");
     $list = $list_['resultado'];
 
 }
 if($tipo == 2){
     
-    $id_cur = $_GET["curso"];
-    $db_var_name = "_jardinva";
-    $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE id_cur='".$id_cur."' AND eliminado='0' AND id_page='1'");
+    $admin_curso = $admin->con->sql("SELECT * FROM ".$db_var_name."_cursos WHERE id_cur='".$id_cur."' AND eliminado='0' AND id_page='1'");
+    $prnt_id = $admin_curso['resultado'][0]['parent_id'];
+    
+    if($prnt_id > 0){
+        $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE (id_cur='".$id_cur."' OR id_cur='".$prnt_id."') AND eliminado='0' AND id_page='1'");
+    }else{
+        $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE id_cur='".$id_cur."' AND eliminado='0' AND id_page='1'");
+    }
+
     $list = $list_['resultado'];
     
 }
 if($tipo == 3){
     
     $id_cur = $_GET["curso"];
-    $db_var_name = "_jardinva";
     $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE eliminado='0' AND id_page='1'");
     $list = $list_['resultado'];
     
