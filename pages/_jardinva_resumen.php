@@ -102,7 +102,7 @@ if($tipo == 3){
     <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px">
         <tr class="td1">
             <td width="20" class="color01">#</td>
-            <td align="left" style="padding: 2px 4px" width="180" class="color01">Nombre</td>
+            <td style="text-align: left; padding: 2px 4px" width="180" class="color01">Nombre</td>
             <td width="100" class="color01">Matricula</td>
             <td width="100" class="color01">Marzo</td>
             <td width="100" class="color01">Abril</td>
