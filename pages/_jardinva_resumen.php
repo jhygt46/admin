@@ -19,30 +19,27 @@ $tipo = $_GET["tipo"];
 
 if($tipo == 1){
     
-    $mes = $_GET["mes"];
-    $año = $_GET["año"];
-    
     $db_var_name = "_jardinva";
-    $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_boletas WHERE ano='".$año."' AND mes='".$mes."' AND eliminado='0' AND id_page='1'");
+    $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE eliminado='0' AND id_page='1'");
     $list = $list_['resultado'];
-    echo "<pre>";
-    print_r($list);
-    echo "</pre>";
+    
 
 }
 if($tipo == 2){
     
     $id_cur = $_GET["curso"];
-    $id_cur = 0;
-    
     $db_var_name = "_jardinva";
     $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE id_cur='".$id_cur."' AND eliminado='0' AND id_page='1'");
     $list = $list_['resultado'];
-    /*
-    echo "<pre>";
-    print_r($list);
-    echo "</pre>";
-    */
+    
+}
+if($tipo == 3){
+    
+    $id_cur = $_GET["curso"];
+    $db_var_name = "_jardinva";
+    $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE eliminado='0' AND id_page='1'");
+    $list = $list_['resultado'];
+    
 }
 ?>
 <style>
@@ -98,6 +95,47 @@ if($tipo == 2){
         padding-left: 5px;
     }
 </style>
+
+
+
+<?php if($tipo == 1){ ?>
+
+    <table cellspacing="0" cellpadding="0" class="tabla" border="0" width="1300px">
+        <tr class="td1">
+            <td width="20" class="color01">#</td>
+            <td width="180" class="color01">Nombre</td>
+            <td width="100" class="color01">Matricula</td>
+            <td width="100" class="color01">Marzo</td>
+            <td width="100" class="color01">Abril</td>
+            <td width="100" class="color01">Mayo</td>
+            <td width="100" class="color01">Junio</td>
+            <td width="100" class="color01">Julio</td>
+            <td width="100" class="color01">Agosto</td>
+            <td width="100" class="color01">Septiembre</td>
+            <td width="100" class="color01">Octubre</td>
+            <td width="100" class="color01">Nomviembre</td>
+            <td width="100" class="color01">Diciembre</td>
+        </tr>
+        <?php for($i=0; $i<count($list); $i++){ $r=$i+1; ?>
+        <tr>
+            <td><?php echo $r; ?></td>
+            <td><?php echo $list[$i]['nombres']; ?> <?php echo $list[$i]['apellido_p']; ?></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <?php } ?>
+    </table>
+
+
+
+<?php } ?>
 <table cellspacing="0" cellpadding="0" class="tabla" border="0" width="1300px">
     <tr class="td1">
         <td colspan="4" class="color01">Alumnos</td>
