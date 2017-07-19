@@ -99,7 +99,7 @@ if($tipo == 3){
 
 <?php if($tipo == 1){ ?>
 
-    <table cellspacing="0" cellpadding="0" class="tabla" border="0" width="1300px">
+    <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px">
         <tr class="td1">
             <td width="20" class="color01">#</td>
             <td width="180" class="color01">Nombre</td>
