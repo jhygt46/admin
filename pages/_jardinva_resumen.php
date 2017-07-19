@@ -53,7 +53,7 @@ if($tipo == 3){
     }
     .td1{
         height: 60px;
-        font-size: 18px;
+        font-size: 16px;
     }
     .td1 td{
         text-align: center;
@@ -118,7 +118,7 @@ if($tipo == 3){
         <?php for($i=0; $i<count($list); $i++){ $r=$i+1; if($i % 2 == 0){ $c = "color02"; }else{ $c = "color01"; } ?>
         <tr>
             <td class="<?php echo $c; ?>"><?php echo $r; ?></td>
-            <td class="<?php echo $c; ?>"><?php echo $list[$i]['nombres']; ?> <?php echo $list[$i]['apellido_p']; ?></td>
+            <td align="center" class="<?php echo $c; ?>"><?php echo utf8_encode($list[$i]['nombres']); ?> <?php echo utf8_encode($list[$i]['apellido_p']); ?></td>
             <td class="<?php echo $c; ?>"></td>
             <td class="<?php echo $c; ?>"></td>
             <td class="<?php echo $c; ?>"></td>
