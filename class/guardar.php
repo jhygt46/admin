@@ -331,7 +331,7 @@ class Guardar extends Core{
         
         if($id == 0){
             
-            $a = $this->con->sql("INSERT INTO _jardinva_alumnos (id_page, id_cur) VALUES ('".$this->id_page."', '".$curso."')");
+            $a = $this->con->sql("INSERT INTO _jardinva_alumnos (id_page) VALUES ('".$this->id_page."')");
             $id = $a['insert_id'];
             $info['op'] = 1;
             $info['mensaje'] = "Alumno ingresado exitosamente";
@@ -355,6 +355,9 @@ class Guardar extends Core{
             $this->con->sql("UPDATE _jardinva_alumnos SET fecha_retiro='".$fecha_retiro."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
             $this->con->sql("UPDATE _jardinva_alumnos SET motivo_retiro='".$motivo_retiro."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
             $this->con->sql("UPDATE _jardinva_alumnos SET observaciones='".$observaciones."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            
+            $this->con->sql("UPDATE _jardinva_alumnos SET id_cur='".$curso."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
+            
             $this->con->sql("UPDATE _jardinva_alumnos SET nombre_01='".$nombre_01."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
             $this->con->sql("UPDATE _jardinva_alumnos SET nombre_02='".$nombre_02."' WHERE id_alu='".$id."' AND id_page='".$this->id_page."'");
             

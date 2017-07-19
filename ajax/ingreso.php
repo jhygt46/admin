@@ -4,10 +4,9 @@ session_start();
 header('Content-type: text/json');
 header('Content-type: application/json');
 
+$path = $_SERVER['DOCUMENT_ROOT'];
 if($_SERVER['HTTP_HOST'] == "localhost"){
-    $path = $_SERVER['DOCUMENT_ROOT']."/";
-}else{
-    $path = $_SERVER['DOCUMENT_ROOT'];
+    $path .= "/";
 }
 $path_ = $path."admin/class";
 
