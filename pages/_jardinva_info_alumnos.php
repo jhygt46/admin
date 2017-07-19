@@ -112,6 +112,16 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     <div class="fc" id="info-0">
         <div class="minimizar m1"></div>
         <div class="close"></div>
+        <div class="options">
+            <ul class="ops clearfix">
+                <li class="op">
+                    <ul class="ss clearfix">
+                        <li></li>
+                        <li class="ic3" onclick="openwn('pages/_jardinva_resumen.php?tipo=3', 1320, 450)" title="Informacion"></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
         <div class="name"><?php echo $sub_titulo; ?></div>
         <div class="message"></div>
         <div class="sucont">
