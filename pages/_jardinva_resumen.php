@@ -206,8 +206,9 @@ if($tipo == 3){
         <td class="<?php echo $class_01; ?>" ><?php echo intval($f_n[2]); ?> de <?php echo mes(intval($f_n[1])); ?> de <?php echo $f_n[0]; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo ($list[$i]['sexo'] == 1)? "Masculino" : "Femenino"; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['direccion']; ?></td>
+        <td class="<?php echo $class_01; ?>" ><?php echo intval($f_i[2]); ?> de <?php echo mes(intval($f_i[1])); ?> de <?php echo $f_i[0]; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['nombre_apoderado']; ?></td>
-        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['nombre_apoderado']; ?></td>
+        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['telefono_apoderado']; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['email_apoderado']; ?></td>
         
     </tr>
