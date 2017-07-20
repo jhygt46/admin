@@ -390,23 +390,17 @@ class Guardar extends Core{
         $id = $_POST['id'];
         
         $nula = $_POST['nula'];
-        $tipo = $_POST['tipo'];
-        if($tipo == 1)
-            $numero = $_POST['nboleta'];
-        
-        if($tipo == 2)
-            $numero = $_POST['nfactura'];
+        $tipo = 1;
+        $numero = $_POST['nboleta'];
         
         $dia = $_POST['dia'];
         $mes = $_POST['mes'];
         $año = $_POST['año'];
         
         $matricula = $_POST['matricula'];
-        $mjardin = $_POST['mjardin'];
-        $msalacuna = $_POST['msalacuna'];
         
         if($id == 0){
-            $a = $this->con->sql("INSERT INTO _jardinva_boletas (numero, dia, mes, ano, tipo, nula, matricula, mjardin, msalacuna, id_page) VALUES ('".$numero."', '".$dia."', '".$mes."', '".$año."', '".$tipo."', '".$nula."', '".$matricula."', '".$mjardin."', '".$msalacuna."', '".$this->id_page."')");
+            $a = $this->con->sql("INSERT INTO _jardinva_boletas (numero, dia, mes, ano, tipo, nula, matricula, id_page) VALUES ('".$numero."', '".$dia."', '".$mes."', '".$año."', '".$tipo."', '".$nula."', '".$matricula."', '".$this->id_page."')");
             $info['db'] = $a;
             $info['op'] = 1;
             $info['mensaje'] = "Boleta ingresado exitosamente";
