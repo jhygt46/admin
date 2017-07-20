@@ -168,41 +168,37 @@ if($tipo == 3){
 <?php if($tipo == 2){ ?>
 <table cellspacing="0" cellpadding="0" class="tabla" border="0" width="1300px">
     <tr class="td1">
-        <td colspan="4" class="color01">Alumnos</td>
-        <td colspan="3" class="color02">Mama</td>
-        <td colspan="3" class="color01">Papa</td>
-    </tr>
-    <tr class="td2">
-        
-        <td width="30" class="color01a" align="center">#</td>
-        <td width="250" class="color01a">Nombre</td>
-        <td width="190" class="color01a">Fecha de Nacimiento</td>
-        <td width="130" class="color01a">Telefono Casa</td>
-
-        <td width="150" class="padd color02a">Nombre</td>
-        <td width="100" class="color02a">Fono Oficina</td>
-        <td width="100" class="color02a">Fono Celular</td>
-        
-        <td width="150" class="color01a padd">Nombre</td>
-        <td width="100" class="color01a">Fono Oficina</td>
-        <td width="100" class="color01a">Fono Celular</td>
-        
+        <td class="color01">#</td>
+        <td class="color01">Matricula</td>
+        <td class="color02">Nombre</td>
+        <td class="color01">Rut</td>
+        <td class="color01">Fecha Nac.</td>
     </tr>
     
-    <?php for($i=0; $i<count($list); $i++){ $f = $i + 1; $f_n = explode("-", $list[$i]['fecha_nacimiento']); if($i % 2 == 0){ $class_01 = "color01b"; $class_02 = "color02b"; }else{ $class_01 = "color01c"; $class_02 = "color02c"; } ?>
+    
+    <?php 
+    
+    for($i=0; $i<count($list); $i++){ 
+        $f = $i + 1;
+        $f_n = explode("-", $list[$i]['fecha_nacimiento']);
+        if($i % 2 == 0){ 
+            $class_01 = "color01b"; 
+            $class_02 = "color02b"; 
+        }else{ 
+            $class_01 = "color01c";
+            $class_02 = "color02c";
+        } ?>
     
     <tr class="td3">
         
         <td class="<?php echo $class_01; ?>" align="center"><?php echo $f; ?></td>
-        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['nombres']." ".$list[$i]['apellidos']; ?></td>
+        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['nmatricula']; ?></td>
+        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['nombres']." ".$list[$i]['apellido_p']." ".$list[$i]['apellido_m']; ?></td>
+        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['rut']; ?></td>
         <td class="<?php echo $class_01; ?>" ><?php echo $f_n[2]; ?> de <?php echo mes(intval($f_n[1])); ?> de <?php echo $f_n[0]; ?></td>
-        <td class="<?php echo $class_01; ?>" >+56222044474</td>
-        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['nombre_01']; ?></td>
-        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['oficina_01']; ?></td>
-        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['celular_01']; ?></td>
-        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['nombre_02']; ?></td>
-        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['oficina_02']; ?></td>
-        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['celular_02']; ?></td>
+        
+        <!--<td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['nombre_01']; ?></td>-->
+        
         
     </tr>
     
