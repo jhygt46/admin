@@ -173,6 +173,8 @@ if($tipo == 3){
         <td class="color02">Nombre</td>
         <td class="color01">Rut</td>
         <td class="color01">Fecha Nac.</td>
+        <td class="color01">Sexo</td>
+        <td class="color01">Direccion</td>
     </tr>
     
     
@@ -196,8 +198,8 @@ if($tipo == 3){
         <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['nombres']." ".$list[$i]['apellido_p']." ".$list[$i]['apellido_m']; ?></td>
         <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['rut']; ?></td>
         <td class="<?php echo $class_01; ?>" ><?php echo $f_n[2]; ?> de <?php echo mes(intval($f_n[1])); ?> de <?php echo $f_n[0]; ?></td>
-        
-        <!--<td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['nombre_01']; ?></td>-->
+        <td class="<?php echo $class_02; ?>" ><?php echo ($list[$i]['sexo'] == 1)? "Masculino" : "Femenino"; ?></td>
+        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['direccion']; ?></td>
         
         
     </tr>
