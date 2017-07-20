@@ -36,17 +36,13 @@ $db_var_name = "_jardinva";
 $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_boletas WHERE ano='".$año."' AND mes='".$mes."' AND id_page='1' AND eliminado='0'");
 $list = $list_['resultado'];
 
-echo "<pre>";
-print_r($list);
-echo "</pre>";
-
 $max_boleta_ = $admin->con->sql("SELECT MAX(numero) as max FROM ".$db_var_name."_boletas WHERE tipo='1' AND id_page='1' AND eliminado='0'");
 $max_factura_ = $admin->con->sql("SELECT MAX(numero) as max FROM ".$db_var_name."_boletas WHERE tipo='2' AND id_page='1' AND eliminado='0'");
 
 $max_boleta = $max_boleta_['resultado'][0]['max'] + 1;
 $max_factura = $max_factura_['resultado'][0]['max'] + 1;
 
-$titulo = "Boletas y Facturas";
+$titulo = "Boletas";
 $titulo_list = "Listado de Boletas y Facturas";
 $sub_titulo1 = "Ingresar";
 $sub_titulo2 = "Modificar";
@@ -389,42 +385,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
         </div>
     </div>
 </div>
-<div class="info">
-    <div class="fc" id="info-0">
-        <div class="minimizar m1"></div>
-        <div class="close"></div>
-        <div class="name">Listado Facturas</div>
-        <div class="message"></div>
-        <div class="sucont">
-            
-            <ul class='listUser'>
-                
-                <?php
-                
-                for($i=0; $i<count($list); $i++){
-                    $id = $list[$i][$id_list];
-                    $tipo = $list[$i]['tipo'];
-                    $nombre = $list[$i]['numero'];
-                    $mes = $list[$i]['mes'];
-                    $año = $list[$i]['ano'];
-                    if($tipo == 2){
-                ?>
-                
-                <li class="user" rel="<?php echo $id; ?>">
-                    <ul class="clearfix">
-                        <li class="nombre"><strong><?php echo $nombre; ?></strong></li>
-                        <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', <?php echo $id; ?>, '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
-                        <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id=<?php echo $id; ?>&mes=<?php echo $mes; ?>&ano=<?php echo $año; ?>')"></a>
-                    </ul>
-                </li>
-                
-                <?php }} ?>
-                
-            </ul>
-            
-        </div>
-    </div>
-</div>
+
 <?php } ?>
 <br />
 <br />
