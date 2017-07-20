@@ -189,6 +189,8 @@ if($tipo == 3){
     for($i=0; $i<count($list); $i++){ 
         $f = $i + 1;
         $f_n = explode("-", $list[$i]['fecha_nacimiento']);
+        $f_i = explode("-", $list[$i]['fecha_nacimiento']);
+        $f_m = explode("-", $list[$i]['fecha_nacimiento']);
         if($i % 2 == 0){ 
             $class_01 = "color01b"; 
             $class_02 = "color02b"; 
@@ -207,6 +209,7 @@ if($tipo == 3){
         <td class="<?php echo $class_02; ?>" ><?php echo ($list[$i]['sexo'] == 1)? "Masculino" : "Femenino"; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['direccion']; ?></td>
         <td class="<?php echo $class_01; ?>" ><?php echo intval($f_i[2]); ?> de <?php echo mes(intval($f_i[1])); ?> de <?php echo $f_i[0]; ?></td>
+        <td class="<?php echo $class_01; ?>" ><?php echo intval($f_m[2]); ?> de <?php echo mes(intval($f_m[1])); ?> de <?php echo $f_m[0]; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['nombre_apoderado']; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['telefono_apoderado']; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['email_apoderado']; ?></td>
