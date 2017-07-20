@@ -189,8 +189,8 @@ if($tipo == 3){
     for($i=0; $i<count($list); $i++){ 
         $f = $i + 1;
         $f_n = explode("-", $list[$i]['fecha_nacimiento']);
-        $f_i = explode("-", $list[$i]['fecha_nacimiento']);
-        $f_m = explode("-", $list[$i]['fecha_nacimiento']);
+        $f_i = explode("-", $list[$i]['fecha_ingreso']);
+        $f_m = explode("-", $list[$i]['fecha_matricula']);
         if($i % 2 == 0){ 
             $class_01 = "color01b"; 
             $class_02 = "color02b"; 
