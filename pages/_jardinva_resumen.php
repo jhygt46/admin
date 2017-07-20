@@ -24,7 +24,7 @@ if($tipo == 1){
     $list = $list_['resultado'];
 
 }
-if($tipo == 2){
+if($tipo == 3){
     
     $admin_curso = $admin->con->sql("SELECT * FROM ".$db_var_name."_cursos WHERE id_cur='".$id_cur."' AND eliminado='0' AND id_page='1'");
     $prnt_id = $admin_curso['resultado'][0]['parent_id'];
@@ -42,7 +42,7 @@ if($tipo == 2){
     echo "</pre>";
     */
 }
-if($tipo == 3){
+if($tipo == 2){
     
     $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE eliminado='0' AND id_page='1'");
     $list = $list_['resultado'];
@@ -106,7 +106,7 @@ if($tipo == 3){
 <?php if($tipo == 1){ ?>
 
     <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px">
-        <tr class="td1">
+        <tr class="td2">
             <td width="20" class="color01">#</td>
             <td style="text-align: left; padding: 2px 4px" width="180" class="color01">Nombre</td>
             <td width="100" class="color01">Matricula</td>
@@ -168,19 +168,20 @@ if($tipo == 3){
 <?php if($tipo == 2){ ?>
 <table cellspacing="0" cellpadding="0" class="tabla" border="0" width="1300px">
     
-    <tr class="td1">
-        <td class="color01">#</td>
-        <td class="color02">Matricula</td>
-        <td class="color01">Nombre</td>
-        <td class="color02">Rut</td>
-        <td class="color01">Fecha Nac</td>
-        <td class="color02">Sexo</td>
-        <td class="color01">Direccion</td>
-        <td class="color02">Fecha Mat</td>
-        <td class="color01">Fecha Ing</td>
-        <td class="color02">Apoderado</td>
-        <td class="color01">Telefono</td>
-        <td class="color02">Email</td>
+    <tr class="td2">
+        <td width="20" class="color01">#</td>
+        <td width="60" class="color02">Matricula</td>
+        <td width="160" class="color01">Nombre</td>
+        <td width="70" class="color02">Rut</td>
+        <td width="100" class="color01">Fecha Nac</td>
+        <td width="100" class="color02">Sexo</td>
+        <td width="190" class="color01">Direccion</td>
+        <td width="100" class="color02">Fecha Mat</td>
+        <td width="100" class="color01">Fecha Ing</td>
+        <td width="100" class="color02">Apoderado</td>
+        <td width="100" class="color01">Telefono</td>
+        <td width="100" class="color02">Email</td>
+        <td width="100" class="color01"></td>
     </tr>
     
     
@@ -205,14 +206,15 @@ if($tipo == 3){
         <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['nmatricula']; ?></td>
         <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['nombres']." ".$list[$i]['apellido_p']." ".$list[$i]['apellido_m']; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['rut']; ?></td>
-        <td class="<?php echo $class_01; ?>" ><?php echo intval($f_n[2]); ?> de <?php echo mes(intval($f_n[1])); ?> de <?php echo $f_n[0]; ?></td>
+        <td class="<?php echo $class_01; ?>" ><?php echo intval($f_n[2]); ?>/<?php echo intval($f_n[1]); ?>/<?php echo $f_n[0]; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo ($list[$i]['sexo'] == 1)? "Masculino" : "Femenino"; ?></td>
         <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['direccion']; ?></td>
-        <td class="<?php echo $class_02; ?>" ><?php echo intval($f_i[2]); ?> de <?php echo mes(intval($f_i[1])); ?> de <?php echo $f_i[0]; ?></td>
-        <td class="<?php echo $class_01; ?>" ><?php echo intval($f_m[2]); ?> de <?php echo mes(intval($f_m[1])); ?> de <?php echo $f_m[0]; ?></td>
+        <td class="<?php echo $class_02; ?>" ><?php echo intval($f_i[2]); ?>/<?php echo intval($f_i[1]); ?>/<?php echo $f_i[0]; ?></td>
+        <td class="<?php echo $class_01; ?>" ><?php echo intval($f_m[2]); ?>/<?php echo intval($f_m[1]); ?>/<?php echo $f_m[0]; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['nombre_apoderado']; ?></td>
         <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['telefono_apoderado']; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['email_apoderado']; ?></td>
+        <td class="<?php echo $class_01; ?>" ></td>
         
     </tr>
     
