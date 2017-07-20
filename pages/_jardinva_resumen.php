@@ -203,7 +203,7 @@ if($tipo == 3){
         <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['nmatricula']; ?></td>
         <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['nombres']." ".$list[$i]['apellido_p']." ".$list[$i]['apellido_m']; ?></td>
         <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['rut']; ?></td>
-        <td class="<?php echo $class_01; ?>" ><?php echo $f_n[2]; ?> de <?php echo mes(intval($f_n[1])); ?> de <?php echo $f_n[0]; ?></td>
+        <td class="<?php echo $class_01; ?>" ><?php echo intval($f_n[2]); ?> de <?php echo mes(intval($f_n[1])); ?> de <?php echo $f_n[0]; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo ($list[$i]['sexo'] == 1)? "Masculino" : "Femenino"; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['direccion']; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['nombre_apoderado']; ?></td>
