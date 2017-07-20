@@ -36,6 +36,10 @@ $db_var_name = "_jardinva";
 $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_boletas WHERE ano='".$año."' AND mes='".$mes."' AND id_page='1' AND eliminado='0'");
 $list = $list_['resultado'];
 
+echo "<pre>";
+print_r($list);
+echo "</pre>";
+
 $max_boleta_ = $admin->con->sql("SELECT MAX(numero) as max FROM ".$db_var_name."_boletas WHERE tipo='1' AND id_page='1' AND eliminado='0'");
 $max_factura_ = $admin->con->sql("SELECT MAX(numero) as max FROM ".$db_var_name."_boletas WHERE tipo='2' AND id_page='1' AND eliminado='0'");
 
@@ -61,7 +65,7 @@ $m_factura = "none";
 if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     
     $sub_titulo = $sub_titulo2;
-    $that = $admin->con->sql("SELECT * FROM ".$db_var_name."_boletas WHERE id_bol='".$_GET["id"]."'");
+    $that = $admin->con->sql("SELECT * FROM ".$db_var_name."_boletas WHERE id_bol='".$_GET["id"]."' AND eliminado='0'");
     $id = $_GET["id"];
     
     $año = $that['resultado'][0]['ano'];

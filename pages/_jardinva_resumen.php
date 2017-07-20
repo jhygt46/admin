@@ -166,6 +166,14 @@ if($tipo == 2){
 
 
 <?php if($tipo == 2){ ?>
+<style>
+    .color01{
+        padding-left: 4px;
+    }
+    .color02{
+        padding-left: 4px;
+    }
+</style>
 <table cellspacing="0" cellpadding="0" class="tabla" border="0" width="1300px">
     
     <tr class="td2">
@@ -174,14 +182,14 @@ if($tipo == 2){
         <td width="160" class="color01">Nombre</td>
         <td width="70" class="color02">Rut</td>
         <td width="100" class="color01">Fecha Nac</td>
-        <td width="100" class="color02">Sexo</td>
+        <td width="60" class="color02">Sexo</td>
         <td width="190" class="color01">Direccion</td>
         <td width="100" class="color02">Fecha Mat</td>
         <td width="100" class="color01">Fecha Ing</td>
         <td width="100" class="color02">Apoderado</td>
         <td width="100" class="color01">Telefono</td>
         <td width="100" class="color02">Email</td>
-        <td width="100" class="color01"></td>
+        <td width="140" class="color01"></td>
     </tr>
     
     
