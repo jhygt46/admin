@@ -232,6 +232,7 @@ class Guardar extends Core{
         
         $name = $_FILES['file_image0']['name']; // filename to get file's extension
         $size = $_FILES['file_image0']['size'];
+        $info['fp'] = $filepath;
         
         if (strlen($name)){
             $ext = end(explode(".", $name));
