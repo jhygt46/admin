@@ -189,7 +189,7 @@ class Guardar extends Core{
     private function ingresarimagen(){
         
         $foto = $this->subirfoto();
-        $info['foto'] = $foto;
+
         if($_POST["db"] == "tour"){
             $db_name = "_jardinva_tour";
             $id = "id_tour";
