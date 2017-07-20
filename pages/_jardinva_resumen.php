@@ -170,17 +170,17 @@ if($tipo == 3){
     
     <tr class="td1">
         <td class="color01">#</td>
-        <td class="color01">Matricula</td>
-        <td class="color02">Nombre</td>
-        <td class="color01">Rut</td>
+        <td class="color02">Matricula</td>
+        <td class="color01">Nombre</td>
+        <td class="color02">Rut</td>
         <td class="color01">Fecha Nac</td>
-        <td class="color01">Sexo</td>
+        <td class="color02">Sexo</td>
         <td class="color01">Direccion</td>
-        <td class="color01">Fecha Mat</td>
+        <td class="color02">Fecha Mat</td>
         <td class="color01">Fecha Ing</td>
-        <td class="color01">Apoderado</td>
+        <td class="color02">Apoderado</td>
         <td class="color01">Telefono</td>
-        <td class="color01">Email</td>
+        <td class="color02">Email</td>
     </tr>
     
     
@@ -202,16 +202,16 @@ if($tipo == 3){
     <tr class="td3">
         
         <td class="<?php echo $class_01; ?>" align="center"><?php echo $f; ?></td>
-        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['nmatricula']; ?></td>
+        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['nmatricula']; ?></td>
         <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['nombres']." ".$list[$i]['apellido_p']." ".$list[$i]['apellido_m']; ?></td>
-        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['rut']; ?></td>
+        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['rut']; ?></td>
         <td class="<?php echo $class_01; ?>" ><?php echo intval($f_n[2]); ?> de <?php echo mes(intval($f_n[1])); ?> de <?php echo $f_n[0]; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo ($list[$i]['sexo'] == 1)? "Masculino" : "Femenino"; ?></td>
-        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['direccion']; ?></td>
-        <td class="<?php echo $class_01; ?>" ><?php echo intval($f_i[2]); ?> de <?php echo mes(intval($f_i[1])); ?> de <?php echo $f_i[0]; ?></td>
+        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['direccion']; ?></td>
+        <td class="<?php echo $class_02; ?>" ><?php echo intval($f_i[2]); ?> de <?php echo mes(intval($f_i[1])); ?> de <?php echo $f_i[0]; ?></td>
         <td class="<?php echo $class_01; ?>" ><?php echo intval($f_m[2]); ?> de <?php echo mes(intval($f_m[1])); ?> de <?php echo $f_m[0]; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['nombre_apoderado']; ?></td>
-        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['telefono_apoderado']; ?></td>
+        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['telefono_apoderado']; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['email_apoderado']; ?></td>
         
     </tr>
