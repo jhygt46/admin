@@ -36,11 +36,11 @@ if($tipo == 2){
     }
 
     $list = $list_['resultado'];
-    
+    /*
     echo "<pre>";
     print_r($list);
     echo "</pre>";
-    
+    */
 }
 if($tipo == 3){
     
@@ -173,9 +173,11 @@ if($tipo == 3){
         <td class="color01">Matricula</td>
         <td class="color02">Nombre</td>
         <td class="color01">Rut</td>
-        <td class="color01">Fecha Nac.</td>
+        <td class="color01">Fecha Nac</td>
         <td class="color01">Sexo</td>
         <td class="color01">Direccion</td>
+        <td class="color01">Fecha Mat</td>
+        <td class="color01">Fecha Ing</td>
         <td class="color01">Apoderado</td>
         <td class="color01">Telefono</td>
         <td class="color01">Email</td>
