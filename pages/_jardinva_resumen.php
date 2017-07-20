@@ -152,17 +152,9 @@ if($tipo == 3){
         <tr>
             <td class="<?php echo $c; ?>"><?php echo $r; ?></td>
             <td align="left" style="padding: 2px 4px" class="<?php echo $c; ?>"><?php echo utf8_encode($list[$i]['nombres']); ?> <?php echo utf8_encode($list[$i]['apellido_p']); ?></td>
+            <?php for($i=1; $i<=31; $i++){ ?>
             <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
+            <?php } ?>
         </tr>
         <?php } ?>
     </table>
