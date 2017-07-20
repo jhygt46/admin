@@ -144,17 +144,9 @@ if($tipo == 3){
         <tr class="td1">
             <td width="20" class="color01">#</td>
             <td style="text-align: left; padding: 2px 4px" width="180" class="color01">Nombre</td>
-            <td width="100" class="color01">Matricula</td>
-            <td width="100" class="color01">Marzo</td>
-            <td width="100" class="color01">Abril</td>
-            <td width="100" class="color01">Mayo</td>
-            <td width="100" class="color01">Junio</td>
-            <td width="100" class="color01">Julio</td>
-            <td width="100" class="color01">Agosto</td>
-            <td width="100" class="color01">Septiembre</td>
-            <td width="100" class="color01">Octubre</td>
-            <td width="100" class="color01">Nomviembre</td>
-            <td width="100" class="color01">Diciembre</td>
+            <?php for($i=1; $i<=31; $i++){ ?>
+            <td width="10" class="color01"><?php echo $i; ?></td>
+            <?php } ?>
         </tr>
         <?php for($i=0; $i<count($list); $i++){ $r=$i+1; if($i % 2 == 0){ $c = "color02"; }else{ $c = "color01"; } ?>
         <tr>
