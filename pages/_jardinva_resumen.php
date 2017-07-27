@@ -228,7 +228,16 @@ if($tipo == 2 || $tipo == 4){
         <td width="100">Apoderado</td>
         <td width="100">Telefono</td>
         <td width="100">Email</td>
-        <td width="140"></td>
+        
+        <td width="70">Papa</td>
+        <td width="70">Celular</td>
+        
+        <td width="70">Mama</td>
+        <td width="70">Celular</td>
+        
+        <td width="100">Obervaciones</td>
+        <td width="100">Fecha Retiro</td>
+        <td width="100">Motivo Retiro</td>
     </tr>
     
     
@@ -243,20 +252,27 @@ if($tipo == 2 || $tipo == 4){
     
     <tr class="td3">
         
-        <td class="<?php echo $class_01; ?>" align="center"><?php echo $f; ?></td>
-        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['nmatricula']; ?></td>
-        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['nombres']." ".$list[$i]['apellido_p']." ".$list[$i]['apellido_m']; ?></td>
-        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['rut']; ?></td>
-        <td class="<?php echo $class_01; ?>" ><?php echo intval($f_n[2]); ?>/<?php echo intval($f_n[1]); ?>/<?php echo $f_n[0]; ?></td>
-        <td class="<?php echo $class_02; ?>" ><?php echo ($list[$i]['sexo'] == 1)? "Masculino" : "Femenino"; ?></td>
-        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['direccion']; ?></td>
-        <td class="<?php echo $class_02; ?>" ><?php echo intval($f_i[2]); ?>/<?php echo intval($f_i[1]); ?>/<?php echo $f_i[0]; ?></td>
-        <td class="<?php echo $class_01; ?>" ><?php echo intval($f_m[2]); ?>/<?php echo intval($f_m[1]); ?>/<?php echo $f_m[0]; ?></td>
-        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['nombre_apoderado']; ?></td>
-        <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['telefono_apoderado']; ?></td>
-        <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['email_apoderado']; ?></td>
-        <td class="<?php echo $class_01; ?>" ></td>
+        <td align="center"><?php echo $f; ?></td>
+        <td><?php echo $list[$i]['nmatricula']; ?></td>
+        <td><?php echo $list[$i]['nombres']." ".$list[$i]['apellido_p']." ".$list[$i]['apellido_m']; ?></td>
+        <td><?php echo $list[$i]['rut']; ?></td>
+        <td><?php echo intval($f_n[2]); ?>/<?php echo intval($f_n[1]); ?>/<?php echo $f_n[0]; ?></td>
+        <td><?php echo ($list[$i]['sexo'] == 1)? "Masculino" : "Femenino"; ?></td>
+        <td><?php echo $list[$i]['direccion']; ?></td>
+        <td><?php echo intval($f_i[2]); ?>/<?php echo intval($f_i[1]); ?>/<?php echo $f_i[0]; ?></td>
+        <td><?php echo intval($f_m[2]); ?>/<?php echo intval($f_m[1]); ?>/<?php echo $f_m[0]; ?></td>
+        <td><?php echo $list[$i]['nombre_apoderado']; ?></td>
+        <td><?php echo $list[$i]['telefono_apoderado']; ?></td>
+        <td><?php echo $list[$i]['email_apoderado']; ?></td>
         
+        <td><?php echo $list[$i]['nombre_01']; ?></td>
+        <td><?php echo $list[$i]['celular_01']; ?></td>
+        <td><?php echo $list[$i]['nombre_02']; ?></td>
+        <td><?php echo $list[$i]['celular_02']; ?></td>
+        
+        <td><?php echo $list[$i]['observaciones']; ?></td>
+        <td><?php echo $list[$i]['fecha_retiro']; ?></td>
+        <td><?php echo $list[$i]['motivo_retiro']; ?></td>
     </tr>
     
     <?php } ?>
@@ -273,12 +289,12 @@ if($tipo == 2 || $tipo == 4){
     </table>
 
 <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px" style="margin-top: 25px">
-    <tr style="font-size: 22px; padding: 3px 0px;">
+    <tr style="font-size: 24px; padding: 7px 0px;">
         <td colspan="2" align="center">Alumno</td>
         <td colspan="2" align="center">Mama</td>
         <td colspan="2" align="center">Papa</td>
     </tr>
-    <tr style="font-size: 20px; padding: 2px 0px;">
+    <tr style="font-size: 22px; padding: 5px 0px;">
         <td width="20">#</td>
         <td width="360">Nombre</td>
         <td width="230">Nombre</td>
@@ -291,7 +307,7 @@ if($tipo == 2 || $tipo == 4){
     for($i=0; $i<count($list); $i++){ $f = $i + 1;
     ?>
     
-    <tr style="font-size: 18px; padding: 1px 0px;">
+    <tr style="font-size: 20px; padding: 3px 0px;">
         
         <td><?php echo $f; ?></td>
         <td><?php echo utf8_encode($list[$i]['nombres'])." ".utf8_encode($list[$i]['apellido_p'])." ".utf8_encode($list[$i]['apellido_m']); ?></td>
