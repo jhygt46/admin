@@ -157,14 +157,14 @@ if($tipo == 2){
             <td colspan="2"><img src="http://www.jardinvalleencantado.cl/hada.png"></td>
         </tr>
         <tr>
-            <td colspan="2">Asistencia Por Nivel <?php echo $admin_curso['resultado'][0]['nombre']; ?></td>
+            <td colspan="2" style="font-size: 20px">Asistencia Por Nivel <?php echo $admin_curso['resultado'][0]['nombre']; ?></td>
         </tr>
         <tr>
             <td width="300">Edicadora: ____________</td>
             <td width="300">Fecha: _____/_____</td>
         </tr>
     </table>
-    
+    <br><br><br>
     <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px">
         <tr class="td1">
             <td width="20" class="color01">#</td>
@@ -176,7 +176,7 @@ if($tipo == 2){
         <?php for($i=0; $i<count($list); $i++){ $r=$i+1; if($i % 2 == 0){ $c = "color02"; }else{ $c = "color01"; } ?>
         <tr>
             <td class="<?php echo $c; ?>"><?php echo $r; ?></td>
-            <td align="left" style="padding: 2px 4px" class="<?php echo $c; ?>"><?php echo utf8_encode($list[$i]['nombres']); ?> <?php echo utf8_encode($list[$i]['apellido_p']); ?></td>
+            <td align="left" style="padding: 2px 4px" class="<?php echo $c; ?>"><?php echo utf8_decode($list[$i]['nombres']); ?> <?php echo utf8_encode($list[$i]['apellido_p']); ?></td>
             <?php for($m=1; $m<=31; $m++){ ?>
             <td class="<?php echo $c; ?>"></td>
             <?php } ?>
