@@ -112,40 +112,40 @@ if($tipo == 2){
             <td colspan="2"><img src="../images/hada.jpg"></td>
         </tr>
         <tr>
-            <td colspan="2" style="font-size: 16px">Lista de Pagos</td>
+            <td colspan="2" style="font-size: 18px">Lista de Pagos</td>
         </tr>
     </table>
     <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px" style="margin-top: 25px">
         <tr class="td2">
-            <td width="20" class="color01">#</td>
-            <td style="text-align: left; padding: 2px 4px" width="180" class="color01">Nombre</td>
-            <td width="100" class="color01">Matricula</td>
-            <td width="100" class="color01">Marzo</td>
-            <td width="100" class="color01">Abril</td>
-            <td width="100" class="color01">Mayo</td>
-            <td width="100" class="color01">Junio</td>
-            <td width="100" class="color01">Julio</td>
-            <td width="100" class="color01">Agosto</td>
-            <td width="100" class="color01">Septiembre</td>
-            <td width="100" class="color01">Octubre</td>
-            <td width="100" class="color01">Nomviembre</td>
-            <td width="100" class="color01">Diciembre</td>
+            <td width="20">#</td>
+            <td style="text-align: left; padding: 2px 4px" width="180">Nombre</td>
+            <td width="100">Matricula</td>
+            <td width="100">Marzo</td>
+            <td width="100">Abril</td>
+            <td width="100">Mayo</td>
+            <td width="100">Junio</td>
+            <td width="100">Julio</td>
+            <td width="100">Agosto</td>
+            <td width="100">Septiembre</td>
+            <td width="100">Octubre</td>
+            <td width="100">Nomviembre</td>
+            <td width="100">Diciembre</td>
         </tr>
         <?php for($i=0; $i<count($list); $i++){ $r=$i+1; if($i % 2 == 0){ $c = "color02"; }else{ $c = "color01"; } ?>
         <tr>
-            <td class="<?php echo $c; ?>"><?php echo $r; ?></td>
-            <td align="left" style="padding: 2px 4px" class="<?php echo $c; ?>"><?php echo utf8_encode($list[$i]['nombres']); ?> <?php echo utf8_encode($list[$i]['apellido_p']); ?></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>"></td>
+            <td><?php echo $r; ?></td>
+            <td align="left" style="padding: 2px 4px"><?php echo utf8_encode($list[$i]['nombres']); ?> <?php echo utf8_encode($list[$i]['apellido_p']); ?></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <?php } ?>
     </table>
