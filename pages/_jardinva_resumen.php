@@ -176,7 +176,7 @@ if($tipo == 2){
         <?php for($i=0; $i<count($list); $i++){ $r=$i+1; if($i % 2 == 0){ $c = "color02"; }else{ $c = "color01"; } ?>
         <tr>
             <td class="<?php echo $c; ?>"><?php echo $r; ?></td>
-            <td align="left" style="padding: 2px 4px" class="<?php echo $c; ?>"><?php echo utf8_decode($list[$i]['nombres']); ?> <?php echo utf8_encode($list[$i]['apellido_p']); ?></td>
+            <td align="left" style="padding: 2px 4px" class="<?php echo $c; ?>"><?php echo $list[$i]['nombres']; ?> <?php echo utf8_encode($list[$i]['apellido_p']); ?></td>
             <?php for($m=1; $m<=31; $m++){ ?>
             <td class="<?php echo $c; ?>"></td>
             <?php } ?>
