@@ -167,33 +167,33 @@ if($tipo == 2){
     <br><br><br>
     <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px">
         <tr class="td1">
-            <td width="20" class="color01">#</td>
+            <td width="20">#</td>
             <td style="text-align: left; padding: 2px 4px" width="195" class="color01">Nombre</td>
             <?php for($m=1; $m<=31; $m++){ ?>
-            <td width="35" class="color01"><?php echo $m; ?></td>
+            <td width="35"><?php echo $m; ?></td>
             <?php } ?>
         </tr>
         <?php for($i=0; $i<count($list); $i++){ $r=$i+1; if($i % 2 == 0){ $c = "color02"; }else{ $c = "color01"; } ?>
         <tr>
-            <td class="<?php echo $c; ?>"><?php echo $r; ?></td>
-            <td align="left" style="padding: 2px 4px" class="<?php echo $c; ?>">- <?php echo htmlentities($list[$i]['nombres']); ?> <?php echo utf8_encode($list[$i]['apellido_p']); ?></td>
+            <td><?php echo $r; ?></td>
+            <td align="left" style="padding: 2px 4px">- <?php echo htmlentities($list[$i]['nombres']); ?> <?php echo utf8_encode($list[$i]['apellido_p']); ?></td>
             <?php for($m=1; $m<=31; $m++){ ?>
-            <td class="<?php echo $c; ?>"></td>
+            <td></td>
             <?php } ?>
         </tr>
         <?php } ?>
         <tr>
-            <td class="<?php echo $c; ?>"></td>
-            <td style="padding: 2px 4px" class="<?php echo $c; ?>">Total Presentes</td>
+            <td></td>
+            <td style="padding: 2px 4px">Total Presentes</td>
             <?php for($m=1; $m<=31; $m++){ ?>
-            <td class="<?php echo $c; ?>"></td>
+            <td></td>
             <?php } ?>
         </tr>
         <tr>
-            <td class="<?php echo $c; ?>"></td>
-            <td style="padding: 2px 4px" class="<?php echo $c; ?>">Total Ausentes</td>
+            <td></td>
+            <td style="padding: 2px 4px">Total Ausentes</td>
             <?php for($m=1; $m<=31; $m++){ ?>
-            <td class="<?php echo $c; ?>"></td>
+            <td></td>
             <?php } ?>
         </tr>
     </table>
