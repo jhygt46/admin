@@ -273,12 +273,12 @@ if($tipo == 2 || $tipo == 4){
     </table>
 
 <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px" style="margin-top: 25px">
-    <tr style="font-size: 20px">
+    <tr style="font-size: 22px; padding: 3px 0px;">
         <td colspan="2" align="center">Alumno</td>
         <td colspan="2" align="center">Mama</td>
         <td colspan="2" align="center">Papa</td>
     </tr>
-    <tr style="font-size: 20px">
+    <tr style="font-size: 20px; padding: 2px 0px;">
         <td width="20">#</td>
         <td width="360">Nombre</td>
         <td width="230">Nombre</td>
@@ -291,7 +291,7 @@ if($tipo == 2 || $tipo == 4){
     for($i=0; $i<count($list); $i++){ $f = $i + 1;
     ?>
     
-    <tr style="font-size: 20px">
+    <tr style="font-size: 18px; padding: 1px 0px;">
         
         <td><?php echo $f; ?></td>
         <td><?php echo utf8_encode($list[$i]['nombres'])." ".utf8_encode($list[$i]['apellido_p'])." ".utf8_encode($list[$i]['apellido_m']); ?></td>
