@@ -218,12 +218,12 @@ if($tipo == 2 || $tipo == 4){
     <tr class="td2">
         
         <td width="15">#</td>
-        <td width="60">Matri</td>
+        <td width="40">Matri</td>
         <td width="160">Nombre</td>
         <td width="80">Rut</td>
         <td width="60">Fecha Nac</td>
         <td width="30">Sexo</td>
-        <td width="160">Direccion</td>
+        <td width="150">Direccion</td>
         <td width="60">Fecha Mat</td>
         <td width="60">Fecha Ing</td>
 
@@ -231,11 +231,11 @@ if($tipo == 2 || $tipo == 4){
         <td width="80">Telefono</td>
         <td width="80">Email</td>
 
-        <td width="50">Mama</td>
-        <td width="50">Celular</td>
+        <td width="60">Mama</td>
+        <td width="60">Celular</td>
         
-        <td width="55">Papa</td>
-        <td width="55">Celular</td>
+        <td width="60">Papa</td>
+        <td width="60">Celular</td>
         
         <td width="60">Obervaciones</td>
         <td width="60">Fecha Retiro</td>
