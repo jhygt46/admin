@@ -119,17 +119,17 @@ if($tipo == 2){
         <tr class="td2">
             <td width="20">#</td>
             <td style="text-align: left; padding: 2px 4px" width="180">Nombre</td>
-            <td width="100">Matricula</td>
-            <td width="100">Marzo</td>
-            <td width="100">Abril</td>
-            <td width="100">Mayo</td>
-            <td width="100">Junio</td>
-            <td width="100">Julio</td>
-            <td width="100">Agosto</td>
-            <td width="100">Septiembre</td>
-            <td width="100">Octubre</td>
-            <td width="100">Nomviembre</td>
-            <td width="100">Diciembre</td>
+            <td width="100" style="padding-left: 4px">Matricula</td>
+            <td width="100" style="padding-left: 4px">Marzo</td>
+            <td width="100" style="padding-left: 4px">Abril</td>
+            <td width="100" style="padding-left: 4px">Mayo</td>
+            <td width="100" style="padding-left: 4px">Junio</td>
+            <td width="100" style="padding-left: 4px">Julio</td>
+            <td width="100" style="padding-left: 4px">Agosto</td>
+            <td width="100" style="padding-left: 4px">Septiembre</td>
+            <td width="100" style="padding-left: 4px">Octubre</td>
+            <td width="100" style="padding-left: 4px">Nomviembre</td>
+            <td width="100" style="padding-left: 4px">Diciembre</td>
         </tr>
         <?php for($i=0; $i<count($list); $i++){ $r=$i+1; if($i % 2 == 0){ $c = "color02"; }else{ $c = "color01"; } ?>
         <tr>
