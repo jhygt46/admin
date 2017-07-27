@@ -154,7 +154,7 @@ if($tipo == 2){
 
     <table cellspacing="0" cellpadding="0" border="0">
         <tr>
-            <td colspan="2"><img src="http://www.jardinvalleencantado.cl/hada.png"></td>
+            <td colspan="2"><img src="../images/hada.png"></td>
         </tr>
         <tr>
             <td colspan="2" style="font-size: 20px">Asistencia Por Nivel <?php echo $admin_curso['resultado'][0]['nombre']; ?></td>
@@ -184,14 +184,14 @@ if($tipo == 2){
         <?php } ?>
         <tr>
             <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>">Total Presentes</td>
+            <td style="padding: 2px 4px" class="<?php echo $c; ?>">Total Presentes</td>
             <?php for($m=1; $m<=31; $m++){ ?>
             <td class="<?php echo $c; ?>"></td>
             <?php } ?>
         </tr>
         <tr>
             <td class="<?php echo $c; ?>"></td>
-            <td class="<?php echo $c; ?>">Total Ausentes</td>
+            <td style="padding: 2px 4px" class="<?php echo $c; ?>">Total Ausentes</td>
             <?php for($m=1; $m<=31; $m++){ ?>
             <td class="<?php echo $c; ?>"></td>
             <?php } ?>
