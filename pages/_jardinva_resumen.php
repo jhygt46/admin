@@ -274,17 +274,17 @@ if($tipo == 2 || $tipo == 4){
 
 <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px" style="margin-top: 25px">
     <tr>
-        <td colspan="2">Alumno</td>
-        <td colspan="2">Mama</td>
-        <td colspan="2">Papa</td>
+        <td colspan="2" align="center">Alumno</td>
+        <td colspan="2" align="center">Mama</td>
+        <td colspan="2" align="center">Papa</td>
     </tr>
     <tr class="td2">
         <td width="20">#</td>
-        <td width="60">Nombre</td>
-        <td width="160">Nombre</td>
-        <td width="70">Celular</td>
-        <td width="100">Nombre</td>
-        <td width="60">Celular</td>
+        <td width="360">Nombre</td>
+        <td width="230">Nombre</td>
+        <td width="230">Celular</td>
+        <td width="230">Nombre</td>
+        <td width="230">Celular</td>
     </tr>
     
     <?php
