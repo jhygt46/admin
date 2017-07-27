@@ -229,10 +229,10 @@ if($tipo == 2 || $tipo == 4){
         <td width="100">Telefono</td>
         <td width="100">Email</td>
         
-        <td width="70">Papa</td>
+        <td width="70">Mama</td>
         <td width="70">Celular</td>
         
-        <td width="70">Mama</td>
+        <td width="70">Papa</td>
         <td width="70">Celular</td>
         
         <td width="100">Obervaciones</td>
@@ -256,18 +256,18 @@ if($tipo == 2 || $tipo == 4){
         <td><?php echo $list[$i]['nmatricula']; ?></td>
         <td><?php echo $list[$i]['nombres']." ".$list[$i]['apellido_p']." ".$list[$i]['apellido_m']; ?></td>
         <td><?php echo $list[$i]['rut']; ?></td>
-        <td><?php echo intval($f_n[2]); ?>/<?php echo intval($f_n[1]); ?>/<?php echo $f_n[0]; ?></td>
+        <td><?php echo $f_n; ?></td>
         <td><?php echo ($list[$i]['sexo'] == 1)? "Masculino" : "Femenino"; ?></td>
         <td><?php echo $list[$i]['direccion']; ?></td>
-        <td><?php echo intval($f_i[2]); ?>/<?php echo intval($f_i[1]); ?>/<?php echo $f_i[0]; ?></td>
-        <td><?php echo intval($f_m[2]); ?>/<?php echo intval($f_m[1]); ?>/<?php echo $f_m[0]; ?></td>
-        <td><?php echo $list[$i]['nombre_apoderado']; ?></td>
+        <td><?php echo $f_i; ?></td>
+        <td><?php echo $f_m; ?></td>
+        <td><?php echo utf8_encode($list[$i]['nombre_apoderado']); ?></td>
         <td><?php echo $list[$i]['telefono_apoderado']; ?></td>
         <td><?php echo $list[$i]['email_apoderado']; ?></td>
         
-        <td><?php echo $list[$i]['nombre_01']; ?></td>
+        <td><?php echo utf8_encode($list[$i]['nombre_01']); ?></td>
         <td><?php echo $list[$i]['celular_01']; ?></td>
-        <td><?php echo $list[$i]['nombre_02']; ?></td>
+        <td><?php echo utf8_encode($list[$i]['nombre_02']); ?></td>
         <td><?php echo $list[$i]['celular_02']; ?></td>
         
         <td><?php echo $list[$i]['observaciones']; ?></td>
@@ -276,6 +276,7 @@ if($tipo == 2 || $tipo == 4){
     </tr>
     
     <?php } ?>
+</table>
 <?php } ?>
     <?php if($tipo == 4){ ?>
 
@@ -319,6 +320,7 @@ if($tipo == 2 || $tipo == 4){
     </tr>
     
     <?php } ?>
+    </html>
 <?php } ?>
 </body>
 </html>
