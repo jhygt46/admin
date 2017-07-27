@@ -49,59 +49,67 @@ if($tipo == 2){
     
 }
 ?>
-<style>
-    body{
-        margin: 0px;
-    }
-    .tabla{
-        
-    }
-    .tabla tr{
-        
-    }
-    .td1{
-        height: 60px;
-        font-size: 16px;
-    }
-    .td1 td{
-        text-align: center;
-    }
-    .td2{
-        height: 40px;
-        font-size: 14px;
-    }
-    .td3{
-        height: 30px;
-        font-size: 12px;
-    }
-    .color01{
-        background: #efefef;
-    }
-    .color01a{
-        background: #e8e8e8;
-    }
-    .color01b{
-        background: #f9f9f9;
-    }
-    .color01c{
-        background: #f4f4f4;
-    }
-    .color02{
-        background: #eaeaea;
-    }
-    .color02a{
-        background: #e4e4e4;
-    }
-    .color02b{
-        background: #f8f8f8;
-    }
-    .color02c{
-        background: #f3f3f3;
-    }
-    .padd{
-        padding-left: 5px;
-    }
-</style>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="es-CL">
+    <head>
+        <title>Jardin Valle Encantado - Administrador</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <style>
+            body{
+                margin: 0px;
+            }
+            .tabla{
+
+            }
+            .tabla tr{
+
+            }
+            .td1{
+                height: 60px;
+                font-size: 16px;
+            }
+            .td1 td{
+                text-align: center;
+            }
+            .td2{
+                height: 40px;
+                font-size: 14px;
+            }
+            .td3{
+                height: 30px;
+                font-size: 12px;
+            }
+            .color01{
+                background: #efefef;
+            }
+            .color01a{
+                background: #e8e8e8;
+            }
+            .color01b{
+                background: #f9f9f9;
+            }
+            .color01c{
+                background: #f4f4f4;
+            }
+            .color02{
+                background: #eaeaea;
+            }
+            .color02a{
+                background: #e4e4e4;
+            }
+            .color02b{
+                background: #f8f8f8;
+            }
+            .color02c{
+                background: #f3f3f3;
+            }
+            .padd{
+                padding-left: 5px;
+            }
+        </style>
+    </head>
+    <body>
+
 
 <?php if($tipo == 1){ ?>
 
@@ -143,7 +151,14 @@ if($tipo == 2){
 
 
 <?php if($tipo == 3){ ?>
-
+    
+    <table cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td><img src=""</td>
+        </tr>
+    
+    </table>
+    
     <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px">
         <tr class="td1">
             <td width="20" class="color01">#</td>
@@ -242,7 +257,8 @@ if($tipo == 2){
     
     <?php } ?>
 <?php } ?>
-
+</body>
+</html>
 <?php
 
     function mes($i){
