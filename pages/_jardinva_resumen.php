@@ -294,11 +294,11 @@ if($tipo == 2 || $tipo == 4){
     <tr class="td3">
         
         <td><?php echo $f; ?></td>
-        <td><?php echo $list[$i]['nombres']." ".$list[$i]['apellido_p']." ".$list[$i]['apellido_m']; ?></td>
-        <td><?php echo $list[$i]['nombre_01'] ?></td>
-        <td><?php echo $list[$i]['celular_01'] ?></td>
-        <td><?php echo $list[$i]['nombre_02'] ?></td>
-        <td><?php echo $list[$i]['celular_02'] ?></td>
+        <td><?php echo utf8_encode($list[$i]['nombres'])." ".utf8_encode($list[$i]['apellido_p'])." ".utf8_encode($list[$i]['apellido_m']); ?></td>
+        <td><?php echo utf8_encode($list[$i]['nombre_01']); ?></td>
+        <td><?php echo $list[$i]['celular_01']; ?></td>
+        <td><?php echo utf8_encode($list[$i]['nombre_02']); ?></td>
+        <td><?php echo $list[$i]['celular_02']; ?></td>
         
     </tr>
     
