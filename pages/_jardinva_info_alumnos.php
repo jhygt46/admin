@@ -120,8 +120,6 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         <li class="ic4" onclick="openwn('pages/_jardinva_resumen.php?tipo=2', 1320, 650)" title="Informacion"></li>
                     </ul>
                 </li>
-            </ul>
-            <ul class="ops clearfix">
                 <li class="op">
                     <ul class="ss clearfix">
                         <li></li>
