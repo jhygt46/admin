@@ -213,7 +213,7 @@ if($tipo == 2 || $tipo == 4){
         </tr>
     </table>
 
-<table cellspacing="0" cellpadding="0" class="tabla" border="0" width="1300px" style="margin-top: 25px">
+<table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px" style="margin-top: 25px">
     
     <tr class="td2">
         <td width="20">#</td>
