@@ -115,7 +115,7 @@ if($tipo == 2){
             <td colspan="2" style="font-size: 16px">Lista de Pagos</td>
         </tr>
     </table>
-    <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px" style="padding-top: 25px">
+    <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px" style="margin-top: 25px">
         <tr class="td2">
             <td width="20" class="color01">#</td>
             <td style="text-align: left; padding: 2px 4px" width="180" class="color01">Nombre</td>
