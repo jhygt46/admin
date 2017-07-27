@@ -151,12 +151,18 @@ if($tipo == 2){
 
 
 <?php if($tipo == 3){ ?>
-    
+
     <table cellspacing="0" cellpadding="0" border="0">
         <tr>
-            <td><img src="http://www.jardinvalleencantado.cl/hada.png"></td>
+            <td colspan="2"><img src="http://www.jardinvalleencantado.cl/hada.png"></td>
         </tr>
-    
+        <tr>
+            <td colspan="2">Asistencia Por Nivel <?php echo $admin_curso['resultado'][0]['nombre']; ?></td>
+        </tr>
+        <tr>
+            <td width="300">Edicadora: ____________</td>
+            <td width="300">Fecha: _____/_____</td>
+        </tr>
     </table>
     
     <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px">
