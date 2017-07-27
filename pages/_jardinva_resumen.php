@@ -36,11 +36,11 @@ if($tipo == 3){
     }
 
     $list = $list_['resultado'];
-    /*
+    
     echo "<pre>";
     print_r($list);
     echo "</pre>";
-    */
+    
 }
 if($tipo == 2){
     
