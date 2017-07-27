@@ -38,7 +38,7 @@ if($tipo == 3){
     $list = $list_['resultado'];
     
 }
-if($tipo == 2){
+if($tipo == 2 || $tipo == 4){
     
     $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE eliminado='0' AND id_page='1'");
     $list = $list_['resultado'];
