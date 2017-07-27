@@ -203,30 +203,32 @@ if($tipo == 2){
 
 
 <?php if($tipo == 2){ ?>
-<style>
-    .color01{
-        padding-left: 4px;
-    }
-    .color02{
-        padding-left: 4px;
-    }
-</style>
-<table cellspacing="0" cellpadding="0" class="tabla" border="0" width="1300px">
+
+    <table cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td colspan="2"><img src="../images/hada.jpg"></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="font-size: 18px; padding-top: 5px;">Informacion</td>
+        </tr>
+    </table>
+
+<table cellspacing="0" cellpadding="0" class="tabla" border="0" width="1300px" style="margin-top: 25px">
     
     <tr class="td2">
-        <td width="20" class="color01">#</td>
-        <td width="60" class="color02">Matricula</td>
-        <td width="160" class="color01">Nombre</td>
-        <td width="70" class="color02">Rut</td>
-        <td width="100" class="color01">Fecha Nac</td>
-        <td width="60" class="color02">Sexo</td>
-        <td width="190" class="color01">Direccion</td>
-        <td width="100" class="color02">Fecha Mat</td>
-        <td width="100" class="color01">Fecha Ing</td>
-        <td width="100" class="color02">Apoderado</td>
-        <td width="100" class="color01">Telefono</td>
-        <td width="100" class="color02">Email</td>
-        <td width="140" class="color01"></td>
+        <td width="20">#</td>
+        <td width="60">Matricula</td>
+        <td width="160">Nombre</td>
+        <td width="70">Rut</td>
+        <td width="100">Fecha Nac</td>
+        <td width="60">Sexo</td>
+        <td width="190">Direccion</td>
+        <td width="100">Fecha Mat</td>
+        <td width="100">Fecha Ing</td>
+        <td width="100">Apoderado</td>
+        <td width="100">Telefono</td>
+        <td width="100">Email</td>
+        <td width="140"></td>
     </tr>
     
     
@@ -234,16 +236,10 @@ if($tipo == 2){
     
     for($i=0; $i<count($list); $i++){ 
         $f = $i + 1;
-        $f_n = explode("-", $list[$i]['fecha_nacimiento']);
-        $f_i = explode("-", $list[$i]['fecha_ingreso']);
-        $f_m = explode("-", $list[$i]['fecha_matricula']);
-        if($i % 2 == 0){ 
-            $class_01 = "color01b"; 
-            $class_02 = "color02b"; 
-        }else{ 
-            $class_01 = "color01c";
-            $class_02 = "color02c";
-        } ?>
+        $f_n = strtotime($list[$i]['fecha_nacimiento']);
+        $f_i = strtotime($list[$i]['fecha_ingreso']);
+        $f_m = strtotime($list[$i]['fecha_matricula']);
+        ?>
     
     <tr class="td3">
         
@@ -260,6 +256,49 @@ if($tipo == 2){
         <td class="<?php echo $class_01; ?>" ><?php echo $list[$i]['telefono_apoderado']; ?></td>
         <td class="<?php echo $class_02; ?>" ><?php echo $list[$i]['email_apoderado']; ?></td>
         <td class="<?php echo $class_01; ?>" ></td>
+        
+    </tr>
+    
+    <?php } ?>
+<?php } ?>
+    <?php if($tipo == 4){ ?>
+
+    <table cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td colspan="2"><img src="../images/hada.jpg"></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="font-size: 18px; padding-top: 5px;">Datos Generales</td>
+        </tr>
+    </table>
+
+<table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px" style="margin-top: 25px">
+    <tr>
+        <td colspan="2">Alumno</td>
+        <td colspan="2">Mama</td>
+        <td colspan="2">Papa</td>
+    </tr>
+    <tr class="td2">
+        <td width="20">#</td>
+        <td width="60">Nombre</td>
+        <td width="160">Nombre</td>
+        <td width="70">Celular</td>
+        <td width="100">Nombre</td>
+        <td width="60">Celular</td>
+    </tr>
+    
+    <?php
+    for($i=0; $i<count($list); $i++){ $f = $i + 1;
+    ?>
+    
+    <tr class="td3">
+        
+        <td><?php echo $f; ?></td>
+        <td><?php echo $list[$i]['nombres']." ".$list[$i]['apellido_p']." ".$list[$i]['apellido_m']; ?></td>
+        <td><?php echo $list[$i]['nombre_01'] ?></td>
+        <td><?php echo $list[$i]['celular_01'] ?></td>
+        <td><?php echo $list[$i]['nombre_02'] ?></td>
+        <td><?php echo $list[$i]['celular_02'] ?></td>
         
     </tr>
     
