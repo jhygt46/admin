@@ -248,6 +248,25 @@ if($tipo == 2 || $tipo == 4){
         $f_n = strtotime($list[$i]['fecha_nacimiento']);
         $f_i = strtotime($list[$i]['fecha_ingreso']);
         $f_m = strtotime($list[$i]['fecha_matricula']);
+        $f_r = strtotime($list[$i]['fecha_retiro']);
+        
+        if($list[$i]['motivo_retiro'] == 0){
+            $m = "";
+        }
+        if($list[$i]['motivo_retiro'] == 1){
+            $m = "Cumplio 2 Años";
+        }
+        if($list[$i]['motivo_retiro'] == 2){
+            $m = "Efermedad";
+        }
+        if($list[$i]['motivo_retiro'] == 3){
+            $m = "Decision Padres";
+        }
+        if($list[$i]['motivo_retiro'] == 4){
+            $m = "Egreso";
+        }
+        
+        
         ?>
     
     <tr class="td3">
@@ -256,11 +275,11 @@ if($tipo == 2 || $tipo == 4){
         <td><?php echo $list[$i]['nmatricula']; ?></td>
         <td><?php echo $list[$i]['nombres']." ".$list[$i]['apellido_p']." ".$list[$i]['apellido_m']; ?></td>
         <td><?php echo $list[$i]['rut']; ?></td>
-        <td><?php echo $f_n; ?></td>
-        <td><?php echo ($list[$i]['sexo'] == 1)? "Masculino" : "Femenino"; ?></td>
+        <td><?php echo date("d/m/Y", $f_n); ?></td>
+        <td><?php echo ($list[$i]['sexo'] == 1)? "M" : "F"; ?></td>
         <td><?php echo $list[$i]['direccion']; ?></td>
-        <td><?php echo $f_i; ?></td>
-        <td><?php echo $f_m; ?></td>
+        <td><?php echo date("d/m/Y", $f_i); ?></td>
+        <td><?php echo date("d/m/Y", $f_m); ?></td>
         <td><?php echo utf8_encode($list[$i]['nombre_apoderado']); ?></td>
         <td><?php echo $list[$i]['telefono_apoderado']; ?></td>
         <td><?php echo $list[$i]['email_apoderado']; ?></td>
@@ -271,8 +290,8 @@ if($tipo == 2 || $tipo == 4){
         <td><?php echo $list[$i]['celular_02']; ?></td>
         
         <td><?php echo $list[$i]['observaciones']; ?></td>
-        <td><?php echo $list[$i]['fecha_retiro']; ?></td>
-        <td><?php echo $list[$i]['motivo_retiro']; ?></td>
+        <td><?php echo date("d/m/Y", $f_r); ?></td>
+        <td><?php echo $m; ?></td>
     </tr>
     
     <?php } ?>
