@@ -154,7 +154,7 @@ if($tipo == 2){
     
     <table cellspacing="0" cellpadding="0" border="0">
         <tr>
-            <td><img src=""</td>
+            <td><img src="http://www.jardinvalleencantado.cl/hada.png"></td>
         </tr>
     
     </table>
