@@ -54,6 +54,8 @@ if($tipo == 2){
     <head>
         <title>Jardin Valle Encantado - Administrador</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
         <style>
             body{
                 margin: 0px;
@@ -107,9 +109,6 @@ if($tipo == 2){
                 padding-left: 5px;
             }
         </style>
-    </head>
-    <body>
-
 
 <?php if($tipo == 1){ ?>
 
