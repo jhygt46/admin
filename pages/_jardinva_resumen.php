@@ -154,7 +154,7 @@ if($tipo == 2){
 
     <table cellspacing="0" cellpadding="0" border="0">
         <tr>
-            <td colspan="2"><img src="../images/hada.png"></td>
+            <td colspan="2"><img src="../images/hada.jpg"></td>
         </tr>
         <tr>
             <td colspan="2" style="font-size: 20px">Asistencia Por Nivel <?php echo $admin_curso['resultado'][0]['nombre']; ?></td>
