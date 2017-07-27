@@ -177,15 +177,15 @@ if($tipo == 2){
         </tr>
         <?php } ?>
         <tr>
-            <td></td>
-            <td>Total Presentes</td>
+            <td class="<?php echo $c; ?>"></td>
+            <td class="<?php echo $c; ?>">Total Presentes</td>
             <?php for($m=1; $m<=31; $m++){ ?>
             <td class="<?php echo $c; ?>"></td>
             <?php } ?>
         </tr>
         <tr>
-            <td></td>
-            <td>Total Ausentes</td>
+            <td class="<?php echo $c; ?>"></td>
+            <td class="<?php echo $c; ?>">Total Ausentes</td>
             <?php for($m=1; $m<=31; $m++){ ?>
             <td class="<?php echo $c; ?>"></td>
             <?php } ?>
