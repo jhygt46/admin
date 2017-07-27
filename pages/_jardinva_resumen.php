@@ -112,7 +112,7 @@ if($tipo == 2){
             <td colspan="2"><img src="../images/hada.jpg"></td>
         </tr>
         <tr>
-            <td colspan="2" style="font-size: 18px">Lista de Pagos</td>
+            <td colspan="2" style="font-size: 18px; padding-top: 5px;">Lista de Pagos</td>
         </tr>
     </table>
     <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px" style="margin-top: 25px">
