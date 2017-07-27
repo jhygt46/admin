@@ -161,6 +161,20 @@ if($tipo == 2){
             <?php } ?>
         </tr>
         <?php } ?>
+        <tr>
+            <td></td>
+            <td>Total Presentes</td>
+            <?php for($m=1; $m<=31; $m++){ ?>
+            <td class="<?php echo $c; ?>"></td>
+            <?php } ?>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Total Ausentes</td>
+            <?php for($m=1; $m<=31; $m++){ ?>
+            <td class="<?php echo $c; ?>"></td>
+            <?php } ?>
+        </tr>
     </table>
 <?php } ?>
 
