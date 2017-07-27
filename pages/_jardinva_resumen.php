@@ -107,7 +107,15 @@ if($tipo == 2){
         </style>
 
 <?php if($tipo == 1){ ?>
-
+    <table cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td colspan="2"><img src="../images/hada.jpg"></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="font-size: 20px">Lista de Pagos</td>
+        </tr>
+    </table>
+    <br><br>
     <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px">
         <tr class="td2">
             <td width="20" class="color01">#</td>
@@ -155,7 +163,7 @@ if($tipo == 2){
             <td colspan="2" style="font-size: 20px">Asistencia Por Nivel <?php echo $admin_curso['resultado'][0]['nombre']; ?></td>
         </tr>
         <tr>
-            <td width="300">Edicadora: ____________</td>
+            <td width="300" style="padding: 5px 0px">Educadora: ____________</td>
             <td width="300">Fecha: _____/_____</td>
         </tr>
     </table>
