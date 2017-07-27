@@ -286,11 +286,11 @@ if($tipo == 2 || $tipo == 4){
         <td><?php echo $list[$i]['nmatricula']; ?></td>
         <td><?php echo $list[$i]['nombres']." ".$list[$i]['apellido_p']." ".$list[$i]['apellido_m']; ?></td>
         <td><?php echo $list[$i]['rut']; ?></td>
-        <td><?php echo $f_n; ?></td>
-        <td><?php echo ($list[$i]['sexo'] == 1)? "M" : "F"; ?></td>
+        <td align="center"><?php echo $f_n; ?></td>
+        <td align="center"><?php echo ($list[$i]['sexo'] == 1)? "M" : "F"; ?></td>
         <td><?php echo $list[$i]['direccion']; ?></td>
-        <td><?php echo $f_i; ?></td>
-        <td><?php echo $f_m; ?></td>
+        <td align="center"><?php echo $f_i; ?></td>
+        <td align="center"><?php echo $f_m; ?></td>
         <td><?php echo utf8_encode($list[$i]['nombre_apoderado']); ?></td>
         <td><?php echo $list[$i]['telefono_apoderado']; ?></td>
         <td><?php echo $list[$i]['email_apoderado']; ?></td>
@@ -301,7 +301,7 @@ if($tipo == 2 || $tipo == 4){
         <td><?php echo $list[$i]['celular_02']; ?></td>
         
         <td><?php echo $list[$i]['observaciones']; ?></td>
-        <td><?php echo $f_r; ?></td>
+        <td align="center"><?php echo $f_r; ?></td>
         <td><?php echo $m; ?></td>
     </tr>
     
