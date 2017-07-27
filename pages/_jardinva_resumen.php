@@ -216,28 +216,31 @@ if($tipo == 2 || $tipo == 4){
 <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px" style="margin-top: 25px">
     
     <tr class="td2">
-        <td width="20">#</td>
-        <td width="60">Matricula</td>
+        
+        <td width="15">#</td>
+        <td width="60">Matri</td>
         <td width="160">Nombre</td>
-        <td width="70">Rut</td>
-        <td width="100">Fecha Nac</td>
-        <td width="60">Sexo</td>
-        <td width="190">Direccion</td>
-        <td width="100">Fecha Mat</td>
-        <td width="100">Fecha Ing</td>
-        <td width="100">Apoderado</td>
-        <td width="100">Telefono</td>
-        <td width="100">Email</td>
+        <td width="80">Rut</td>
+        <td width="80">Fecha Nac</td>
+        <td width="40">Sexo</td>
+        <td width="160">Direccion</td>
+        <td width="80">Fecha Mat</td>
+        <td width="80">Fecha Ing</td>
+
+        <td width="80">Apoderado</td>
+        <td width="80">Telefono</td>
+        <td width="80">Email</td>
+
+        <td width="50">Mama</td>
+        <td width="50">Celular</td>
         
-        <td width="70">Mama</td>
-        <td width="70">Celular</td>
+        <td width="50">Papa</td>
+        <td width="50">Celular</td>
         
-        <td width="70">Papa</td>
-        <td width="70">Celular</td>
+        <td width="30">Obervaciones</td>
+        <td width="30">Fecha Retiro</td>
+        <td width="45">Motivo Retiro</td>
         
-        <td width="100">Obervaciones</td>
-        <td width="100">Fecha Retiro</td>
-        <td width="100">Motivo Retiro</td>
     </tr>
     
     
