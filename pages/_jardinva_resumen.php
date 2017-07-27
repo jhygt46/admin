@@ -168,7 +168,7 @@ if($tipo == 2){
     <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px">
         <tr class="td1">
             <td width="20">#</td>
-            <td style="text-align: left; padding: 2px 4px" width="195" class="color01">Nombre</td>
+            <td style="text-align: left; padding: 2px 4px" width="195">Nombre</td>
             <?php for($m=1; $m<=31; $m++){ ?>
             <td width="35"><?php echo $m; ?></td>
             <?php } ?>
@@ -176,7 +176,7 @@ if($tipo == 2){
         <?php for($i=0; $i<count($list); $i++){ $r=$i+1; if($i % 2 == 0){ $c = "color02"; }else{ $c = "color01"; } ?>
         <tr>
             <td><?php echo $r; ?></td>
-            <td align="left" style="padding: 2px 4px">- <?php echo htmlentities($list[$i]['nombres']); ?> <?php echo utf8_encode($list[$i]['apellido_p']); ?></td>
+            <td align="left" style="padding: 2px 4px">- <?php echo $list[$i]['nombres']; ?> <?php echo $list[$i]['apellido_p']; ?></td>
             <?php for($m=1; $m<=31; $m++){ ?>
             <td></td>
             <?php } ?>
