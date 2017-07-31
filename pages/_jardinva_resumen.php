@@ -163,7 +163,7 @@ if($tipo == 2 || $tipo == 4){
         </tr>
         <tr>
             <td width="300" style="padding: 5px 0px">Educadora: ____________</td>
-            <td width="300">Fecha: _____/_____</td>
+            <td width="300" style="padding-top: 10px;">Fecha: _____/_____</td>
         </tr>
     </table>
     <br><br><br>
