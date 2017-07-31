@@ -109,7 +109,7 @@ if($tipo == 2 || $tipo == 4){
 <?php if($tipo == 1){ ?>
     <table cellspacing="0" cellpadding="0" border="0">
         <tr>
-            <td colspan="2"><img src="../images/hada.jpg"></td>
+            <td colspan="2"><img src="../images/hada2.jpg"></td>
         </tr>
         <tr>
             <td colspan="2" style="font-size: 18px; padding-top: 5px;">Lista de Pagos</td>
@@ -156,7 +156,7 @@ if($tipo == 2 || $tipo == 4){
 
     <table cellspacing="0" cellpadding="0" border="0">
         <tr>
-            <td colspan="2"><img src="../images/hada.jpg"></td>
+            <td colspan="2"><img src="../images/hada2.jpg"></td>
         </tr>
         <tr>
             <td colspan="2" style="font-size: 20px">Asistencia Por Nivel <?php echo $admin_curso['resultado'][0]['nombre']; ?></td>
@@ -206,7 +206,7 @@ if($tipo == 2 || $tipo == 4){
 
     <table cellspacing="0" cellpadding="0" border="0">
         <tr>
-            <td colspan="2"><img src="../images/hada.jpg"></td>
+            <td colspan="2"><img src="../images/hada2.jpg"></td>
         </tr>
         <tr>
             <td colspan="2" style="font-size: 18px; padding-top: 5px;">Informacion</td>
@@ -312,7 +312,7 @@ if($tipo == 2 || $tipo == 4){
 
     <table cellspacing="0" cellpadding="0" border="0">
         <tr>
-            <td colspan="2"><img src="../images/hada.jpg"></td>
+            <td colspan="2"><img src="../images/hada2.jpg"></td>
         </tr>
         <tr>
             <td colspan="2" style="font-size: 18px; padding-top: 5px;">Datos Generales</td>
