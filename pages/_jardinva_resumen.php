@@ -134,7 +134,7 @@ if($tipo == 2 || $tipo == 4){
         <?php for($i=0; $i<count($list); $i++){ $r=$i+1; if($i % 2 == 0){ $c = "color02"; }else{ $c = "color01"; } ?>
         <tr>
             <td><?php echo $r; ?></td>
-            <td align="left" style="padding: 2px 4px"><?php echo utf8_encode($list[$i]['nombres']); ?> <?php echo utf8_encode($list[$i]['apellido_p']); ?></td>
+            <td align="left" style="padding: 2px 4px"><?php echo utf8_encode($list[$i]['apellido_p']); ?> <?php echo utf8_encode($list[$i]['apellido_m']); ?> <?php echo utf8_encode($list[$i]['nombres']); ?></td>
             <td></td>
             <td></td>
             <td></td>
@@ -284,7 +284,7 @@ if($tipo == 2 || $tipo == 4){
         
         <td align="center"><?php echo $f; ?></td>
         <td><?php echo $list[$i]['nmatricula']; ?></td>
-        <td><?php echo $list[$i]['nombres']." ".$list[$i]['apellido_p']." ".$list[$i]['apellido_m']; ?></td>
+        <td><?php echo $list[$i]['apellido_p']." ".$list[$i]['apellido_m']." ".$list[$i]['nombres']; ?></td>
         <td><?php echo $list[$i]['rut']; ?></td>
         <td align="center"><?php echo $f_n; ?></td>
         <td align="center"><?php echo ($list[$i]['sexo'] == 1)? "M" : "F"; ?></td>
@@ -341,7 +341,7 @@ if($tipo == 2 || $tipo == 4){
     <tr style="font-size: 20px; padding: 3px 0px;">
         
         <td><?php echo $f; ?></td>
-        <td><?php echo utf8_encode($list[$i]['nombres'])." ".utf8_encode($list[$i]['apellido_p'])." ".utf8_encode($list[$i]['apellido_m']); ?></td>
+        <td><?php echo utf8_encode($list[$i]['apellido_p'])." ".utf8_encode($list[$i]['apellido_m'])." ".utf8_encode($list[$i]['nombres']); ?></td>
         <td><?php echo utf8_encode($list[$i]['nombre_01']); ?></td>
         <td><?php echo $list[$i]['celular_01']; ?></td>
         <td><?php echo utf8_encode($list[$i]['nombre_02']); ?></td>
