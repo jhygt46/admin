@@ -20,7 +20,7 @@ $db_var_name = "_jardinva";
 
 if($tipo == 1){
     
-    $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE eliminado='0' AND id_page='1'");
+    $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE eliminado='0' AND id_page='1' ORDER BY apellido_p");
     $list = $list_['resultado'];
 
 }
@@ -30,9 +30,9 @@ if($tipo == 3){
     $prnt_id = $admin_curso['resultado'][0]['parent_id'];
     
     if($prnt_id > 0){
-        $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE (id_cur='".$id_cur."' OR id_cur='".$prnt_id."') AND eliminado='0' AND id_page='1'");
+        $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE (id_cur='".$id_cur."' OR id_cur='".$prnt_id."') AND eliminado='0' AND id_page='1' ORDER BY apellido_p");
     }else{
-        $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE id_cur='".$id_cur."' AND eliminado='0' AND id_page='1'");
+        $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE id_cur='".$id_cur."' AND eliminado='0' AND id_page='1' ORDER BY apellido_p");
     }
 
     $list = $list_['resultado'];
@@ -40,7 +40,7 @@ if($tipo == 3){
 }
 if($tipo == 2 || $tipo == 4){
     
-    $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE eliminado='0' AND id_page='1'");
+    $list_ = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE eliminado='0' AND id_page='1' ORDER BY apellido_p");
     $list = $list_['resultado'];
     
 }
@@ -178,7 +178,7 @@ if($tipo == 2 || $tipo == 4){
         <?php for($i=0; $i<count($list); $i++){ $r=$i+1; if($i % 2 == 0){ $c = "color02"; }else{ $c = "color01"; } ?>
         <tr>
             <td><?php echo $r; ?></td>
-            <td align="left" style="padding: 2px 4px">- <?php echo utf8_encode($list[$i]['nombres']); ?> <?php echo utf8_encode($list[$i]['apellido_p']); ?></td>
+            <td align="left" style="padding: 2px 4px">- <?php echo utf8_encode($list[$i]['nombres']); ?> <?php echo utf8_encode($list[$i]['apellido_p']); ?> <?php echo utf8_encode($list[$i]['apellido_m']); ?></td>
             <?php for($m=1; $m<=31; $m++){ ?>
             <td></td>
             <?php } ?>
