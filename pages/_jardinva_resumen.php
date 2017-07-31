@@ -170,9 +170,9 @@ if($tipo == 2 || $tipo == 4){
     <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px">
         <tr class="td1">
             <td width="20">#</td>
-            <td style="text-align: left; padding: 2px 4px" width="195">Nombre</td>
+            <td style="text-align: left; padding: 2px 4px" width="226">Nombre</td>
             <?php for($m=1; $m<=31; $m++){ ?>
-            <td width="35"><?php echo $m; ?></td>
+            <td width="34"><?php echo $m; ?></td>
             <?php } ?>
         </tr>
         <?php for($i=0; $i<count($list); $i++){ $r=$i+1; if($i % 2 == 0){ $c = "color02"; }else{ $c = "color01"; } ?>
