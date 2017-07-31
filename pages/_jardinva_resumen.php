@@ -162,8 +162,8 @@ if($tipo == 2 || $tipo == 4){
             <td colspan="2" style="font-size: 20px">Asistencia Por Nivel <?php echo $admin_curso['resultado'][0]['nombre']; ?></td>
         </tr>
         <tr>
-            <td width="300" style="padding-top: 15px">Educadora: ____________</td>
-            <td width="300" style="padding-top: 15px;">Fecha: _____/_____</td>
+            <td width="300" style="padding-top: 15px">Educadora: _________________</td>
+            <td width="300" style="padding-top: 15px;">Fecha: __________/__________</td>
         </tr>
     </table>
     <br><br><br>
