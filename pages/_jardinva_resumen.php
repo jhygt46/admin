@@ -156,14 +156,14 @@ if($tipo == 2 || $tipo == 4){
 
     <table cellspacing="0" cellpadding="0" border="0">
         <tr>
-            <td colspan="2"><img src="../images/hada2.jpg"></td>
+            <td colspan="2"><img src="../images/hada2.jpg" style="width: 162px"></td>
         </tr>
         <tr>
             <td colspan="2" style="font-size: 20px">Asistencia Por Nivel <?php echo $admin_curso['resultado'][0]['nombre']; ?></td>
         </tr>
         <tr>
-            <td width="300" style="padding-top: 15px">Educadora: _________________</td>
-            <td width="300" style="padding-top: 15px;">Fecha: __________/__________</td>
+            <td width="300" style="padding-top: 25px">Educadora: _________________</td>
+            <td width="300" style="padding-top: 25px;">Fecha: __________/__________</td>
         </tr>
     </table>
     <br><br><br>
@@ -178,7 +178,7 @@ if($tipo == 2 || $tipo == 4){
         <?php for($i=0; $i<count($list); $i++){ $r=$i+1; if($i % 2 == 0){ $c = "color02"; }else{ $c = "color01"; } ?>
         <tr>
             <td><?php echo $r; ?></td>
-            <td align="left" style="padding: 2px 4px">- <?php echo utf8_encode($list[$i]['nombres']); ?> <?php echo utf8_encode($list[$i]['apellido_p']); ?> <?php echo utf8_encode($list[$i]['apellido_m']); ?></td>
+            <td align="left" style="padding: 2px 4px">- <?php echo utf8_encode($list[$i]['apellido_p']); ?> <?php echo utf8_encode($list[$i]['apellido_m']); ?> <?php echo utf8_encode($list[$i]['nombres']); ?> </td>
             <?php for($m=1; $m<=31; $m++){ ?>
             <td></td>
             <?php } ?>
@@ -206,7 +206,7 @@ if($tipo == 2 || $tipo == 4){
 
     <table cellspacing="0" cellpadding="0" border="0">
         <tr>
-            <td colspan="2"><img src="../images/hada2.jpg"></td>
+            <td colspan="2"><img src="../images/hada2.jpg" style="width: 162px"></td>
         </tr>
         <tr>
             <td colspan="2" style="font-size: 18px; padding-top: 5px;">Informacion</td>
@@ -312,7 +312,7 @@ if($tipo == 2 || $tipo == 4){
 
     <table cellspacing="0" cellpadding="0" border="0">
         <tr>
-            <td colspan="2"><img src="../images/hada2.jpg"></td>
+            <td colspan="2"><img src="../images/hada2.jpg" style="width: 162px"></td>
         </tr>
         <tr>
             <td colspan="2" style="font-size: 18px; padding-top: 5px;">Datos Generales</td>
