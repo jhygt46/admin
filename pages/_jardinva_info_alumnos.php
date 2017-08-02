@@ -49,6 +49,10 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     $that = $admin->con->sql("SELECT * FROM ".$db_var_name."_alumnos WHERE id_alu='".$_GET["id"]."' AND eliminado='0' AND id_page='1'");
     $id = $_GET["id"];
     
+    if($that['resultado'][0]['nmatricula'] == 0){
+        $that['resultado'][0]['nmatricula'] = $that['resultado'][0]['id_alu'] + 400;
+    }
+    
 }
 
 
