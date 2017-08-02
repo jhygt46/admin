@@ -311,7 +311,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                 for($i=0; $i<count($list); $i++){
                     $k = $i + 1;
                     $id = $list[$i][$id_list];
-                    $nombre = $k."- ".$list[$i]['nombres']." ".$list[$i]['apellido_p']." ".$list[$i]['apellido_m'];
+                    $nombre = $k."- ".utf8_encode($list[$i]['nombres'])." ".utf8_encode($list[$i]['apellido_p'])." ".utf8_encode($list[$i]['apellido_m']);
                     $id_cur = $list[$i]['id_cur'];
                 ?>
                 
