@@ -277,6 +277,9 @@ if($tipo == 2 || $tipo == 4){
             $m = "Egreso";
         }
         
+        echo "<pre>";
+        print_r($list[$i]);
+        echo "</pre>";
         
         ?>
     
