@@ -109,7 +109,7 @@ if($tipo == 2 || $tipo == 4){
 <?php if($tipo == 1){ ?>
     <table cellspacing="0" cellpadding="0" border="0">
         <tr>
-            <td colspan="2"><img src="../images/hada2.jpg"></td>
+            <td colspan="2"><img src="../images/hada2.jpg" style="width: 162px"></td>
         </tr>
         <tr>
             <td colspan="2" style="font-size: 18px; padding-top: 5px;">Lista de Pagos</td>
@@ -118,18 +118,18 @@ if($tipo == 2 || $tipo == 4){
     <table cellspacing="0" cellpadding="0" class="tabla" border="1" width="1300px" style="margin-top: 25px">
         <tr class="td2">
             <td width="20">#</td>
-            <td style="text-align: left; padding: 2px 4px" width="180">Nombre</td>
-            <td width="100" style="padding-left: 4px">Matricula</td>
-            <td width="100" style="padding-left: 4px">Marzo</td>
-            <td width="100" style="padding-left: 4px">Abril</td>
-            <td width="100" style="padding-left: 4px">Mayo</td>
-            <td width="100" style="padding-left: 4px">Junio</td>
-            <td width="100" style="padding-left: 4px">Julio</td>
-            <td width="100" style="padding-left: 4px">Agosto</td>
-            <td width="100" style="padding-left: 4px">Septiembre</td>
-            <td width="100" style="padding-left: 4px">Octubre</td>
-            <td width="100" style="padding-left: 4px">Nomviembre</td>
-            <td width="100" style="padding-left: 4px">Diciembre</td>
+            <td style="text-align: left; padding: 2px 4px" width="235">Nombre</td>
+            <td width="95" style="padding-left: 4px">Matricula</td>
+            <td width="95" style="padding-left: 4px">Marzo</td>
+            <td width="95" style="padding-left: 4px">Abril</td>
+            <td width="95" style="padding-left: 4px">Mayo</td>
+            <td width="95" style="padding-left: 4px">Junio</td>
+            <td width="95" style="padding-left: 4px">Julio</td>
+            <td width="95" style="padding-left: 4px">Agosto</td>
+            <td width="95" style="padding-left: 4px">Septiembre</td>
+            <td width="95" style="padding-left: 4px">Octubre</td>
+            <td width="95" style="padding-left: 4px">Nomviembre</td>
+            <td width="95" style="padding-left: 4px">Diciembre</td>
         </tr>
         <?php for($i=0; $i<count($list); $i++){ $r=$i+1; if($i % 2 == 0){ $c = "color02"; }else{ $c = "color01"; } ?>
         <tr>
@@ -283,7 +283,7 @@ if($tipo == 2 || $tipo == 4){
     <tr class="td3">
         
         <td align="center"><?php echo $f; ?></td>
-        <td><?php echo $list[$i]['nmatricula']; ?></td>
+        <td><?php if($list[$i]['nmatricula'] == ""){ echo $list[$i]['id_alu'] + 400; }else{ echo $list[$i]['nmatricula']; } ?></td>
         <td><?php echo $list[$i]['apellido_p']." ".$list[$i]['apellido_m']." ".$list[$i]['nombres']; ?></td>
         <td><?php echo $list[$i]['rut']; ?></td>
         <td align="center"><?php echo $f_n; ?></td>
