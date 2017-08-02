@@ -277,16 +277,16 @@ if($tipo == 2 || $tipo == 4){
             $m = "Egreso";
         }
         
-        echo "<pre>";
-        print_r($list[$i]);
-        echo "</pre>";
+        if($list[$i]['nmatricula'] == 0){ 
+            $list[$i]['nmatricula'] = $list[$i]['id_alu'] + 400; 
+        }
         
         ?>
     
     <tr class="td3">
         
         <td align="center"><?php echo $f; ?></td>
-        <td><?php if($list[$i]['nmatricula'] == ""){ echo $list[$i]['id_alu'] + 400; }else{ echo $list[$i]['nmatricula']; } ?></td>
+        <td><?php echo $list[$i]['nmatricula']; ?></td>
         <td><?php echo $list[$i]['apellido_p']." ".$list[$i]['apellido_m']." ".$list[$i]['nombres']; ?></td>
         <td><?php echo $list[$i]['rut']; ?></td>
         <td align="center"><?php echo $f_n; ?></td>
