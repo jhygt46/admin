@@ -268,8 +268,8 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                 <table cellspacing="0" cellpadding="0" border="0" class="tablalist">
                     <tr class="sub_title">
                         <td class="column1">Dia</td>
-                        <td class="column2">Boleta de</td>
-                        <td class="column2">Boleta al</td>
+                        <td class="column2">de</td>
+                        <td class="column2">al</td>
                         <td class="column3">Total</td>
                     </tr>
                 <?php
