@@ -221,12 +221,14 @@ if($tipo == 2 || $tipo == 4){
         <td width="40">Matri</td>
         <td width="160">Nombre</td>
         <td width="80">Rut</td>
+        <td width="60">Curso</td>
         <td width="60">Fecha Nac</td>
         <td width="30">Sexo</td>
         <td width="150">Direccion</td>
         <td width="60">Fecha Mat</td>
         <td width="60">Fecha Ing</td>
-
+        
+        
         <td width="80">Apoderado</td>
         <td width="80">Telefono</td>
         <td width="80">Email</td>
@@ -281,6 +283,9 @@ if($tipo == 2 || $tipo == 4){
             $list[$i]['nmatricula'] = $list[$i]['id_alu'] + 400; 
         }
         
+        $cur = $admin->con->sql("SELECT * FROM ".$db_var_name."_cursos WHERE id_cur='".$list[$i]['id_cur']."'");
+        $curso = $cur['resultado'][0]['nombre'];
+        
         ?>
     
     <tr class="td3">
@@ -289,6 +294,7 @@ if($tipo == 2 || $tipo == 4){
         <td><?php echo $list[$i]['nmatricula']; ?></td>
         <td><?php echo $list[$i]['apellido_p']." ".$list[$i]['apellido_m']." ".$list[$i]['nombres']; ?></td>
         <td><?php echo $list[$i]['rut']; ?></td>
+        <td><?php echo $curso; ?></td>
         <td align="center"><?php echo $f_n; ?></td>
         <td align="center"><?php echo ($list[$i]['sexo'] == 1)? "M" : "F"; ?></td>
         <td><?php echo $list[$i]['direccion']; ?></td>
