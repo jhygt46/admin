@@ -198,6 +198,20 @@ if($tipo == 2 || $tipo == 4){
             <td></td>
             <?php } ?>
         </tr>
+        <tr>
+            <td></td>
+            <td style="padding: 2px 4px">Total Atrasados</td>
+            <?php for($m=1; $m<=31; $m++){ ?>
+            <td></td>
+            <?php } ?>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="padding: 2px 4px">Total Retirados</td>
+            <?php for($m=1; $m<=31; $m++){ ?>
+            <td></td>
+            <?php } ?>
+        </tr>
     </table>
 <?php } ?>
 
