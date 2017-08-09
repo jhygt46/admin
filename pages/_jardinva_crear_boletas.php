@@ -273,6 +273,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         <td class="column3">Total</td>
                     </tr>
                 <?php
+                
                 $aux = [];
                 for($i=0; $i<count($list); $i++){
                     
@@ -282,33 +283,14 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     
                     $fecha_time = mktime(0, 0, 0, $mes_, $dia_, $año_);
                     
-                    if($list[$i]['tipo'] == 1 && $list[$i]['nula'] == 0){
+                    if($list[$i]['tipo'] == 1){
                         $aux[$fecha_time]['nbol'][] = $list[$i]['numero'];
                     }
-                    if($list[$i]['tipo'] == 2 && $list[$i]['nula'] == 0){
+                    if($list[$i]['tipo'] == 2){
                         $aux[$fecha_time]['nfac'][] = $list[$i]['numero'];
                     }
                     $aux[$fecha_time]['total'] = $aux[$fecha_time]['total'] + $list[$i]['matricula'] + $list[$i]['msalacuna'] + $list[$i]['mjardin'];
 
-                }
-                function mayormenor($array){
-                    
-                    $mayor = 0;
-                    $menor = 10000000000;
-                    for($i=0; $i<count($array); $i++){
-                        
-                        if($array[$i] < $menor){
-                            $menor = $array[$i];
-                        }
-                        if($array[$i] > $mayor){
-                            $mayor = $array[$i];
-                        }
-                        
-                    }
-                    $auxs[0] = $menor;
-                    $auxs[1] = $mayor;
-                    return $auxs;
-                    
                 }
                 $tot = 0;
                 foreach($aux as $key => $value){
@@ -386,6 +368,28 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     </div>
 </div>
 
-<?php } ?>
+<?php
+
+    function mayormenor($array){
+
+        $mayor = 0;
+        $menor = 10000000000;
+        for($i=0; $i<count($array); $i++){
+
+            if($array[$i] < $menor){
+                $menor = $array[$i];
+            }
+            if($array[$i] > $mayor){
+                $mayor = $array[$i];
+            }
+
+        }
+        $auxs[0] = $menor;
+        $auxs[1] = $mayor;
+        return $auxs;
+
+    }
+}
+?>
 <br />
 <br />
