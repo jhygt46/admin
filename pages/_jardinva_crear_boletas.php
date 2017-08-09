@@ -288,8 +288,9 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     if($list[$i]['tipo'] == 2){
                         $aux[$fecha_time]['nfac'][] = $list[$i]['numero'];
                     }
-                    $aux[$fecha_time]['total'] = $aux[$fecha_time]['total'] + $list[$i]['matricula'] + $list[$i]['msalacuna'] + $list[$i]['mjardin'];
-
+                    if($list[$i]['nula'] == 0){
+                        $aux[$fecha_time]['total'] = $aux[$fecha_time]['total'] + $list[$i]['matricula'] + $list[$i]['msalacuna'] + $list[$i]['mjardin'];
+                    }
                 }
                 function mayormenor($array){
                     
