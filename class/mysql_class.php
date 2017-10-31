@@ -9,7 +9,8 @@ require_once '../db_config.php';
 require_once $path.'config/config.php';
 
 class Conexion {
-
+    
+    public $conn = null;
     public $host = null;
     public $usuario = null;
     public $password = null;
@@ -22,86 +23,66 @@ class Conexion {
         global $db_password;
         global $db_database;
 
-        $this->host = $db_host;
+        $this->host	= $db_host;
         $this->usuario = $db_user;
         $this->password = $db_password;
         $this->base_datos = $db_database;
+        $this->conn = mysqli_connect($this->host[0], $this->usuario[0], $this->password[0], $this->base_datos[0]);
 
     }
-
-    private function conexion($r){
-        echo "-1";      
-        $this->con = mysql_connect($this->host[$r], $this->usuario[$r], $this->password[$r]);
-        $error_mysql = mysql_error();
-        echo "0";
-        if($error_mysql != ''){
-            echo "1";
-            $resultado['estado'] = false;
-            $resultado['mensaje'] = 'Error en la conexion con servidor';
-            $resultado['error']	= $error_mysql;
-            
-        }else{
-            echo "2";
-            $db = mysql_select_db($this->base_datos[$r]);
-            $error_mysql = mysql_error();
-            if($error_mysql != ''){
-                $resultado['estado']	= false;
-                $resultado['mensaje']	= 'Error al seleccionar la base de datos';
-                $resultado['error']	= $error_mysql;
-            }
-            else {
-                $resultado['estado']	= true;
-            }
-            echo "3";
-        }
-        return $resultado;
-        
-    }
-
 
     public function sql($sql) {
         
-        if (preg_match("/select/i", $sql)) {
-            $r = rand(1, count($this->host) - 1);
-        }else{
-            $r = 0;
-        }
-
-        $this->conexion($r);
-        $result = @mysql_query($sql);
-        $error_mysql = mysql_error();
-        
-        if($error_mysql != ''){
-            $resultado['estado'] = false;
-            $resultado['query'] = $sql;
-            $resultado['error'] = $error_mysql;
-        }else{
+        $res = mysqli_query($this->conn, $sql);
+        if(!mysqli_connect_errno()){
             $resultado['estado'] = true;
             $resultado['query'] = $sql;
+            
+            if (preg_match("/select/i", $sql)){
+                $i=0;
+                while($row = mysqli_fetch_assoc($res)){
+                    $resultado['resultado'][] = $row;
+                    $i++;
+                }
+                $resultado['count'] = $i;
+            }
+            if (preg_match("/insert/i", $sql)){
+                $resultado['insert_id'] = mysqli_insert_id();
+            }
+            if (preg_match("/update/i", $sql)){
+                $resultado['update_rows'] = mysqli_affected_rows();
+            }
+            mysqli_free_result($res);
+            
+        }else{
+            $resultado['estado'] = false;
+            $resultado['query'] = $sql;
+            $resultado['error'] = "Failed: ".mysqli_connect_error();
         }
-
-        if (preg_match("/insert/i", $sql)){
-                $resultado['insert_id'] = mysql_insert_id();
-        }
+        
+        return $resultado;
+        /*
+        
         if (preg_match("/update/i", $sql)){
-                $resultado['update_rows'] = mysql_affected_rows();
+                $resultado['update_rows'] = mysqli_affected_rows();
         }
         if (preg_match("/delete/i", $sql)){
 
         }
         if (preg_match("/select/i", $sql)){
-            while($row = @mysql_fetch_array($result, MYSQL_ASSOC)){
+            while($row = @mysqli_fetch_array($result, MYSQL_ASSOC)){
                 $resultado['resultado'][] = $row;
             }
         }
         $resultado['count'] = count($resultado['resultado']);	
-        @mysql_free_result($result);
-        return $resultado;
-
+        @mysqli_free_result($result);
+        */
+        
+        
     }
 
     public function __destruct(){
-        @mysql_close($this->con);
+        mysqli_close($this->conn);
     }
 
 
