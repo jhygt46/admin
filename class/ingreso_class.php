@@ -20,7 +20,7 @@ class Ingreso {
             
             if($user['count'] == 0){
                 // CORREO NO SE ENCUENTERA EN LA BASE DE DATOS
-                $info['op'] = 3;
+                $info['op'] = 2;
                 $info['message'] = "Error: Usuario no existe";
                 
             }
