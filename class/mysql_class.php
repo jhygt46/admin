@@ -34,17 +34,17 @@ class Conexion {
         $this->con = mysql_connect($this->host[$r], $this->usuario[$r], $this->password[$r]);
         $error_mysql = mysql_error();
         
-        echo $error_mysql;
-        
         if($error_mysql != ''){
+            echo "1";
             $resultado['estado'] = false;
             $resultado['mensaje'] = 'Error en la conexion con servidor';
             $resultado['error']	= $error_mysql;
-        }else{
             
+        }else{
+            echo "2";
             $db = mysql_select_db($this->base_datos[$r]);
             $error_mysql = mysql_error();
-            if($error_mysql != '') {
+            if($error_mysql != ''){
                 $resultado['estado']	= false;
                 $resultado['mensaje']	= 'Error al seleccionar la base de datos';
                 $resultado['error']	= $error_mysql;
@@ -52,9 +52,10 @@ class Conexion {
             else {
                 $resultado['estado']	= true;
             }
+            echo "3";
         }
         return $resultado;
-
+        
     }
 
 
