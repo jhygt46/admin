@@ -34,6 +34,8 @@ class Conexion {
         $this->con = mysql_connect($this->host[$r], $this->usuario[$r], $this->password[$r]);
         $error_mysql = mysql_error();
         
+        echo $this->base_datos[$r];
+        
         if($error_mysql != ''){
             $resultado['estado']	= false;
             $resultado['mensaje']	= 'Error en la conexion con servidor';
@@ -57,8 +59,6 @@ class Conexion {
 
     public function sql($sql) {
         
-        
-        
         if (preg_match("/select/i", $sql)) {
             $r = rand(1, count($this->host) - 1);
         }else{
@@ -68,9 +68,6 @@ class Conexion {
         $this->conexion($r);
         $result = @mysql_query($sql);
         $error_mysql = mysql_error();
-
-        echo $result;
-        exit;
         
         if($error_mysql != ''){
             $resultado['estado'] = false;
