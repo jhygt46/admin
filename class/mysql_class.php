@@ -35,19 +35,20 @@ class Conexion {
         $error_mysql = mysql_error();
         
         if($error_mysql != ''){
-            $resultado['estado']	= false;
-            $resultado['mensaje']	= 'Error en la conexion con servidor';
+            $resultado['estado'] = false;
+            $resultado['mensaje'] = 'Error en la conexion con servidor';
             $resultado['error']	= $error_mysql;
         }else {
             $db = mysql_select_db($this->base_datos[$r]);
+            print_r($db);
             $error_mysql = mysql_error();
             if($error_mysql != '') {
-                    $resultado['estado']	= false;
-                    $resultado['mensaje']	= 'Error al seleccionar la base de datos';
-                    $resultado['error']	= $error_mysql;
+                $resultado['estado']	= false;
+                $resultado['mensaje']	= 'Error al seleccionar la base de datos';
+                $resultado['error']	= $error_mysql;
             }
             else {
-                    $resultado['estado']	= true;
+                $resultado['estado']	= true;
             }
         }
         return $resultado;
@@ -63,13 +64,9 @@ class Conexion {
             $r = 0;
         }
 
-        echo "1";
         $this->conexion($r);
-        echo "2";
         $result = @mysql_query($sql);
-        echo "3";
         $error_mysql = mysql_error();
-        echo "4";
         
         if($error_mysql != ''){
             $resultado['estado'] = false;
