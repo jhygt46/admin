@@ -22,10 +22,14 @@ class Conexion {
         global $db_password;
         global $db_database;
 
-        $this->host	= $db_host;
+        $this->host = $db_host;
         $this->usuario = $db_user;
         $this->password = $db_password;
         $this->base_datos = $db_database;
+        
+        print_r($this->host);
+        print_r($this->usuario);
+        print_r($this->base_datos);
 
     }
 
@@ -33,8 +37,6 @@ class Conexion {
                 
         $this->con = mysql_connect($this->host[$r], $this->usuario[$r], $this->password[$r]);
         $error_mysql = mysql_error();
-        
-        echo $this->base_datos[$r];
         
         if($error_mysql != ''){
             $resultado['estado']	= false;
