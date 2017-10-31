@@ -17,10 +17,10 @@ class Ingreso {
                 
         if(filter_var($_POST['user'], FILTER_VALIDATE_EMAIL)){
             $user = $this->con->sql("SELECT * FROM usuarios WHERE correo='".$_POST['user']."'");
-            $info['db'] = $user;
+            
             if($user['count'] == 0){
                 // CORREO NO SE ENCUENTERA EN LA BASE DE DATOS
-                $info['op'] = 2;
+                $info['op'] = 3;
                 $info['message'] = "Error: Usuario no existe";
                 
             }
