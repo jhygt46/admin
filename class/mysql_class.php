@@ -33,7 +33,7 @@ class Conexion {
                 
         $this->con = mysql_connect($this->host[$r], $this->usuario[$r], $this->password[$r]);
         $error_mysql = mysql_error();
-        
+        echo "0";
         if($error_mysql != ''){
             echo "1";
             $resultado['estado'] = false;
