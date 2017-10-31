@@ -33,8 +33,6 @@ class Conexion {
                 
         $this->con = mysql_connect($this->host[$r], $this->usuario[$r], $this->password[$r]);
         $error_mysql = mysql_error();
-
-        print_r($this->con);
         
         if($error_mysql != ''){
             $resultado['estado']	= false;
@@ -58,7 +56,10 @@ class Conexion {
 
 
     public function sql($sql) {
-
+        
+        echo $sql;
+        exit;
+        
         if (preg_match("/select/i", $sql)) {
             $r = rand(1, count($this->host) - 1);
         }else{
