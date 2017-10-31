@@ -34,13 +34,15 @@ class Conexion {
         $this->con = mysql_connect($this->host[$r], $this->usuario[$r], $this->password[$r]);
         $error_mysql = mysql_error();
         
+        echo $error_mysql;
+        
         if($error_mysql != ''){
             $resultado['estado'] = false;
             $resultado['mensaje'] = 'Error en la conexion con servidor';
             $resultado['error']	= $error_mysql;
-        }else {
+        }else{
+            
             $db = mysql_select_db($this->base_datos[$r]);
-            print_r($db);
             $error_mysql = mysql_error();
             if($error_mysql != '') {
                 $resultado['estado']	= false;
