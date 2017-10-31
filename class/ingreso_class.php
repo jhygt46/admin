@@ -44,8 +44,6 @@ class Ingreso {
                 }
                 
                 if($block == 0){
-                    
-                    $info['db'] = $user;
 
                     $pass = $user['resultado'][0]['pass'];
                     if($pass == md5($_POST['pass'])){
@@ -97,14 +95,15 @@ class Ingreso {
         $aux['info']['id_user'] = $user['id_user'];
         $aux['info']['nombre'] = $user['nombre'];
         $aux['info']['id_page'] = $user['id_page'];
-        
+        /*
         $page = $this->con->sql("SELECT * FROM paginas WHERE id_page='".$user["id_page"]."'");
         $aux['info']['tareas'] = $page['resultado'][0]['tareas'];
         $aux['info']['titulo'] = $page['resultado'][0]['titulo'];
         
         if($aux['info']['tareas'] == 1){
             $aux['permisos'] = $this->permisos_ususarios($user['id_user']);
-        }
+        } 
+        */
         return $aux;
         
     }
