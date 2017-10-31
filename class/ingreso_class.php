@@ -15,9 +15,6 @@ class Ingreso {
     
     public function ingresar_user(){
         
-        $info['db'] = 1;
-        return $info;
-        
         if(filter_var($_POST['user'], FILTER_VALIDATE_EMAIL)){
             
             $user = $this->con->sql("SELECT * FROM usuarios WHERE correo='".$_POST['user']."'");

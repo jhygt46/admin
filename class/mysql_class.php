@@ -30,7 +30,10 @@ class Conexion {
     }
 
     private function conexion($r){
-
+        
+        echo $this->usuario[$r];
+        exit;
+        
         $this->con = mysql_connect($this->host[$r], $this->usuario[$r], $this->password[$r]);
         $error_mysql = mysql_error();
         if($error_mysql != ''){
