@@ -9,7 +9,7 @@ class Ingreso {
     
     public function __construct(){
         
-        $this->con = new Conexion();
+        //$this->con = new Conexion();
         
     }
     
