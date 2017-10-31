@@ -30,7 +30,7 @@ class Conexion {
     }
 
     private function conexion($r){
-                
+        echo "-1";      
         $this->con = mysql_connect($this->host[$r], $this->usuario[$r], $this->password[$r]);
         $error_mysql = mysql_error();
         echo "0";
