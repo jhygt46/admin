@@ -57,8 +57,7 @@ class Conexion {
 
     public function sql($sql) {
         
-        echo $sql;
-        exit;
+        
         
         if (preg_match("/select/i", $sql)) {
             $r = rand(1, count($this->host) - 1);
@@ -70,6 +69,9 @@ class Conexion {
         $result = @mysql_query($sql);
         $error_mysql = mysql_error();
 
+        echo $result;
+        exit;
+        
         if($error_mysql != ''){
             $resultado['estado'] = false;
             $resultado['query'] = $sql;
