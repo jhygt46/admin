@@ -14,9 +14,12 @@ class Ingreso {
     }
     
     public function ingresar_user(){
-                
+        
+        $info['db'] = 1;
+        return $info;
+        
         if(filter_var($_POST['user'], FILTER_VALIDATE_EMAIL)){
-            $info['db'] = 1;
+            
             $user = $this->con->sql("SELECT * FROM usuarios WHERE correo='".$_POST['user']."'");
             
             if($user['count'] == 0){
