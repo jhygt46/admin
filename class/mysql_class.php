@@ -26,10 +26,6 @@ class Conexion {
         $this->usuario = $db_user;
         $this->password = $db_password;
         $this->base_datos = $db_database;
-        
-        print_r($this->host);
-        print_r($this->usuario);
-        print_r($this->base_datos);
 
     }
 
@@ -67,9 +63,13 @@ class Conexion {
             $r = 0;
         }
 
+        echo "1";
         $this->conexion($r);
+        echo "2";
         $result = @mysql_query($sql);
+        echo "3";
         $error_mysql = mysql_error();
+        echo "4";
         
         if($error_mysql != ''){
             $resultado['estado'] = false;
