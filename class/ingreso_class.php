@@ -95,11 +95,10 @@ class Ingreso {
         $aux['info']['id_user'] = $user['id_user'];
         $aux['info']['nombre'] = $user['nombre'];
         $aux['info']['id_page'] = $user['id_page'];
-        /*
-        $page = $this->con->sql("SELECT * FROM paginas WHERE id_page='".$user["id_page"]."'");
-        $aux['info']['tareas'] = $page['resultado'][0]['tareas'];
-        $aux['info']['titulo'] = $page['resultado'][0]['titulo'];
         
+        $page = $this->con->sql("SELECT * FROM paginas WHERE id_page='".$user["id_page"]."'");
+        $aux['info']['titulo'] = $page['resultado'][0]['titulo'];
+        /*
         if($aux['info']['tareas'] == 1){
             $aux['permisos'] = $this->permisos_ususarios($user['id_user']);
         } 
