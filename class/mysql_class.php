@@ -33,7 +33,9 @@ class Conexion {
                 
         $this->con = mysql_connect($this->host[$r], $this->usuario[$r], $this->password[$r]);
         $error_mysql = mysql_error();
-        echo $error_mysql;
+
+        print_r($this->con);
+        
         if($error_mysql != ''){
             $resultado['estado']	= false;
             $resultado['mensaje']	= 'Error en la conexion con servidor';
