@@ -182,12 +182,10 @@ class Admin{
     }
     public function mostrar_js(){
         
-        $sitio = $_POST["sitio"];
-        $sitio = "_javier_montero";
+        $sitio = $_GET["sitio"];
         if($sitio == "_javier_montero"){
             $js = $this->con->sql("SELECT * FROM _javiermo_propiedades WHERE eliminado='0' AND id_page='3'");
-            $res = json_encode($js['resultado']);
-            return $res;
+            return json_encode($js['resultado']);
         }
         
         
