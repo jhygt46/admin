@@ -68,8 +68,8 @@
     */
     
     if($page == 3){
-        $array[1]["nombre"] = "Ingresar Propiedades";
-        $array[1]["link"] = "pages/_javiermo_crear_propiedad.php";
+        $array[0]["nombre"] = "Ingresar Propiedades";
+        $array[0]["link"] = "pages/_javiermo_crear_propiedad.php";
     }
     
     if(isset($array)){
