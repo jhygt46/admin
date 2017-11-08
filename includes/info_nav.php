@@ -62,18 +62,20 @@
         
     }
     
+    /*
     $array[0]["nombre"] = "Ingresar Usuarios";
     $array[0]["link"] = "pages/crear_usuario.php";
+    */
     
-    if($page == 2){
-        $array[1]["nombre"] = "Ingresar Perfiles";
-        $array[1]["link"] = "pages/crear_perfil.php";
+    if($page == 3){
+        $array[1]["nombre"] = "Ingresar Propiedades";
+        $array[1]["link"] = "pages/_javiermo_crear_propiedad.php";
     }
     
     if(isset($array)){
     
-        $aux["ico"] = 2;
-        $aux["categoria"] = "Usuarios";
+        $aux["ico"] = 3;
+        $aux["categoria"] = "Propiedades";
         $aux["subcategoria"] = $array;
         $menu[] = $aux;
         unset($aux);
