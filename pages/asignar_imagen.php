@@ -31,7 +31,11 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
         $db_name = "_jardinva_tour";
         $db_id = "id_tour";
     }
-    $that = $admin->con->sql("SELECT * FROM ".$db_name." WHERE ".$db_id."='".$_GET["id"]."' AND id_page='1'");
+    if($_GET["db"] == "propiedades"){
+        $db_name = "_javiermo_propiedades";
+        $db_id = "id_pro";
+    }
+    $that = $admin->con->sql("SELECT * FROM ".$db_name." WHERE ".$db_id."='".$_GET["id"]."' AND id_page='3'");
     $id = $_GET["id"];
     $images = json_decode($that['resultado'][0]['images']);
     
