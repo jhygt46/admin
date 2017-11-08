@@ -203,6 +203,10 @@ class Guardar extends Core{
             $db_name = "_jardinva_tour";
             $id = "id_tour";
         }
+        if($_POST["db"] == "tour"){
+            $db_name = "_javiermo_propiedades";
+            $id = "id_pro";
+        }
         
         $info['op'] = 2;
         $info['mensaje'] = "Error al subir la imagen";
