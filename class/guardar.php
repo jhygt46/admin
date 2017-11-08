@@ -240,8 +240,9 @@ class Guardar extends Core{
         if($_SERVER['HTTP_HOST'] == "localhost"){
             $filepath = "C:/Appserv/www/admin/images/uploads/".$this->id_page."/";
         }else{
-            $filepath = "/var/www/html/jardinvalleencantado.cl/public_html/admin/images/uploads/".$this->id_page."/";
+            $filepath = "/var/www/html/admin/public_html/admin/images/uploads/".$this->id_page."/";
         }
+        
         
         $name = $_FILES['file_image0']['name']; // filename to get file's extension
         $size = $_FILES['file_image0']['size'];
