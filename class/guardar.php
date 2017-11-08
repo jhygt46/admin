@@ -203,7 +203,7 @@ class Guardar extends Core{
             $db_name = "_jardinva_tour";
             $id = "id_tour";
         }
-        if($_POST["db"] == "tour"){
+        if($_POST["db"] == "propiedades"){
             $db_name = "_javiermo_propiedades";
             $id = "id_pro";
         }
@@ -242,7 +242,6 @@ class Guardar extends Core{
         }else{
             $filepath = "/var/www/html/admin/public_html/admin/images/uploads/".$this->id_page."/";
         }
-        
         
         $name = $_FILES['file_image0']['name']; // filename to get file's extension
         $size = $_FILES['file_image0']['size'];
