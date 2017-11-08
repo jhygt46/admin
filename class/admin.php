@@ -176,7 +176,7 @@ class Admin{
     }
     public function get_propiedad($id){
         
-        $propiedad = $this->con->sql("SELECT * FROM _javiermo_propiedades WHERE id_pro='".$id."' AND eliminado='0' AND id_page='2'");
+        $propiedad = $this->con->sql("SELECT * FROM _javiermo_propiedades WHERE id_pro='".$id."' AND eliminado='0' AND id_page='3'");
         return $propiedad['resultado'][0];
         
     }
