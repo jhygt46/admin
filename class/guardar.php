@@ -218,7 +218,7 @@ class Guardar extends Core{
             $images[] = $foto['name'];
             $info['images'] = $images;
             
-            $this->con->sql("UPDATE ".$db_name." SET images='".json_encode($images)."' WHERE  ".$id."='".$_POST["id"]."' AND id_page='1'");
+            $this->con->sql("UPDATE ".$db_name." SET images='".json_encode($images)."' WHERE ".$id."='".$_POST["id"]."' AND id_page='3'");
             
             $info['op'] = 1;
             $info['mensaje'] = "Imagen subida";
