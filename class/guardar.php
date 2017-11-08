@@ -13,7 +13,7 @@ class Guardar extends Core{
         $this->id_page = $this->get_idpage();
     }
     private function get_idpage(){
-        return 1;
+        return 3;
     }
     public function process(){
         
@@ -68,6 +68,13 @@ class Guardar extends Core{
         }
         if($_POST['accion'] == "_jardinva_crearboleta"){
             return $this->_jardinva_crearboleta();
+        }
+        
+        if($_POST['accion'] == "_javiermo_crear_propiedad"){
+            return $this->_javiermo_crear_propiedad();
+        }
+        if($_POST['accion'] == "_javiermo_eliminar_propiedad"){
+            return $this->_javiermo_eliminar_propiedad();
         }
         
         
@@ -293,6 +300,56 @@ class Guardar extends Core{
         return $info;
         
     }
+        
+    private function _javiermo_crear_propiedad(){
+        
+        $id = $_POST['id'];
+        
+        $nombre = $_POST['nombre'];
+        $tipo = $_POST['tipo'];
+        $naturaleza = $_POST['naturaleza'];
+        $precio_normal = $_POST['precio_normal'];
+        $precio_uf = $_POST['precio_uf'];
+        $direccion = $_POST['direccion'];
+        $supercifie_util = $_POST['supercifie_util'];
+        $supercifie_total = $_POST['supercifie_total'];
+        $dormitorios = $_POST['dormitorios'];
+        $banos = $_POST['banos'];
+        $cocina = $_POST['cocina'];
+        $codigo = $_POST['codigo'];
+        $descripcion = $_POST['descripcion'];
+        
+        if($id == 0){
+            $db = $this->con->sql("INSERT INTO _javiermo_propiedades (nombre, tipo, naturaleza, precio_normal, precio_uf, direccion, supercifie_util, supercifie_total, dormitorios, banos, cocina, codigo, descripcion, orders, id_page) VALUES ('".$nombre."', '".$tipo."', '".$naturaleza."', '".$precio_normal."', '".$precio_uf."', '".$direccion."', '".$supercifie_util."', '".$supercifie_total."', '".$dormitorios."', '".$banos."', '".$cocina."', '".$codigo."', '".$descripcion."', '9999', '".$this->id_page."')");
+            $info['op'] = 1;
+            $info['mensaje'] = "Propiedad ingresada exitosamente";
+        }
+        if($id > 0){
+            $db = $this->con->sql("UPDATE _javiermo_propiedades SET nombre='".$nombre."', tipo='".$tipo."', naturaleza='".$naturaleza."', precio_normal='".$precio_normal."', precio_uf='".$precio_uf."', direccion='".$direccion."', supercifie_util='".$supercifie_util."', supercifie_total='".$supercifie_total."', dormitorios='".$dormitorios."', banos='".$banos."', cocina='".$cocina."', codigo='".$codigo."', descripcion='".$descripcion."'  WHERE id_pro='".$id."' AND id_page='".$this->id_page."'");
+            $info['op'] = 1;
+            $info['mensaje'] = "Propiedad modificada exitosamente";
+        }
+        $info['db'] = $db;     
+        $info['reload'] = 1;
+        $info['page'] = "_javiermo_crear_propiedad.php";
+        return $info;
+        
+    }
+    private function _javiermo_eliminar_propiedad(){
+        
+        $id = $_POST['id'];
+        $this->con->sql("UPDATE _javiermo_propiedades SET eliminado='1' WHERE id_pro='".$id."' AND id_page='".$this->id_page."'");
+        
+        $info['tipo'] = "success";
+        $info['titulo'] = "Eliminado";
+        $info['texto'] = "Propiedad ".$_POST["nombre"]." Eliminada";
+        $info['reload'] = 1;
+        $info['page'] = "_javiermo_crear_propiedad.php";
+
+        return $info;
+        
+    }
+    
     private function _jardinva_crearalumnos(){
         
         /*

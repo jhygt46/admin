@@ -17,9 +17,9 @@ $titulo = "Propiedades";
 $titulo_list = "Lista de Propiedades";
 $sub_titulo1 = "Ingresar Propiedad";
 $sub_titulo2 = "Modificar Propiedad";
-$accion = "crearpropiedad";
+$accion = "_javiermo_crear_propiedad";
 
-$eliminaraccion = "eliminarpropiedad";
+$eliminaraccion = "_javiermo_eliminar_propiedad";
 $id_list = "id_pro";
 $eliminarobjeto = "Propiedad";
 $page_mod = "pages/_javiermo_crear_propiedad.php";
