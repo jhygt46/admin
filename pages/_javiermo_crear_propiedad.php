@@ -5,6 +5,7 @@ echo "1";
 if(!isset($_SESSION['user']['info']['id_user'])){
     exit;
 }
+echo "2";
 $path = $_SERVER['DOCUMENT_ROOT'];
 if($_SERVER['HTTP_HOST'] == "localhost"){
     $path .= "/";
@@ -12,10 +13,10 @@ if($_SERVER['HTTP_HOST'] == "localhost"){
 $path_ = $path."admin/class";
 require_once($path_."/admin.php");
 // TODOS LOS ARCHIVOS EN PAGES//
-
+echo "3";
 $admin = new Admin();
 //$admin->seguridad(1);
-
+echo "4";
 $titulo = "Propiedades";
 $titulo_list = "Lista de Propiedades";
 $sub_titulo1 = "Ingresar Propiedad";
