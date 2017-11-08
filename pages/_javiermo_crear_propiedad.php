@@ -23,6 +23,8 @@ $eliminaraccion = "_javiermo_eliminar_propiedad";
 $id_list = "id_pro";
 $eliminarobjeto = "Propiedad";
 $page_mod = "pages/_javiermo_crear_propiedad.php";
+
+$page_pic = "pages/asignar_imagen.php?db=propiedades";
 /* CONFIG PAGE */
 
 $list = $admin->get_propiedades();
@@ -89,7 +91,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     </label>
                     <label>
                         <span>Tipo:</span>
-                        <select id="clave">
+                        <select id="tipo">
                             <option value="0">Seleccionar</option>
                             <option value="1" <?php if($that['tipo'] == 1){ echo "selected"; }?>>Arriendo</option>
                             <option value="2" <?php if($that['tipo'] == 2){ echo "selected"; }?>>Venta</option>
@@ -97,7 +99,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     </label>
                     <label>
                         <span>Naturaleza:</span>
-                        <select id="clave">
+                        <select id="naturaleza">
                             <option value="0">Seleccionar</option>
                             <option value="1" <?php if($that['naturaleza'] == 1){ echo "selected"; }?>>Casas</option>
                             <option value="2" <?php if($that['naturaleza'] == 2){ echo "selected"; }?>>Departamentos</option>
@@ -190,11 +192,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         <li class="nombre"><?php echo $nombre; ?></li>
                         <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', <?php echo $id; ?>, '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
                         <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id=<?php echo $id; ?>&parent_id=<?php echo $parent_id; ?>')"></a>
-                        <?php if($prods == 0){ ?>
-                        <a title="SubCategorias" class="icn database" onclick="navlink('<?php echo $page_mod; ?>?parent_id=<?php echo $id; ?>')"></a>
-                        <?php }else{ ?>
-                        <a title="Ver Productos" class="icn prods" onclick="navlink('pages/ver_productos.php?id_cat=<?php echo $id; ?>')"></a>
-                        <?php } ?>
+                        <a title="Fotos" class="icn fotos" onclick="navlink('<?php echo $page_pic; ?>&id=<?php echo $id; ?>')"></a>
                     </ul>
                 </li>
                 

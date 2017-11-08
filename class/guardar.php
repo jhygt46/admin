@@ -320,12 +320,12 @@ class Guardar extends Core{
         $descripcion = $_POST['descripcion'];
         
         if($id == 0){
-            $db = $this->con->sql("INSERT INTO _javiermo_propiedades (nombre, tipo, naturaleza, precio_normal, precio_uf, direccion, supercifie_util, supercifie_total, dormitorios, banos, cocina, codigo, descripcion, orders, id_page) VALUES ('".$nombre."', '".$tipo."', '".$naturaleza."', '".$precio_normal."', '".$precio_uf."', '".$direccion."', '".$supercifie_util."', '".$supercifie_total."', '".$dormitorios."', '".$banos."', '".$cocina."', '".$codigo."', '".$descripcion."', '9999', '".$this->id_page."')");
+            $this->con->sql("INSERT INTO _javiermo_propiedades (nombre, tipo, naturaleza, precio_normal, precio_uf, direccion, supercifie_util, supercifie_total, dormitorios, banos, cocina, codigo, descripcion, orders, id_page) VALUES ('".$nombre."', '".$tipo."', '".$naturaleza."', '".$precio_normal."', '".$precio_uf."', '".$direccion."', '".$supercifie_util."', '".$supercifie_total."', '".$dormitorios."', '".$banos."', '".$cocina."', '".$codigo."', '".$descripcion."', '9999', '".$this->id_page."')");
             $info['op'] = 1;
             $info['mensaje'] = "Propiedad ingresada exitosamente";
         }
         if($id > 0){
-            $db = $this->con->sql("UPDATE _javiermo_propiedades SET nombre='".$nombre."', tipo='".$tipo."', naturaleza='".$naturaleza."', precio_normal='".$precio_normal."', precio_uf='".$precio_uf."', direccion='".$direccion."', supercifie_util='".$supercifie_util."', supercifie_total='".$supercifie_total."', dormitorios='".$dormitorios."', banos='".$banos."', cocina='".$cocina."', codigo='".$codigo."', descripcion='".$descripcion."'  WHERE id_pro='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _javiermo_propiedades SET nombre='".$nombre."', tipo='".$tipo."', naturaleza='".$naturaleza."', precio_normal='".$precio_normal."', precio_uf='".$precio_uf."', direccion='".$direccion."', supercifie_util='".$supercifie_util."', supercifie_total='".$supercifie_total."', dormitorios='".$dormitorios."', banos='".$banos."', cocina='".$cocina."', codigo='".$codigo."', descripcion='".$descripcion."'  WHERE id_pro='".$id."' AND id_page='".$this->id_page."'");
             $info['op'] = 1;
             $info['mensaje'] = "Propiedad modificada exitosamente";
         }
