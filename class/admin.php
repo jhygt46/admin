@@ -168,5 +168,17 @@ class Admin{
         return $perfiles['resultado'][0];
         
     }
+    public function get_propiedades(){
+        
+        $propiedades = $this->con->sql("SELECT * FROM _javiermo_propiedades WHERE eliminado='0' AND id_page='2' ORDER BY orders");
+        return $propiedades['resultado'];
+        
+    }
+    public function get_propiedad($id){
+        
+        $propiedad = $this->con->sql("SELECT * FROM _javiermo_propiedades WHERE id_pro='".$id."' AND eliminado='0' AND id_page='2'");
+        return $propiedad['resultado'][0];
+        
+    }
 }
 ?>

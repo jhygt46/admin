@@ -15,33 +15,26 @@ require_once($path_."/admin.php");
 $admin = new Admin();
 //$admin->seguridad(1);
 
+$titulo = "Propiedades";
+$titulo_list = "Lista de Propiedades";
+$sub_titulo1 = "Ingresar Propiedad";
+$sub_titulo2 = "Modificar Propiedad";
+$accion = "crearpropiedad";
+
+$eliminaraccion = "eliminarpropiedad";
+$id_list = "id_pro";
+$eliminarobjeto = "Propiedad";
+$page_mod = "pages/_javiermo_crear_propiedad.php";
 /* CONFIG PAGE */
-$parent_id = 0;
-if(isset($_GET["parent_id"])){
-    $parent_id = $_GET["parent_id"];
-}
 
-//$res = $admin->arbol_categoria();
-$list = $admin->get_categorias($parent_id);
-
-$titulo = "Categorias";
-$titulo_list = "Lista de Categorias";
-$sub_titulo1 = "Ingresar Categoria";
-$sub_titulo2 = "Modificar Categoria";
-$accion = "crearcategoria";
-
-$eliminaraccion = "eliminarcategoria";
-$id_list = "id_cat";
-$eliminarobjeto = "Categoria";
-$page_mod = "pages/crear_categoria.php";
-/* CONFIG PAGE */
+$list = $admin->get_propiedades();
 
 $id = 0;
 $sub_titulo = $sub_titulo1;
 if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     
     $sub_titulo = $sub_titulo2;
-    $that = $admin->get_categoria($_GET["id"]);
+    $that = $admin->get_propiedad($_GET["id"]);
     $id = $_GET["id"];
     
 }
@@ -56,20 +49,16 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
             $(this).find('.user').each(function(){
                 order.push($(this).attr('rel'));
             });
-            
-            var send = {accion: 'ordercat', values: order};
+            var send = {accion: 'order', values: order, tabla: '_propiedades', id: 'id_pro'};
             console.log(order);
             $.ajax({
                 url: "ajax/index.php",
                 type: "POST",
                 data: send,
                 success: function(data){
-
                 }, error: function(e){
-
                 }
             });
-            
         }
     });
     $('.listUser').disableSelection();
@@ -94,11 +83,79 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
             <form action="" method="post" class="basic-grey">
                 <fieldset>
                     <input id="id" type="hidden" value="<?php echo $id; ?>" />
-                    <input id="parent_id" type="hidden" value="<?php echo $parent_id; ?>" />
                     <input id="accion" type="hidden" value="<?php echo $accion; ?>" />
                     <label>
                         <span>Nombre:</span>
                         <input id="nombre" type="text" value="<?php echo $that['nombre']; ?>" require="" placeholder="Electro" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Tipo:</span>
+                        <select id="clave">
+                            <option value="0">Seleccionar</option>
+                            <option value="1" <?php if($that['tipo'] == 1){ echo "selected"; }?>>Arriendo</option>
+                            <option value="2" <?php if($that['tipo'] == 2){ echo "selected"; }?>>Venta</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>Naturaleza:</span>
+                        <select id="clave">
+                            <option value="0">Seleccionar</option>
+                            <option value="1" <?php if($that['naturaleza'] == 1){ echo "selected"; }?>>Casas</option>
+                            <option value="2" <?php if($that['naturaleza'] == 2){ echo "selected"; }?>>Departamentos</option>
+                            <option value="3" <?php if($that['naturaleza'] == 3){ echo "selected"; }?>>Oficinas</option>
+                            <option value="4" <?php if($that['naturaleza'] == 4){ echo "selected"; }?>>Industriales</option>
+                            <option value="5" <?php if($that['naturaleza'] == 5){ echo "selected"; }?>>Comerciales</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>Precio normal:</span>
+                        <input id="precio_normal" type="text" value="<?php echo $that['precio_normal']; ?>" require="" placeholder="140.000.000" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Precio UF:</span>
+                        <input id="precio_uf" type="text" value="<?php echo $that['precio_uf']; ?>" require="" placeholder="5500" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Direccion:</span>
+                        <input id="direccion" type="text" value="<?php echo $that['direccion']; ?>" require="" placeholder="Jose Tomas Rider 1185, Providencia" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Superficie &uacute;til:</span>
+                        <input id="supercifie_util" type="text" value="<?php echo $that['supercifie_util']; ?>" require="" placeholder="60" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Superficie total:</span>
+                        <input id="supercifie_total" type="text" value="<?php echo $that['supercifie_total']; ?>" require="" placeholder="65" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Dormitorios:</span>
+                        <input id="dormitorios" type="text" value="<?php echo $that['dormitorios']; ?>" require="" placeholder="3" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Ba&ntilde;os:</span>
+                        <input id="banos" type="text" value="<?php echo $that['banos']; ?>" require="" placeholder="2" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Cocina:</span>
+                        <input id="cocina" type="text" value="<?php echo $that['cocina']; ?>" require="" placeholder="Equipada" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Codigo:</span>
+                        <input id="codigo" type="text" value="<?php echo $that['codigo']; ?>" require="" placeholder="003" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Descripcion:</span>
+                        <textarea id="descripcion"><?php echo $that['descripcion']; ?></textarea>
                         <div class="mensaje"></div>
                     </label>
                     <label style='margin-top:20px'>

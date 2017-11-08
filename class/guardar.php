@@ -86,6 +86,8 @@ class Guardar extends Core{
             $tabla = "_jardinva_cursos";
         if($_POST["tabla"] == "_cursos_md02")
             $tabla = "_jardinva_alumnos";
+        if($_POST["tabla"] == "_propiedades")
+            $tabla = "_javiermo_propiedades";
 
         $values = $_POST['values'];
         for($i=0; $i<count($values); $i++){
