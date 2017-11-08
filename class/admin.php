@@ -170,7 +170,7 @@ class Admin{
     }
     public function get_propiedades(){
         
-        $propiedades = $this->con->sql("SELECT * FROM _javiermo_propiedades WHERE eliminado='0' AND id_page='2' ORDER BY orders");
+        $propiedades = $this->con->sql("SELECT * FROM _javiermo_propiedades WHERE eliminado='0' AND id_page='3' ORDER BY orders");
         return $propiedades['resultado'];
         
     }
