@@ -1,6 +1,7 @@
 <?php
 // TODOS LOS ARCHIVOS EN PAGES//
 session_start();
+echo "1";
 if(!isset($_SESSION['user']['info']['id_user'])){
     exit;
 }
