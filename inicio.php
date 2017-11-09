@@ -43,7 +43,7 @@ if(isset($_SESSION['user']['info']['id_user'])){
                     </div>
                 </div>
             </div>
-            <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq6hw0biMsUBdMBu5l-bai9d3sUI-f--g&libraries=places" async defer></script>-->
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq6hw0biMsUBdMBu5l-bai9d3sUI-f--g&libraries=places" async defer></script>
         </body>
     </html>
     
