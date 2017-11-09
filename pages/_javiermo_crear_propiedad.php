@@ -87,6 +87,9 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
             });
             markers = [];
             
+            var myLatlng = new google.maps.LatLng(places[0].geometry.location.lat(), places[0].geometry.location.lng());
+            map.panTo(myLatlng);
+            
             markers.push(new google.maps.Marker({
                 position: places[0].geometry.location,
                 map: map,
