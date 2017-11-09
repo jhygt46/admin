@@ -65,11 +65,6 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
         });
 
         var markers = [];
-        markers.push(new google.maps.Marker({
-            map: map,
-            icon: 'red',
-            position: place.geometry.location
-        }));
         // Listen for the event fired when the user selects a prediction and retrieve
         // more details for that place.
         searchBox.addListener('places_changed', function() {
