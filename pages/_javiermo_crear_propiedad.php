@@ -56,7 +56,9 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
         var searchBox = new google.maps.places.SearchBox(input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-        var markers = [];
+        map.addListener('bounds_changed', function() {
+            searchBox.setBounds(map.getBounds());
+        });
         searchBox.addListener('places_changed', function(){
             
             var places = searchBox.getPlaces();
