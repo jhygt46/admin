@@ -48,8 +48,9 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     var map;
     function initAutocomplete(){
         
+        var center = { lat: <?php echo isset($lat) ? $lat : -33.8688; ?> , lng: <?php echo isset($lng) ? $lng : 151.2195; ?> };
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: { lat: <?php echo isset($lat) ? $lat : -33.8688; ?> , lng: <?php echo isset($lng) ? $lng : 151.2195; ?> },
+          center: center,
           zoom: 13,
           mapTypeId: 'roadmap'
         });
@@ -65,6 +66,14 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
         });
 
         var markers = [];
+        <?php if(isset($lat)){ ?>
+        markers.push(new google.maps.Marker({
+            map: map,
+            icon: 'red',
+            title: '',
+            position: center
+        }));
+        <?php } ?>
         // Listen for the event fired when the user selects a prediction and retrieve
         // more details for that place.
         searchBox.addListener('places_changed', function() {
