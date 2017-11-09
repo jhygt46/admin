@@ -185,8 +185,7 @@ class Admin{
         $sitio = $_GET["sitio"];
         if($sitio == "_javier_montero"){
             $js = $this->con->sql("SELECT * FROM _javiermo_propiedades WHERE eliminado='0' AND id_page='3'");
-            $aux['res'] = $js['resultado'];
-            return json_encode($aux);
+            return json_encode($js['resultado']);
         }
         
         
