@@ -43,6 +43,17 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
 ?>
 
 <script>
+    
+    var map;
+    initMap();
+    
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+        });
+    }
+    
     $('.listUser').sortable({
         stop: function(e, ui){
             var order = [];
@@ -63,7 +74,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     });
     $('.listUser').disableSelection();
 </script>   
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbKlHezhqgy7z57ipcJk8mDK4rf6drvjY&libraries=places" async defer></script>
 
 <div class="title">
     <h1><?php echo $titulo; ?></h1>
@@ -123,6 +134,12 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         <input id="direccion" type="text" value="<?php echo $that['direccion']; ?>" require="" placeholder="Jose Tomas Rider 1185, Providencia" />
                         <div class="mensaje"></div>
                     </label>
+                    <label>
+                        <span>Mapa:</span>
+                        <input id="dirmapa" type="text" value="<?php echo $that['direccion']; ?>" require="" placeholder="Jose Tomas Rider 1185, Providencia" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <div id="map" style="height: 400px; display: block;"></div>
                     <label>
                         <span>Superficie &uacute;til:</span>
                         <input id="supercifie_util" type="text" value="<?php echo $that['supercifie_util']; ?>" require="" placeholder="60" />
