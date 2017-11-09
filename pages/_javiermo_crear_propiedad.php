@@ -84,6 +84,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
             $('#map').show();
             initAutocomplete();
         });
+        
     });
     $('.listUser').sortable({
         stop: function(e, ui){
