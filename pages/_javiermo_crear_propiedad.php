@@ -87,6 +87,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
             markers.push(new google.maps.Marker({
                 map: map,
                 icon: 'red',
+                title: '',
                 position: places[0].geometry.location
             }));
           
