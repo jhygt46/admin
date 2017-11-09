@@ -36,6 +36,8 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     $sub_titulo = $sub_titulo2;
     $that = $admin->get_propiedad($_GET["id"]);
     $id = $_GET["id"];
+    $lat = $that['lat'];
+    $lng = $that['lng'];
     
 }
 
@@ -47,7 +49,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     function initAutocomplete(){
         
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -33.8688, lng: 151.2195},
+          center: {lat: <?php echo isset($lat) ? $lat : -33.8688; ?> , lng: <?php echo isset($lng) ? $lng : 151.2195; ?>},
           zoom: 13,
           mapTypeId: 'roadmap'
         });
@@ -123,6 +125,8 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                 <fieldset>
                     <input id="id" type="hidden" value="<?php echo $id; ?>" />
                     <input id="accion" type="hidden" value="<?php echo $accion; ?>" />
+                    <input id="lat" type="hidden" value="<?php echo $that['lat']; ?>" />
+                    <input id="lng" type="hidden" value="<?php echo $that['lng']; ?>" />
                     <label>
                         <span>Nombre:</span>
                         <input id="nombre" type="text" value="<?php echo $that['nombre']; ?>" require="" placeholder="Electro" />
@@ -163,7 +167,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         <div class="mensaje"></div>
                     </label>
                     <label>
-                        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+                        <input id="pac-input" class="controls" type="text" placeholder="Search Box" value="<?php echo $that['mapa']; ?>">
                         <div id="map" style="height: 400px; display: none; margin-right: 9%; margin-left: 10%"></div>
                     </label>
                     <label>
