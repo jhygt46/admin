@@ -71,6 +71,8 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
           if (places.length == 0) {
             return;
           }
+          console.log("geometry");
+          console.log(places[0].geometry.location);
 
           // Clear out the old markers.
           markers.forEach(function(marker) {
@@ -198,7 +200,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     </label>
                     <label>
                         <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-                        <div id="map" style="height: 400px; display: none; margin-right: 9%; margin-left: 19%"></div>
+                        <div id="map" style="height: 400px; display: none; margin-right: 9%; margin-left: 10%"></div>
                     </label>
                     <label>
                         <span>Superficie &uacute;til:</span>
