@@ -51,7 +51,9 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
             zoom: 8
         });
     }
-    
+    $('.dirmapa').keyup(function(){
+        $('#map').show();
+    });
     $('.listUser').sortable({
         stop: function(e, ui){
             var order = [];
@@ -137,7 +139,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         <input id="dirmapa" type="text" value="<?php echo $that['direccion']; ?>" require="" placeholder="Jose Tomas Rider 1185, Providencia" />
                         <div class="mensaje"></div>
                     </label>
-                    <div id="map" style="height: 400px; display: block;"></div>
+                    <div id="map" style="height: 400px; display: none;"></div>
                     <label>
                         <span>Superficie &uacute;til:</span>
                         <input id="supercifie_util" type="text" value="<?php echo $that['supercifie_util']; ?>" require="" placeholder="60" />
