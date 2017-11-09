@@ -104,10 +104,11 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
         });
     }
     $(document).ready(function(){
-        initAutocomplete();
+        
     });
     $('#pac-input').click(function(){
         $('#map').show();
+        initAutocomplete();
     });
     $('.listUser').sortable({
         stop: function(e, ui){
