@@ -57,11 +57,6 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
         var searchBox = new google.maps.places.SearchBox(input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-        // Bias the SearchBox results towards current map's viewport.
-        map.addListener('bounds_changed', function(){
-            searchBox.setBounds(map.getBounds());
-        });
-
         var markers = [];
         searchBox.addListener('places_changed', function(){
             
@@ -75,39 +70,17 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
             });
             markers = [];
 
-            var bounds = new google.maps.LatLngBounds();
             places.forEach(function(place){
                 if (!place.geometry){
                     console.log("Returned place contains no geometry");
                     return;
                 }
-                var icon = {
-                    url: place.icon,
-                    size: new google.maps.Size(71, 71),
-                    origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(17, 34),
-                    scaledSize: new google.maps.Size(25, 25)
-                };
-                markers.push(new google.maps.Marker({
-                    map: map,
-                    icon: icon,
-                    title: place.name,
-                    position: place.geometry.location
-                }));
-                if (place.geometry.viewport){
-                    bounds.union(place.geometry.viewport);
-                } else {
-                    bounds.extend(place.geometry.location);
-                }
+                console.log(place.geometry.location);
             });
-            map.fitBounds(bounds);
+
         });
     }
     $(document).ready(function(){
-        
-    });
-    $('#pac-input').click(function(){
-        $('#map').show();
         initAutocomplete();
     });
     $('.listUser').sortable({
