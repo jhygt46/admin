@@ -60,22 +60,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
         searchBox.addListener('places_changed', function(){
             
             var places = searchBox.getPlaces();
-            if (places.length == 0) {
-                return;
-            }
-
-            markers.forEach(function(marker){
-                marker.setMap(null);
-            });
-            markers = [];
-
-            places.forEach(function(place){
-                if (!place.geometry){
-                    console.log("Returned place contains no geometry");
-                    return;
-                }
-                console.log(place.geometry.location);
-            });
+            console.log(places[0].geometry.location);
 
         });
     }
