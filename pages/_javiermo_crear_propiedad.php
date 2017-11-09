@@ -49,7 +49,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     function initAutocomplete(){
         
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: <?php echo isset($lat) ? $lat : -33.8688; ?> , lng: <?php echo isset($lng) ? $lng : 151.2195; ?>},
+          center: { lat: <?php echo isset($lat) ? $lat : -33.8688; ?> , lng: <?php echo isset($lng) ? $lng : 151.2195; ?> },
           zoom: 13,
           mapTypeId: 'roadmap'
         });
@@ -65,15 +65,31 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
         });
 
         var markers = [];
+        markers.push(new google.maps.Marker({
+            map: map,
+            icon: 'red',
+            position: place.geometry.location
+        }));
         // Listen for the event fired when the user selects a prediction and retrieve
         // more details for that place.
         searchBox.addListener('places_changed', function() {
             
-          var places = searchBox.getPlaces();
-          if (places.length == 0) {
-            return;
-          }
-
+            var places = searchBox.getPlaces();
+            if (places.length == 0) {
+              return;
+            }
+          
+            markers.forEach(function(marker) {
+                marker.setMap(null);
+            });
+            markers = [];
+          
+            markers.push(new google.maps.Marker({
+                map: map,
+                icon: 'red',
+                position: places[0].geometry.location
+            }));
+          
           $('#lat').val(places[0].geometry.location.lat());
           $('#lng').val(places[0].geometry.location.lng());
 
@@ -168,7 +184,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     </label>
                     <label>
                         <input id="pac-input" class="controls" type="text" placeholder="Search Box" value="<?php echo $that['mapa']; ?>">
-                        <div id="map" style="height: 400px; display: none; margin-right: 9%; margin-left: 10%"></div>
+                        <div id="map" style="height: 400px; display: none; margin-right: 9%; margin-left: 16%"></div>
                     </label>
                     <label>
                         <span>Superficie &uacute;til:</span>
