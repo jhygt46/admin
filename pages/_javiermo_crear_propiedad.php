@@ -72,7 +72,8 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
             return;
           }
           console.log("geometry");
-          console.log(places[0].geometry.location);
+          console.log(places[0].geometry.location.lat());
+          console.log(places[0].geometry.location.lng());
 
           // Clear out the old markers.
           markers.forEach(function(marker) {
