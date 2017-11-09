@@ -44,15 +44,68 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
 
 <script>
     
-    var map;    
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 8
+    var map;
+    function initAutocomplete(){
+        
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -33.8688, lng: 151.2195},
+            zoom: 13,
+            mapTypeId: 'roadmap'
+        });
+
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function(){
+            searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+        searchBox.addListener('places_changed', function(){
+            
+            var places = searchBox.getPlaces();
+            if (places.length == 0) {
+                return;
+            }
+
+            markers.forEach(function(marker){
+                marker.setMap(null);
+            });
+            markers = [];
+
+            var bounds = new google.maps.LatLngBounds();
+            places.forEach(function(place){
+                if (!place.geometry){
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+                var icon = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25)
+                };
+                markers.push(new google.maps.Marker({
+                    map: map,
+                    icon: icon,
+                    title: place.name,
+                    position: place.geometry.location
+                }));
+                if (place.geometry.viewport){
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+            });
+            map.fitBounds(bounds);
         });
     }
-    $('#dirmapa').keyup(function(){
+    $('#pac-input').click(function(){
         $('#map').show();
+        initAutocomplete();
     });
     $('.listUser').sortable({
         stop: function(e, ui){
@@ -136,7 +189,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     </label>
                     <label>
                         <span>Mapa:</span>
-                        <input id="dirmapa" type="text" value="<?php echo $that['direccion']; ?>" require="" placeholder="Jose Tomas Rider 1185, Providencia" />
+                        <input id="pac-input" class="controls" type="text" placeholder="" value="<?php echo $that['mapa']; ?>">
                         <div class="mensaje"></div>
                     </label>
                     <div id="map" style="height: 400px; display: none;"></div>
