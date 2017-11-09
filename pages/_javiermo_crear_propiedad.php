@@ -167,7 +167,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     </label>
                     <label>
                         <span>Mapa:</span>
-                        <input id="pac-input" type="text" placeholder="" value="<?php echo $that['mapa']; ?>">
+                        <input id="pac-input" value="<?php echo $that['mapa']; ?>" class="controls" type="text" placeholder="Search Box">
                         <div class="mensaje"></div>
                     </label>
                     <div id="map" style="height: 400px; display: none; margin-right: 10%"></div>
