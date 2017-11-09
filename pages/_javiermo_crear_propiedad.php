@@ -68,10 +68,9 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
         var markers = [];
         <?php if(isset($lat)){ ?>
         markers.push(new google.maps.Marker({
+            position: center,
             map: map,
-            icon: 'red',
-            title: '',
-            position: center
+            title: ''
         }));
         <?php } ?>
         // Listen for the event fired when the user selects a prediction and retrieve
@@ -87,12 +86,11 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                 marker.setMap(null);
             });
             markers = [];
-          
+            
             markers.push(new google.maps.Marker({
+                position: places[0].geometry.location,
                 map: map,
-                icon: 'red',
-                title: '',
-                position: places[0].geometry.location
+                title: ''
             }));
           
           $('#lat').val(places[0].geometry.location.lat());
