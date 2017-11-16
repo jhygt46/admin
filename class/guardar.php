@@ -247,7 +247,7 @@ class Guardar extends Core{
         $size = $_FILES['file_image0']['size'];
         
         if (strlen($name)){
-            $ext = end(explode(".", $name));
+            $ext = strtolower(end(explode(".", $name)));
             if (in_array($ext, $file_formats)) { // check it if it's a valid format or not
                 if ($size < (2048 * 1024)) { // check it if it's bigger than 2 mb or no
                     $imagename = md5(uniqid() . time()) . "." . $ext;
