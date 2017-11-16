@@ -633,12 +633,12 @@ class Guardar extends Core{
             $db_id = "id_pro";
         }
         
-        $info_image = $this->con->sql("SELECT images FROM ".$db_name." WHERE ".$db_id."='".$id."' AND id_page='1'");
+        $info_image = $this->con->sql("SELECT images FROM ".$db_name." WHERE ".$db_id."='".$id."' AND id_page='".$this->id_page."'");
         $images = json_decode($info_image['resultado'][0]['images']);
         
         $file = $images[$pos];
         array_splice($images, $pos, 1);
-        $this->con->sql("UPDATE ".$db_name." SET images='".json_encode($images)."' WHERE ".$db_id."='".$id."' AND id_page='1'");
+        $this->con->sql("UPDATE ".$db_name." SET images='".json_encode($images)."' WHERE ".$db_id."='".$id."' AND id_page='".$this->id_page."'");
         
         if(file_exists($filepath.$file)){
             unlink($filepath.$file);
