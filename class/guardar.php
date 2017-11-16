@@ -616,7 +616,7 @@ class Guardar extends Core{
         if($_SERVER['HTTP_HOST'] == "localhost"){
             $filepath = "C:/Appserv/www/admin/images/uploads/".$this->id_page."/";
         }else{
-            $filepath = "/var/www/html/jardinvalleencantado.cl/public_html/admin/images/uploads/".$this->id_page."/";
+            $filepath = "/var/www/html/admin/public_html/admin/images/uploads/".$this->id_page."/";
         }
         
         $e = explode("/", $_POST["id"]);
@@ -627,6 +627,10 @@ class Guardar extends Core{
         if($db == "tour"){
             $db_name = "_jardinva_tour";
             $db_id = "id_tour";
+        }
+        if($db == "propieades"){
+            $db_name = "_javiermo_propiedades";
+            $db_id = "id_pro";
         }
         
         $info_image = $this->con->sql("SELECT images FROM ".$db_name." WHERE ".$db_id."='".$id."' AND id_page='1'");
