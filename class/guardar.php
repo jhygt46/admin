@@ -213,12 +213,12 @@ class Guardar extends Core{
         
         if($foto['op'] == 1 && isset($db_name)){
             
-            $info = $this->con->sql("SELECT * FROM ".$db_name." WHERE ".$id."='".$_POST["id"]."' AND id_page='1'");
+            $info = $this->con->sql("SELECT * FROM ".$db_name." WHERE ".$id."='".$_POST["id"]."' AND id_page='".$this->id_page."'");
             $images = json_decode($info['resultado'][0]['images']);
             $images[] = $foto['name'];
             $info['images'] = $images;
             
-            $this->con->sql("UPDATE ".$db_name." SET images='".json_encode($images)."' WHERE ".$id."='".$_POST["id"]."' AND id_page='3'");
+            $this->con->sql("UPDATE ".$db_name." SET images='".json_encode($images)."' WHERE ".$id."='".$_POST["id"]."' AND id_page='".$this->id_page."'");
             
             $info['op'] = 1;
             $info['mensaje'] = "Imagen subida";
