@@ -628,7 +628,7 @@ class Guardar extends Core{
             $db_name = "_jardinva_tour";
             $db_id = "id_tour";
         }
-        if($db == "propieades"){
+        if($db == "propiedades"){
             $db_name = "_javiermo_propiedades";
             $db_id = "id_pro";
         }
