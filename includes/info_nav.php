@@ -4,7 +4,7 @@
     
     if($page == 2){
         $array[0]["nombre"] = "Categorias";
-        $array[0]["link"] = "pages/crear_categoria.php";
+        $array[0]["link"] = "pages/_mika_crear_categoria.php";
     }
     if($page == 2){
         $array[1]["nombre"] = "Productos";
