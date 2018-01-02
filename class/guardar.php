@@ -322,18 +322,20 @@ class Guardar extends Core{
         $cocina = $_POST['cocina'];
         $codigo = $_POST['codigo'];
         $descripcion = $_POST['descripcion'];
+        $estacionamiento = $_POST['estacionamiento'];
+        $bodega = $_POST['bodega'];
         
         $lat = $_POST['lat'];
         $lng = $_POST['lng'];
         $mapa = $_POST['pac-input'];
         
         if($id == 0){
-            $this->con->sql("INSERT INTO _javiermo_propiedades (mapa, lat, lng, nombre, tipo, naturaleza, precio_normal, precio_uf, direccion, supercifie_util, supercifie_total, dormitorios, banos, cocina, codigo, descripcion, orders, id_page) VALUES ('".$mapa."', '".$lat."', '".$lng."', '".$nombre."', '".$tipo."', '".$naturaleza."', '".$precio_normal."', '".$precio_uf."', '".$direccion."', '".$supercifie_util."', '".$supercifie_total."', '".$dormitorios."', '".$banos."', '".$cocina."', '".$codigo."', '".$descripcion."', '9999', '".$this->id_page."')");
+            $this->con->sql("INSERT INTO _javiermo_propiedades (mapa, lat, lng, nombre, tipo, naturaleza, precio_normal, precio_uf, direccion, supercifie_util, supercifie_total, dormitorios, banos, cocina, codigo, descripcion, orders, bodega, estacionamiento, id_page) VALUES ('".$mapa."', '".$lat."', '".$lng."', '".$nombre."', '".$tipo."', '".$naturaleza."', '".$precio_normal."', '".$precio_uf."', '".$direccion."', '".$supercifie_util."', '".$supercifie_total."', '".$dormitorios."', '".$banos."', '".$cocina."', '".$codigo."', '".$descripcion."', '9999', '".$bodega."', '".$estacionamiento."', '".$this->id_page."')");
             $info['op'] = 1;
             $info['mensaje'] = "Propiedad ingresada exitosamente";
         }
         if($id > 0){
-            $this->con->sql("UPDATE _javiermo_propiedades SET mapa='".$mapa."', lat='".$lat."', lng='".$lng."', nombre='".$nombre."', tipo='".$tipo."', naturaleza='".$naturaleza."', precio_normal='".$precio_normal."', precio_uf='".$precio_uf."', direccion='".$direccion."', supercifie_util='".$supercifie_util."', supercifie_total='".$supercifie_total."', dormitorios='".$dormitorios."', banos='".$banos."', cocina='".$cocina."', codigo='".$codigo."', descripcion='".$descripcion."'  WHERE id_pro='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _javiermo_propiedades SET mapa='".$mapa."', lat='".$lat."', lng='".$lng."', nombre='".$nombre."', tipo='".$tipo."', naturaleza='".$naturaleza."', precio_normal='".$precio_normal."', precio_uf='".$precio_uf."', direccion='".$direccion."', supercifie_util='".$supercifie_util."', supercifie_total='".$supercifie_total."', dormitorios='".$dormitorios."', banos='".$banos."', cocina='".$cocina."', codigo='".$codigo."', descripcion='".$descripcion."', bodega='".$bodega."', estacionamiento='".$estacionamiento."'  WHERE id_pro='".$id."' AND id_page='".$this->id_page."'");
             $info['op'] = 1;
             $info['mensaje'] = "Propiedad modificada exitosamente";
         }
