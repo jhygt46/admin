@@ -19,8 +19,8 @@ if(isset($_GET["parent_id"])){
 }
 
 //$res = $admin->arbol_categoria();
-$list = $admin->con->sql("SELECT * FROM _mika_categorias WHERE id_page='".$_SESSION['user']['info']['id_page']."'");
-
+$aux = $admin->con->sql("SELECT * FROM _mika_categorias WHERE id_page='".$_SESSION['user']['info']['id_page']."'");
+$list = $aux['resultado'];
 $titulo = "Categorias";
 $titulo_list = "Lista de Categorias";
 $sub_titulo1 = "Ingresar Categoria";

@@ -218,8 +218,13 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         <div class="mensaje"></div>
                     </label>
                     <label>
-                        <span>Codigo:</span>
-                        <input id="codigo" type="text" value="<?php echo $that['codigo']; ?>" require="" placeholder="003" />
+                        <span>Bodega:</span>
+                        <input id="bodega" type="text" value="<?php echo $that['bodega']; ?>" require="" placeholder="" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Estacionamiento:</span>
+                        <input id="estacionamiento" type="text" value="<?php echo $that['estacionamiento']; ?>" require="" placeholder="" />
                         <div class="mensaje"></div>
                     </label>
                     <label>
