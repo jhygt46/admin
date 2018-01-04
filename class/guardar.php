@@ -17,7 +17,6 @@ class Guardar extends Core{
     }
     public function process(){
         
-        
         // CRAER //
         if($_POST['accion'] == "crearcategoria"){
             return $this->crearcategoria();
@@ -75,6 +74,10 @@ class Guardar extends Core{
         }
         if($_POST['accion'] == "_javiermo_eliminar_propiedad"){
             return $this->_javiermo_eliminar_propiedad();
+        }
+        
+        if($_POST['accion'] == "_mika_crear_categoria"){
+            return $this->_mika_crear_categoria();
         }
         
         
@@ -304,7 +307,45 @@ class Guardar extends Core{
         return $info;
         
     }
+    
+    private function _mika_crear_categoria(){
         
+        $id = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        $precio = $_POST['precio'];
+        
+        if($id == 0){
+            
+            $this->con->sql("INSERT INTO _mika_categorias (nombre, precio, orders, id_page) VALUES ('".$nombre."', '".$precio."', 0, '".$this->id_page."')");
+            $info['op'] = 1;
+            $info['mensaje'] = "Categoria ingresada exitosamente";
+        }
+        if($id > 0){
+            $this->con->sql("UPDATE _mika_categorias SET nombre='".$nombre."', precio='".$precio."'  WHERE id_cat='".$id."' AND id_page='".$this->id_page."'");
+            $info['op'] = 1;
+            $info['mensaje'] = "Categoria modificada exitosamente";
+        }    
+        $info['reload'] = 1;
+        $info['page'] = "_mika_crear_categoria.php";
+        return $info;
+        
+        
+    }
+    private function _javiermo_eliminar_categoria(){
+        
+        $id = $_POST['id'];
+        $this->con->sql("UPDATE _mika_categorias SET eliminado='1' WHERE id_cat='".$id."' AND id_page='".$this->id_page."'");
+        
+        $info['tipo'] = "success";
+        $info['titulo'] = "Eliminado";
+        $info['texto'] = "Categoria ".$_POST["nombre"]." Eliminada";
+        $info['reload'] = 1;
+        $info['page'] = "_mika_crear_categoria.php";
+
+        return $info;
+        
+    }
+    
     private function _javiermo_crear_propiedad(){
         
         $id = $_POST['id'];

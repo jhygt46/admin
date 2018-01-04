@@ -8,7 +8,7 @@
     }
     if($page == 2){
         $array[1]["nombre"] = "Productos";
-        $array[1]["link"] = "pages/crear_producto.php";
+        $array[1]["link"] = "pages/_mika_crear_producto.php";
     }
     
     if(isset($array)){
