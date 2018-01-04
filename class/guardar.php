@@ -79,6 +79,9 @@ class Guardar extends Core{
         if($_POST['accion'] == "_mika_crear_categoria"){
             return $this->_mika_crear_categoria();
         }
+        if($_POST['accion'] == "_mika_eliminar_categoria"){
+            return $this->_mika_eliminar_categoria();
+        }
         
         
         
@@ -327,7 +330,7 @@ class Guardar extends Core{
         
         
     }
-    private function _javiermo_eliminar_categoria(){
+    private function _mika_eliminar_categoria(){
         
         $id = $_POST['id'];
         $this->con->sql("UPDATE _mika_categorias SET eliminado='1' WHERE id_cat='".$id."' AND id_page='".$this->id_page."'");

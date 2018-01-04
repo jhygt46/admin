@@ -24,7 +24,7 @@ $sub_titulo1 = "Ingresar Categoria";
 $sub_titulo2 = "Modificar Categoria";
 $accion = "_mika_crear_categoria";
 
-$eliminaraccion = "eliminarcategoria";
+$eliminaraccion = "_mika_eliminar_categoria";
 $id_list = "id_cat";
 $eliminarobjeto = "Categoria";
 $page_mod = "pages/_mika_crear_categoria.php";
