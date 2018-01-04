@@ -197,7 +197,7 @@ function eliminar(accion, id, tipo, name){
         accion: accion,
         id: id,
     };
-    console.log(message);
+    console.log(msg);
     confirm(msg);
         
 }
