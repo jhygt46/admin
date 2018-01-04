@@ -204,6 +204,8 @@ function eliminar(accion, id, tipo, name){
 
 function confirm(message){
     
+    console.log(message);
+    
     swal({   
         title: message['title'],   
         text: message['text'],   
