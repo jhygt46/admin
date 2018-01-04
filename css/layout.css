@@ -547,7 +547,7 @@ body {
 }
 .listUser .user ul .envoltura{
     background: url('../images/icons-set.png') no-repeat;
-    background-position: -586px -625x;
+    background-position: -586px -625px;
     cursor: pointer;
 }
 .listUser .user ul .setadmin{
