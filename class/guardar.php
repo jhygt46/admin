@@ -235,9 +235,10 @@ class Guardar extends Core{
         array_splice($env, $pos, 1);
         
         $this->con->sql("UPDATE _mika_categorias SET envoltura='".json_encode($env)."' WHERE id_cat='".$id."' AND id_page='".$this->id_page."' AND eliminado='0'");
-
-        $info['op'] = 1;
-        $info['mensaje'] = "Envoltura Eliminada Exitosamente";
+        
+        $info['tipo'] = "success";
+        $info['titulo'] = "Eliminado";
+        $info['texto'] = "Envoltura ".$_POST["nombre"]." Eliminada";
         $info['reload'] = 1;
         $info['page'] = "_mika_envoltura.php?id=".$id;
         return $info;
