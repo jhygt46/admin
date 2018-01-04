@@ -16,6 +16,11 @@ $admin = new Admin();
 
 //$res = $admin->arbol_categoria();
 $aux = $admin->con->sql("SELECT * FROM _mika_categorias WHERE id_page='".$_SESSION['user']['info']['id_page']."'");
+
+echo "<pre>";
+print_r($aux);
+echo "</pre>";
+
 $list = $aux['resultado'];
 $titulo = "Categorias";
 $titulo_list = "Lista de Categorias";
