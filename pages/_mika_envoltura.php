@@ -86,15 +86,14 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                 <?php
                 
                 for($i=0; $i<count($envoltura); $i++){
-                    $id = $i;
+                    $ids = $i;
                     $nombre = $envoltura[$i];
                 ?>
                 
-                <li class="user" rel="<?php echo $id; ?>">
+                <li class="user" rel="<?php echo $ids; ?>">
                     <ul class="clearfix">
                         <li class="nombre"><?php echo $nombre; ?></li>
-                        <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', <?php echo $id; ?>, '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
-                        <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id=<?php echo $id; ?>')"></a>
+                        <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', <?php echo $id; ?>/<?php echo $ids; ?>, '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
                     </ul>
                 </li>
                 

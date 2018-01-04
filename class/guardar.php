@@ -85,6 +85,9 @@ class Guardar extends Core{
         if($_POST['accion'] == "_mika_crear_envoltura"){
             return $this->_mika_crear_envoltura();
         }
+        if($_POST['accion'] == "_mika_eliminar_envoltura"){
+            return $this->_mika_eliminar_envoltura();
+        }
         
         
         
@@ -214,6 +217,28 @@ class Guardar extends Core{
 
         $info['op'] = 1;
         $info['mensaje'] = "Envoltura Ingresada Exitosamente";
+        $info['reload'] = 1;
+        $info['page'] = "_mika_envoltura.php?id=".$id;
+        return $info;
+        
+    }
+    
+    private function _mika_eliminar_envoltura(){
+        
+        $idr = explode("/", $_POST['id']);
+        $id = $idr[0];
+        $pos = $idr[1];
+        
+        $info = $this->con->sql("SELECT * FROM _mika_categorias WHERE id_cat='".$id."' AND id_page='".$this->id_page."' AND eliminado='0'");
+        $env = json_decode($info['resultado'][0]['envoltura']);
+        $env[] = $nombre;
+        
+        array_splice($env, $pos, 1);
+        
+        $this->con->sql("UPDATE _mika_categorias SET envoltura='".json_encode($env)."' WHERE id_cat='".$id."' AND id_page='".$this->id_page."' AND eliminado='0'");
+
+        $info['op'] = 1;
+        $info['mensaje'] = "Envoltura Eliminada Exitosamente";
         $info['reload'] = 1;
         $info['page'] = "_mika_envoltura.php?id=".$id;
         return $info;
