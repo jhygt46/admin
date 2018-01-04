@@ -14,21 +14,15 @@ $admin = new Admin();
 
 /* CONFIG PAGE */
 
-//$res = $admin->arbol_categoria();
-$aux = $admin->con->sql("SELECT * FROM _mika_categorias WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND eliminado='0'");
+$titulo = "Envoltura";
+$titulo_list = "Lista de Envoltura";
+$sub_titulo1 = "Ingresar Envoltura";
+$sub_titulo2 = "Modificar Envoltura";
+$accion = "_mika_crear_envoltura";
 
-$list = $aux['resultado'];
-$titulo = "Categorias";
-$titulo_list = "Lista de Categorias";
-$sub_titulo1 = "Ingresar Categoria";
-$sub_titulo2 = "Modificar Categoria";
-$accion = "_mika_crear_categoria";
-
-$eliminaraccion = "_mika_eliminar_categoria";
-$id_list = "id_cat";
-$eliminarobjeto = "Categoria";
-$page_mod = "pages/_mika_crear_categoria.php";
-$page_env = "pages/_mika_envoltura.php";
+$eliminaraccion = "_mika_eliminar_envoltura";
+$eliminarobjeto = "Envoltura";
+$page_mod = "pages/_mika_envoltura.php";
 /* CONFIG PAGE */
 
 $id = 0;
@@ -92,11 +86,6 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     <label>
                         <span>Nombre:</span>
                         <input id="nombre" type="text" value="<?php echo $that['nombre']; ?>" require="" placeholder="California Rolls" />
-                        <div class="mensaje"></div>
-                    </label>
-                    <label>
-                        <span>Precio:</span>
-                        <input id="precio" type="text" value="<?php echo $that['precio']; ?>" require="" placeholder="3800" />
                         <div class="mensaje"></div>
                     </label>
                     <label style='margin-top:20px'>
