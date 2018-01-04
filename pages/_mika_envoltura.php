@@ -30,39 +30,13 @@ $sub_titulo = $sub_titulo1;
 if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     
     $id = $_GET["id"];
-    $sub_titulo = $sub_titulo2;
-    $mm = $admin->con->sql("SELECT * FROM _mika_categorias WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND id_cat='".$id."' AND eliminado='0'");
-    $that = $mm['resultado'][0];
+    $that = $admin->con->sql("SELECT * FROM _mika_categorias WHERE id_cat='".$_GET["id"]."' AND id_page='".$_SESSION['user']['info']['id_page']."' AND eliminado='0'");
+    $envoltura = json_decode($that['resultado'][0]['envoltura']);
     
 }
 
 
 ?>
-
-<script>
-    $('.listUser').sortable({
-        stop: function(e, ui){
-            var order = [];
-            $(this).find('.user').each(function(){
-                order.push($(this).attr('rel'));
-            });
-            var send = {accion: 'ordercat', values: order, tabla: '_category_mika', id: 'id_cat'};
-            $.ajax({
-                url: "ajax/index.php",
-                type: "POST",
-                data: send,
-                success: function(data){
-
-                }, error: function(e){
-
-                }
-            });
-            
-        }
-    });
-    $('.listUser').disableSelection();
-</script>   
-
 
 <div class="title">
     <h1><?php echo $titulo; ?></h1>
@@ -111,9 +85,9 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                 
                 <?php
                 
-                for($i=0; $i<count($list); $i++){
-                    $id = $list[$i][$id_list];
-                    $nombre = $list[$i]['nombre'];
+                for($i=0; $i<count($envoltura); $i++){
+                    $id = $i;
+                    $nombre = $envoltura[$i];
                 ?>
                 
                 <li class="user" rel="<?php echo $id; ?>">
@@ -121,7 +95,6 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         <li class="nombre"><?php echo $nombre; ?></li>
                         <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', <?php echo $id; ?>, '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
                         <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id=<?php echo $id; ?>')"></a>
-                        <a title="Envoltura" class="icn envoltura" onclick="navlink('<?php echo $page_env; ?>?id=<?php echo $id; ?>')"></a>
                     </ul>
                 </li>
                 
