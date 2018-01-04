@@ -16,7 +16,7 @@ $admin = new Admin();
 $titulo = "Productos";
 $titulo_list = "Lista de Productos";
 $sub_titulo1 = "Ingresar Producto";
-$sub_titulo2 = "Modificar Modificar Producto";
+$sub_titulo2 = "Modificar Producto";
 $accion = "_mika_crear_producto";
 
 $eliminaraccion = "_mika_eliminar_producto";
@@ -30,12 +30,13 @@ $sub_titulo = $sub_titulo1;
 if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     
     $id = $_GET["id"];
-    $sub_titulo = $sub_titulo2;
     $mm = $admin->con->sql("SELECT * FROM _mika_productos WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND id_cat='".$id."' AND eliminado='0'");
     $list = $mm['resultado'];
+    $id_pro = 0;
     
     if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0){
         
+        $sub_titulo = $sub_titulo2;
         $aux = $admin->con->sql("SELECT * FROM _mika_productos WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND id_pro='".$id_pro."' AND eliminado='0'");
         $that = $aux['resultado'][0];
         $id_pro = $_GET["id_pro"];
@@ -63,6 +64,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
             <form action="" method="post" class="basic-grey">
                 <fieldset>
                     <input id="id" type="hidden" value="<?php echo $id; ?>" />
+                    <input id="id" type="hidden" value="<?php echo $id_pro; ?>" />
                     <input id="accion" type="hidden" value="<?php echo $accion; ?>" />
                     <label>
                         <span>Numero:</span>
@@ -111,9 +113,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     <ul class="clearfix">
                         <li class="nombre"><?php echo $nombre; ?></li>
                         <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', <?php echo $id; ?>, '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
-                        <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id=<?php echo $id; ?>')"></a>
-                        <a title="Envoltura" class="icn envoltura" onclick="navlink('<?php echo $page_env; ?>?id=<?php echo $id; ?>')"></a>
-                        <a title="Productos" class="icn lpro" onclick="navlink('<?php echo $page_pro; ?>?id=<?php echo $id; ?>')"></a>
+                        <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id=<?php echo $id; ?>&id_pro=id=<?php echo $id; ?>')"></a>
                     </ul>
                 </li>
                 
