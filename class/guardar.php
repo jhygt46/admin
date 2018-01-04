@@ -231,7 +231,6 @@ class Guardar extends Core{
         
         $info = $this->con->sql("SELECT * FROM _mika_categorias WHERE id_cat='".$id."' AND id_page='".$this->id_page."' AND eliminado='0'");
         $env = json_decode($info['resultado'][0]['envoltura']);
-        $env[] = $nombre;
         
         array_splice($env, $pos, 1);
         
