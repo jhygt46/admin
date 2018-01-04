@@ -84,13 +84,7 @@ class Guardar extends Core{
         
     }
     private function order(){
-        /*
-        if($this->seguridad(1)){
-            $info['op'] = 2;
-            $info['mensaje'] = "No tiene los permisos para ejecutar esta Tarea";
-            return $info;
-        }
-        */
+
         $id = $_POST["id"];
         if($_POST["tabla"] == "_cursos_md01")
             $tabla = "_jardinva_cursos";
@@ -98,6 +92,8 @@ class Guardar extends Core{
             $tabla = "_jardinva_alumnos";
         if($_POST["tabla"] == "_propiedades")
             $tabla = "_javiermo_propiedades";
+        if($_POST["tabla"] == "_category_mika")
+            $tabla = "_mika_categorias";
 
         $values = $_POST['values'];
         for($i=0; $i<count($values); $i++){

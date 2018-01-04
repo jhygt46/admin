@@ -15,7 +15,7 @@ $admin = new Admin();
 /* CONFIG PAGE */
 
 //$res = $admin->arbol_categoria();
-$aux = $admin->con->sql("SELECT * FROM _mika_categorias WHERE id_page='".$_SESSION['user']['info']['id_page']."'");
+$aux = $admin->con->sql("SELECT * FROM _mika_categorias WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND eliminado='0'");
 
 $list = $aux['resultado'];
 $titulo = "Categorias";
@@ -35,9 +35,9 @@ $id = 0;
 $sub_titulo = $sub_titulo1;
 if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     
-    $sub_titulo = $sub_titulo2;
-    $that = $admin->get_categoria($_GET["id"]);
     $id = $_GET["id"];
+    $sub_titulo = $sub_titulo2;
+    $that = $admin->con->sql("SELECT * FROM _mika_categorias WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND id_cat='".$id."' AND eliminado='0'");
     
 }
 
@@ -52,8 +52,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                 order.push($(this).attr('rel'));
             });
             
-            var send = {accion: 'ordercat', values: order};
-            console.log(order);
+            var send = {accion: 'ordercat', values: order, tabla: '_category_mika', id: 'id_cat'};
             $.ajax({
                 url: "ajax/index.php",
                 type: "POST",
