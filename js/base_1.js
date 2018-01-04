@@ -225,6 +225,7 @@ function confirm(message){
                 data: send,
                 success: function(data){
                     
+                    console.log(data);
                     setTimeout(function(){  
                         swal({
                             title: data.titulo,
