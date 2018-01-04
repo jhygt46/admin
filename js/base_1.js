@@ -197,7 +197,6 @@ function eliminar(accion, id, tipo, name){
         accion: accion,
         id: id,
     };
-    console.log(msg);
     confirm(msg);
         
 }
@@ -225,7 +224,6 @@ function confirm(message){
                 data: send,
                 success: function(data){
                     
-                    console.log(data);
                     setTimeout(function(){  
                         swal({
                             title: data.titulo,

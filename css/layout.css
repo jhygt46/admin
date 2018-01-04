@@ -550,6 +550,11 @@ body {
     background-position: -586px -625px;
     cursor: pointer;
 }
+.listUser .user ul .productos{
+    background: url('../images/icons-set.png') no-repeat;
+    background-position: -287px -575px;
+    cursor: pointer;
+}
 .listUser .user ul .setadmin{
     background: url('../images/icons-set.png') no-repeat;
     background-position: -705px -383px;
