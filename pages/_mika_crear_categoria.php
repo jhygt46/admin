@@ -132,7 +132,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         <li class="nombre"><?php echo $nombre; ?></li>
                         <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', <?php echo $id; ?>, '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
                         <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id=<?php echo $id; ?>')"></a>
-                        <a title="Envoltura" class="icn database" onclick="navlink('<?php echo $page_env; ?>?id=<?php echo $id; ?>')"></a>
+                        <a title="Envoltura" class="icn envoltura" onclick="navlink('<?php echo $page_env; ?>?id=<?php echo $id; ?>')"></a>
                     </ul>
                 </li>
                 
