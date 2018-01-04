@@ -13,7 +13,7 @@ class Guardar extends Core{
         $this->id_page = $this->get_idpage();
     }
     private function get_idpage(){
-        return 3;
+        return $_SESSION['user']['info']['id_page'];
     }
     public function process(){
         
