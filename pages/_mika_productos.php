@@ -63,8 +63,8 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
 
             <form action="" method="post" class="basic-grey">
                 <fieldset>
-                    <input id="id" type="hidden" value="<?php echo $id; ?>" />
-                    <input id="id" type="hidden" value="<?php echo $id_pro; ?>" />
+                    <input id="id_cat" type="hidden" value="<?php echo $id; ?>" />
+                    <input id="id_pro" type="hidden" value="<?php echo $id_pro; ?>" />
                     <input id="accion" type="hidden" value="<?php echo $accion; ?>" />
                     <label>
                         <span>Numero:</span>

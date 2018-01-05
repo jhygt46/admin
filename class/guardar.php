@@ -88,7 +88,12 @@ class Guardar extends Core{
         if($_POST['accion'] == "_mika_eliminar_envoltura"){
             return $this->_mika_eliminar_envoltura();
         }
-        
+        if($_POST['accion'] == "_mika_crear_producto"){
+            return $this->_mika_crear_producto();
+        }
+        if($_POST['accion'] == "_mika_eliminar_producto"){
+            return $this->_mika_eliminar_producto();
+        }
         
         
     }
@@ -354,7 +359,44 @@ class Guardar extends Core{
         return $info;
         
     }
-    
+
+    private function _mika_crear_producto(){
+        
+        $id_cat = $_POST['id_cat'];
+        $id_pro = $_POST['id_pro'];
+        $nombre = $_POST['nombre'];
+        $precio = $_POST['precio'];
+        
+        if($id_pro == 0){
+            $this->con->sql("INSERT INTO _mika_productos (numero, nombre, precio, id_cat, id_page) VALUES ('".$numero."', '".$nombre."', '".$precio."', '".$id_cat."', '".$this->id_page."')");
+            $info['op'] = 1;
+            $info['mensaje'] = "Producto ingresado exitosamente";
+        }
+        if($id_pro > 0){
+            $this->con->sql("UPDATE _mika_productos SET numero='".$numero."', nombre='".$nombre."', precio='".$precio."'  WHERE id_pro='".$id_pro."' AND id_page='".$this->id_page."'");
+            $info['op'] = 1;
+            $info['mensaje'] = "Producto modificada exitosamente";
+        }    
+        $info['reload'] = 1;
+        $info['page'] = "_mika_productos.php";
+        return $info;
+        
+    }
+    private function _mika_eliminar_producto(){
+        
+        $id = $_POST['id'];
+        $this->con->sql("UPDATE _mika_productos SET eliminado='1' WHERE id_pro='".$id."' AND id_page='".$this->id_page."'");
+        
+        $info['tipo'] = "success";
+        $info['titulo'] = "Eliminado";
+        $info['texto'] = "Producto ".$_POST["nombre"]." Eliminado";
+        $info['reload'] = 1;
+        $info['page'] = "_mika_productos.php";
+
+        return $info;
+        
+    }
+        
     private function _mika_crear_categoria(){
         
         $id = $_POST['id'];
