@@ -22,7 +22,7 @@ $accion = "_mika_crear_producto";
 $eliminaraccion = "_mika_eliminar_producto";
 $id_list = "id_pro";
 $eliminarobjeto = "Producto";
-$page_mod = "pages/_mika_crear_producto.php";
+$page_mod = "pages/_mika_productos.php";
 /* CONFIG PAGE */
 
 $id = 0;
