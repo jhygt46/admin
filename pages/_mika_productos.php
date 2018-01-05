@@ -39,6 +39,9 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
         $sub_titulo = $sub_titulo2;
         $aux = $admin->con->sql("SELECT * FROM _mika_productos WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND id_pro='".$id_pro."' AND eliminado='0'");
         $that = $aux['resultado'][0];
+        echo "<pre>";
+        print_r($aux);
+        echo "</pre>";
         $id_pro = $_GET["id_pro"];
     
     }
