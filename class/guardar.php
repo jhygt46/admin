@@ -378,20 +378,22 @@ class Guardar extends Core{
             $info['mensaje'] = "Producto modificada exitosamente";
         }    
         $info['reload'] = 1;
-        $info['page'] = "_mika_productos.php";
+        $info['page'] = "_mika_productos.php?id=".$id_cat;
         return $info;
         
     }
     private function _mika_eliminar_producto(){
         
         $id = $_POST['id'];
+        
+        $aux = $this->con->sql("SELECT * FROM _mika_productos WHERE id_pro='".$id."' AND id_page='".$this->id_page."'");
         $this->con->sql("UPDATE _mika_productos SET eliminado='1' WHERE id_pro='".$id."' AND id_page='".$this->id_page."'");
         
         $info['tipo'] = "success";
         $info['titulo'] = "Eliminado";
         $info['texto'] = "Producto ".$_POST["nombre"]." Eliminado";
         $info['reload'] = 1;
-        $info['page'] = "_mika_productos.php";
+        $info['page'] = "_mika_productos.php?id=".$aux['resultado'][0]['id_cat'];
 
         return $info;
         
