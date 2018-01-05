@@ -17,6 +17,7 @@
         
         $aux["ico"] = 5;
         $aux["categoria"] = "Productos";
+        $aux["show"] = true;
         $aux["subcategoria"] = $array;
         $menu[] = $aux;
         unset($aux);

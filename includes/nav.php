@@ -13,7 +13,7 @@
                 <div class="title"><?php echo $menu[$i]['categoria']; ?></div>
                 <!--<div class="rows">13</div>-->
             </div>
-            <ul>
+            <ul<?php if(isset($menu[$i]['show'])){ ?> style="display:block" <?php } ?>>
                 <?php for($j=0; $j<count($menu[$i]['subcategoria']); $j++){ ?>
                 <li><a class='navlink' onClick="navlink('<?php echo $menu[$i]['subcategoria'][$j]['link']; ?>')"><?php echo $menu[$i]['subcategoria'][$j]['nombre']; ?></a><!--<p>12</p>--></li>
                 <?php } ?>
