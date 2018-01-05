@@ -6,11 +6,12 @@
         $array[0]["nombre"] = "Categorias";
         $array[0]["link"] = "pages/_mika_crear_categoria.php";
     }
+    /*
     if($page == 2){
         $array[1]["nombre"] = "Productos";
-        $array[1]["link"] = "pages/_mika_crear_producto.php";
+        $array[1]["link"] = "pages/_mika_productos.php";
     }
-    
+    */
     if(isset($array)){
         
         $aux["ico"] = 5;
