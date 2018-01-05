@@ -366,6 +366,7 @@ class Guardar extends Core{
         $id_pro = $_POST['id_pro'];
         $nombre = $_POST['nombre'];
         $precio = $_POST['precio'];
+        $numero = $_POST['numero'];
         
         if($id_pro == 0){
             $this->con->sql("INSERT INTO _mika_productos (numero, nombre, precio, id_cat, id_page) VALUES ('".$numero."', '".$nombre."', '".$precio."', '".$id_cat."', '".$this->id_page."')");
