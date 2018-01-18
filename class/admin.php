@@ -187,6 +187,10 @@ class Admin{
             $js = $this->con->sql("SELECT * FROM _javiermo_propiedades WHERE eliminado='0' AND id_page='3'");
             return json_encode($js['resultado']);
         }
+        if($sitio == "_mika_sushi"){
+            $js = $this->con->sql("SELECT * FROM _javiermo_propiedades WHERE eliminado='0' AND id_page='3'");
+            return json_encode($js['resultado']);
+        }
         
         
     }

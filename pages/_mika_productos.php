@@ -25,11 +25,11 @@ $eliminarobjeto = "Producto";
 $page_mod = "pages/_mika_productos.php";
 /* CONFIG PAGE */
 
-$id = 0;
+$id_cat = 0;
 $sub_titulo = $sub_titulo1;
 if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     
-    $id = $_GET["id"];
+    $id_cat = $_GET["id"];
     $mm = $admin->con->sql("SELECT * FROM _mika_productos WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND id_cat='".$id."' AND eliminado='0'");
     $list = $mm['resultado'];
     $id_pro = 0;
@@ -114,7 +114,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     <ul class="clearfix">
                         <li class="nombre"><?php echo $numero; ?>.- <?php echo $nombre; ?></li>
                         <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', <?php echo $id; ?>, '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
-                        <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id=<?php echo $id; ?>&id_pro=<?php echo $id; ?>')"></a>
+                        <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id=<?php echo $id_cat; ?>&id_pro=<?php echo $id; ?>')"></a>
                     </ul>
                 </li>
                 
