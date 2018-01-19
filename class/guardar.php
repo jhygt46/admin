@@ -446,10 +446,11 @@ class Guardar extends Core{
         $id = $_POST['id'];
         $nombre = $_POST['nombre'];
         $precio = $_POST['precio'];
+        $texto = $_POST['texto'];
         
         if($id == 0){
             
-            $this->con->sql("INSERT INTO _mika_promos (nombre, precio, orders, id_page) VALUES ('".$nombre."', '".$precio."', 0, '".$this->id_page."')");
+            $this->con->sql("INSERT INTO _mika_promos (nombre, precio, texto, orders, id_page) VALUES ('".$nombre."', '".$precio."', '".$texto."', 0, '".$this->id_page."')");
             $info['op'] = 1;
             $info['mensaje'] = "Promocion ingresada exitosamente";
         }
