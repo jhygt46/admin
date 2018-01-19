@@ -113,6 +113,8 @@ class Guardar extends Core{
             $tabla = "_mika_categorias";
         if($_POST["tabla"] == "_promos_mika")
             $tabla = "_mika_promos";
+        if($_POST["tabla"] == "_product_mika")
+            $tabla = "_mika_productos";
 
         $values = $_POST['values'];
         for($i=0; $i<count($values); $i++){

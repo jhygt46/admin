@@ -46,6 +46,29 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
 
 
 ?>
+<script>
+    $('.listUser').sortable({
+        stop: function(e, ui){
+            var order = [];
+            $(this).find('.user').each(function(){
+                order.push($(this).attr('rel'));
+            });
+            var send = {accion: 'order', values: order, tabla: '_product_mika', id: 'id_pro'};
+            $.ajax({
+                url: "ajax/index.php",
+                type: "POST",
+                data: send,
+                success: function(data){
+
+                }, error: function(e){
+
+                }
+            });
+            
+        }
+    });
+    $('.listUser').disableSelection();
+</script> 
 <div class="title">
     <h1><?php echo $titulo; ?></h1>
     <ul class="clearfix">
