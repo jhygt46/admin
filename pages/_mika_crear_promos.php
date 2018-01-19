@@ -15,7 +15,7 @@ $admin = new Admin();
 /* CONFIG PAGE */
 
 //$res = $admin->arbol_categoria();
-$aux = $admin->con->sql("SELECT * FROM _mika_promos WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND eliminado='0'");
+$aux = $admin->con->sql("SELECT * FROM _mika_promos WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND eliminado='0' ORDER BY orders");
 
 $list = $aux['resultado'];
 $titulo = "Promociones";
@@ -57,7 +57,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                 type: "POST",
                 data: send,
                 success: function(data){
-
+                    console.log(data);
                 }, error: function(e){
 
                 }

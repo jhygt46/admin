@@ -30,7 +30,7 @@ $sub_titulo = $sub_titulo1;
 if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     
     $id_cat = $_GET["id"];
-    $mm = $admin->con->sql("SELECT * FROM _mika_productos WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND id_cat='".$id_cat."' AND eliminado='0'");
+    $mm = $admin->con->sql("SELECT * FROM _mika_productos WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND id_cat='".$id_cat."' AND eliminado='0' ORDER BY orders");
     $list = $mm['resultado'];
     $id_pro = 0;
     
@@ -53,7 +53,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
             $(this).find('.user').each(function(){
                 order.push($(this).attr('rel'));
             });
-            var send = {accion: 'order', values: order, tabla: '_product_mika', id: 'id_pro'};
+            var send = { accion: 'order', values: order, tabla: '_product_mika', id: 'id_pro' };
             $.ajax({
                 url: "ajax/index.php",
                 type: "POST",

@@ -15,7 +15,7 @@ $admin = new Admin();
 /* CONFIG PAGE */
 
 //$res = $admin->arbol_categoria();
-$aux = $admin->con->sql("SELECT * FROM _mika_categorias WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND eliminado='0'");
+$aux = $admin->con->sql("SELECT * FROM _mika_categorias WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND eliminado='0' ORDER BY orders");
 
 $list = $aux['resultado'];
 $titulo = "Categorias";

@@ -118,9 +118,9 @@ class Guardar extends Core{
 
         $values = $_POST['values'];
         for($i=0; $i<count($values); $i++){
-            $this->con->sql("UPDATE ".$tabla." SET orders='".$i."' WHERE ".$id."='".$values[$i]."' AND id_page='".$this->id_page."'");
+            $a[] = $this->con->sql("UPDATE ".$tabla." SET orders='".$i."' WHERE ".$id."='".$values[$i]."' AND id_page='".$this->id_page."'");
         }
-
+        return $a;
     }
     private function configuracion(){
         
