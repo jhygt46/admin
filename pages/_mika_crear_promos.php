@@ -51,7 +51,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
             $(this).find('.user').each(function(){
                 order.push($(this).attr('rel'));
             });
-            var send = {accion: 'ordercat', values: order, tabla: '_promos_mika', id: 'id_prom'};
+            var send = {accion: 'order', values: order, tabla: '_promos_mika', id: 'id_prom'};
             $.ajax({
                 url: "ajax/index.php",
                 type: "POST",

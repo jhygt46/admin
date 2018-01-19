@@ -111,6 +111,8 @@ class Guardar extends Core{
             $tabla = "_javiermo_propiedades";
         if($_POST["tabla"] == "_category_mika")
             $tabla = "_mika_categorias";
+        if($_POST["tabla"] == "_promos_mika")
+            $tabla = "_mika_promos";
 
         $values = $_POST['values'];
         for($i=0; $i<count($values); $i++){
@@ -460,7 +462,6 @@ class Guardar extends Core{
             $info['mensaje'] = "Promocion modificada exitosamente";
         }    
         $info['reload'] = 1;
-        $info['db'] = $a;
         $info['page'] = "_mika_crear_promos.php";
         return $info;
         
