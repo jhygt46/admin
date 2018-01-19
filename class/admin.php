@@ -182,16 +182,23 @@ class Admin{
     }
     public function mostrar_js(){
         
+        $js_txt = "";
         $sitio = $_GET["sitio"];
         if($sitio == "_javier_montero"){
             $js = $this->con->sql("SELECT * FROM _javiermo_propiedades WHERE eliminado='0' AND id_page='3'");
             return json_encode($js['resultado']);
         }
         if($sitio == "_mika_sushi"){
-            $js = $this->con->sql("SELECT * FROM _javiermo_propiedades WHERE eliminado='0' AND id_page='3'");
-            return json_encode($js['resultado']);
+            $categorias = $this->con->sql("SELECT * FROM _mika_categorias WHERE eliminado='0' AND id_page='2' ORDER BY orders");
+            $productos = $this->con->sql("SELECT * FROM _mika_productos WHERE eliminado='0' AND id_page='2' ORDER BY orders");
+            $promos = $this->con->sql("SELECT * FROM _mika_promos WHERE eliminado='0' AND id_page='2' ORDER BY orders");
+            
+            $js_txt.= "var cats = ".json_encode($categorias['resultado']).";\n";
+            $js_txt.= "var prods = ".json_encode($productos['resultado']).";\n";
+            $js_txt.= "var promos = ".json_encode($promos['resultado']).";\n";
+            
         }
-        
+        return $js_txt;
         
     }
 }
