@@ -30,6 +30,10 @@ $sub_titulo = $sub_titulo1;
 if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     
     $id_cat = $_GET["id"];
+    $aux_cat = $admin->con->sql("SELECT * FROM _mika_categorias WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND id_cat='".$id_cat."' AND eliminado='0'");
+    $nom_cat = $aux_cat['resultado'][0]['nombre'];
+    $titulo = $titulo." de la categoria ".$nom_cat;
+    
     $mm = $admin->con->sql("SELECT * FROM _mika_productos WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND id_cat='".$id_cat."' AND eliminado='0' ORDER BY orders");
     $list = $mm['resultado'];
     $id_pro = 0;
