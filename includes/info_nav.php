@@ -7,8 +7,8 @@
         $array[0]["link"] = "pages/_mika_crear_categoria.php";
     }
     if($page == 2){
-        $array[0]["nombre"] = "Promos";
-        $array[0]["link"] = "pages/_mika_crear_promos.php";
+        $array[1]["nombre"] = "Promos";
+        $array[1]["link"] = "pages/_mika_crear_promos.php";
     }
     
     /*

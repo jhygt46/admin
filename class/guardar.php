@@ -79,6 +79,9 @@ class Guardar extends Core{
         if($_POST['accion'] == "_mika_crear_categoria"){
             return $this->_mika_crear_categoria();
         }
+        if($_POST['accion'] == "_mika_crear_promos"){
+            return $this->_mika_crear_promos();
+        }
         if($_POST['accion'] == "_mika_eliminar_categoria"){
             return $this->_mika_eliminar_categoria();
         }
@@ -433,6 +436,44 @@ class Guardar extends Core{
         $info['texto'] = "Categoria ".$_POST["nombre"]." Eliminada";
         $info['reload'] = 1;
         $info['page'] = "_mika_crear_categoria.php";
+
+        return $info;
+        
+    }
+    
+    private function _mika_crear_promos(){
+        
+        $id = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        $precio = $_POST['precio'];
+        
+        if($id == 0){
+            
+            $this->con->sql("INSERT INTO _mika_promos (nombre, precio, orders, id_page) VALUES ('".$nombre."', '".$precio."', 0, '".$this->id_page."')");
+            $info['op'] = 1;
+            $info['mensaje'] = "Promocion ingresada exitosamente";
+        }
+        if($id > 0){
+            $this->con->sql("UPDATE _mika_promos SET nombre='".$nombre."', precio='".$precio."'  WHERE id_prom='".$id."' AND id_page='".$this->id_page."'");
+            $info['op'] = 1;
+            $info['mensaje'] = "Promocion modificada exitosamente";
+        }    
+        $info['reload'] = 1;
+        $info['page'] = "_mika_crear_promos.php";
+        return $info;
+        
+        
+    }
+    private function _mika_eliminar_promocion(){
+        
+        $id = $_POST['id'];
+        $this->con->sql("UPDATE _mika_promos SET eliminado='1' WHERE id_prom='".$id."' AND id_page='".$this->id_page."'");
+        
+        $info['tipo'] = "success";
+        $info['titulo'] = "Eliminado";
+        $info['texto'] = "Promocion ".$_POST["nombre"]." Eliminada";
+        $info['reload'] = 1;
+        $info['page'] = "_mika_crear_promos.php";
 
         return $info;
         
