@@ -460,6 +460,7 @@ class Guardar extends Core{
             $info['mensaje'] = "Promocion modificada exitosamente";
         }    
         $info['reload'] = 1;
+        $info['post'] = $_POST;
         $info['page'] = "_mika_crear_promos.php";
         return $info;
         
