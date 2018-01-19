@@ -6,6 +6,10 @@
         $array[0]["nombre"] = "Categorias";
         $array[0]["link"] = "pages/_mika_crear_categoria.php";
     }
+    if($page == 2){
+        $array[0]["nombre"] = "Promos";
+        $array[0]["link"] = "pages/_mika_crear_promos.php";
+    }
     
     /*
     if($page == 2){
