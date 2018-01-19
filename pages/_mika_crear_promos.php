@@ -36,7 +36,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     
     $id = $_GET["id"];
     $sub_titulo = $sub_titulo2;
-    $mm = $admin->con->sql("SELECT * FROM _mika_promos WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND id_cat='".$id."' AND eliminado='0'");
+    $mm = $admin->con->sql("SELECT * FROM _mika_promos WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND id_prom='".$id."' AND eliminado='0'");
     $that = $mm['resultado'][0];
     
 }
