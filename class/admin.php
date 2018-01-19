@@ -189,7 +189,7 @@ class Admin{
             return json_encode($js['resultado']);
         }
         if($sitio == "_mika_sushi"){
-            $categorias = $this->con->sql("SELECT id_cat as id, nombre, precio, envoltura as listenv FROM _mika_categorias WHERE eliminado='0' AND id_page='2' ORDER BY orders");
+            $categorias = $this->con->sql("SELECT id_cat as id, nombre, precio, envoltura as listenv, sub_txt FROM _mika_categorias WHERE eliminado='0' AND id_page='2' ORDER BY orders");
             $productos = $this->con->sql("SELECT id_pro as id, nombre, precio, id_cat, numero FROM _mika_productos WHERE eliminado='0' AND id_page='2' ORDER BY orders");
             $promos = $this->con->sql("SELECT id_prom as id, nombre, precio, texto FROM _mika_promos WHERE eliminado='0' AND id_page='2' ORDER BY orders");
             $js_txt.= "var cats = ".json_encode($categorias['resultado']).";\n";
