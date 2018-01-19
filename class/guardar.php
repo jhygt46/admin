@@ -450,17 +450,17 @@ class Guardar extends Core{
         
         if($id == 0){
             
-            $this->con->sql("INSERT INTO _mika_promos (nombre, precio, texto, orders, id_page) VALUES ('".$nombre."', '".$precio."', '".$texto."', 0, '".$this->id_page."')");
+            $a = $this->con->sql("INSERT INTO _mika_promos (nombre, precio, texto, orders, id_page) VALUES ('".$nombre."', '".$precio."', '".$texto."', 0, '".$this->id_page."')");
             $info['op'] = 1;
             $info['mensaje'] = "Promocion ingresada exitosamente";
         }
         if($id > 0){
-            $this->con->sql("UPDATE _mika_promos SET nombre='".$nombre."', precio='".$precio."'  WHERE id_prom='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _mika_promos SET nombre='".$nombre."', precio='".$precio."', texto='".$texto."'  WHERE id_prom='".$id."' AND id_page='".$this->id_page."'");
             $info['op'] = 1;
             $info['mensaje'] = "Promocion modificada exitosamente";
         }    
         $info['reload'] = 1;
-        $info['post'] = $_POST;
+        $info['db'] = $a;
         $info['page'] = "_mika_crear_promos.php";
         return $info;
         
