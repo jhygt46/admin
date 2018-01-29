@@ -96,6 +96,11 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         <div class="mensaje"></div>
                     </label>
                     <label>
+                        <span>Descripcion:</span>
+                        <input id="sub_txt" type="text" value="<?php echo $that['sub_txt']; ?>" require="" placeholder="California Rolls" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
                         <span>Precio:</span>
                         <input id="precio" type="text" value="<?php echo $that['precio']; ?>" require="" placeholder="3800" />
                         <div class="mensaje"></div>

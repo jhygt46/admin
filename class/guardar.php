@@ -412,15 +412,16 @@ class Guardar extends Core{
         $id = $_POST['id'];
         $nombre = $_POST['nombre'];
         $precio = $_POST['precio'];
+        $sub_txt = $_POST['sub_txt'];
         
         if($id == 0){
             
-            $this->con->sql("INSERT INTO _mika_categorias (nombre, precio, orders, id_page) VALUES ('".$nombre."', '".$precio."', 0, '".$this->id_page."')");
+            $this->con->sql("INSERT INTO _mika_categorias (nombre, precio, sub_txt, orders, id_page) VALUES ('".$nombre."', '".$precio."', '".$sub_txt."', 0, '".$this->id_page."')");
             $info['op'] = 1;
             $info['mensaje'] = "Categoria ingresada exitosamente";
         }
         if($id > 0){
-            $this->con->sql("UPDATE _mika_categorias SET nombre='".$nombre."', precio='".$precio."'  WHERE id_cat='".$id."' AND id_page='".$this->id_page."'");
+            $this->con->sql("UPDATE _mika_categorias SET nombre='".$nombre."', precio='".$precio."', sub_txt='".$sub_txt."'  WHERE id_cat='".$id."' AND id_page='".$this->id_page."'");
             $info['op'] = 1;
             $info['mensaje'] = "Categoria modificada exitosamente";
         }    
