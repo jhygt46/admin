@@ -30,6 +30,9 @@ $eliminarobjeto = "Categoria";
 $page_mod = "pages/_mika_crear_categoria.php";
 $page_env = "pages/_mika_envoltura.php";
 $page_pro = "pages/_mika_productos.php";
+
+$page_pic = "pages/asignar_imagen.php?db=mika_sushi";
+
 /* CONFIG PAGE */
 
 $id = 0;
@@ -140,6 +143,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id=<?php echo $id; ?>')"></a>
                         <a title="Envoltura" class="icn envoltura" onclick="navlink('<?php echo $page_env; ?>?id=<?php echo $id; ?>')"></a>
                         <a title="Productos" class="icn lpro" onclick="navlink('<?php echo $page_pro; ?>?id=<?php echo $id; ?>')"></a>
+                        <a title="Fotos" class="icn fotos" onclick="navlink('<?php echo $page_pic; ?>&id=<?php echo $id; ?>')"></a>
                     </ul>
                 </li>
                 
