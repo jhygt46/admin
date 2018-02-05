@@ -820,6 +820,10 @@ class Guardar extends Core{
             $db_name = "_javiermo_propiedades";
             $db_id = "id_pro";
         }
+        if($db == "mika_sushi"){
+            $db_name = "_mika_categorias";
+            $db_id = "id_cat";
+        }
         
         $info_image = $this->con->sql("SELECT images FROM ".$db_name." WHERE ".$db_id."='".$id."' AND id_page='".$this->id_page."'");
         $images = json_decode($info_image['resultado'][0]['images']);
