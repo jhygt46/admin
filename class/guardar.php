@@ -269,6 +269,10 @@ class Guardar extends Core{
             $db_name = "_javiermo_propiedades";
             $id = "id_pro";
         }
+        if($_POST["db"] == "mika_sushi"){
+            $db_name = "_mika_categorias";
+            $id = "id_cat";
+        }
         
         $info['op'] = 2;
         $info['mensaje'] = "Error al subir la imagen";
