@@ -11,12 +11,6 @@
         $array[1]["link"] = "pages/_mika_crear_promos.php";
     }
     
-    /*
-    if($page == 2){
-        $array[1]["nombre"] = "Productos";
-        $array[1]["link"] = "pages/_mika_productos.php";
-    }
-    */
     if(isset($array)){
         
         $aux["ico"] = 5;
@@ -68,12 +62,7 @@
         unset($array);
         
     }
-    
-    /*
-    $array[0]["nombre"] = "Ingresar Usuarios";
-    $array[0]["link"] = "pages/crear_usuario.php";
-    */
-    
+        
     if($page == 3){
         $array[0]["nombre"] = "Ingresar Propiedades";
         $array[0]["link"] = "pages/_javiermo_crear_propiedad.php";
@@ -89,5 +78,30 @@
         unset($array);
         
     }
+    
+    if($page == 4){
+        $array[0]["nombre"] = "Categorias";
+        $array[0]["link"] = "pages/_mika_crear_categoria.php";
+    }
+    if($page == 4){
+        $array[1]["nombre"] = "Ingredientes";
+        $array[1]["link"] = "pages/_javiermo_crear_propiedad.php";
+    }
+    if($page == 4){
+        $array[2]["nombre"] = "Promociones";
+        $array[2]["link"] = "pages/_javiermo_crear_propiedad.php";
+    }
+    
+    if(isset($array)){
+    
+        $aux["ico"] = 3;
+        $aux["categoria"] = "Productos";
+        $aux["subcategoria"] = $array;
+        $menu[] = $aux;
+        unset($aux);
+        unset($array);
+        
+    }
+    
 
 ?>
