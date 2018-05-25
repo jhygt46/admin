@@ -95,7 +95,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     </label>
                     <label>
                         <span>Tipo:</span>
-                        <select id="tipo"><option value="1">Proteina</option><option value="2">Vegetales</option></select>
+                        <select id="tipo"><option value="1" <?php if($that['tipo'] == 1){ echo "selected"; }?>>Proteina</option><option value="2" <?php if($that['tipo'] == 2){ echo "selected"; }?>>Vegetales</option></select>
                         <div class="mensaje"></div>
                     </label>
                     <label style='margin-top:20px'>
