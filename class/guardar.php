@@ -82,6 +82,10 @@ class Guardar extends Core{
         if($_POST['accion'] == "_mika_crear_promos"){
             return $this->_mika_crear_promos();
         }
+        if($_POST['accion'] == "_mika_crear_ingredientes"){
+            return $this->_mika_crear_ingredientes();
+        }
+        
         if($_POST['accion'] == "_mika_eliminar_categoria"){
             return $this->_mika_eliminar_categoria();
         }
@@ -449,7 +453,28 @@ class Guardar extends Core{
         return $info;
         
     }
-    
+    private function _mika_crear_ingredientes(){
+        
+        $id = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        $tipo = $_POST['tipo'];
+        
+        if($id == 0){
+            $this->con->sql("INSERT INTO _mika_ingredientes (nombre, tipo, id_page) VALUES ('".$nombre."', '".$tipo."', '".$this->id_page."')");
+            $info['op'] = 1;
+            $info['mensaje'] = "Ingrediente ingresada exitosamente";
+        }
+        if($id > 0){
+            $this->con->sql("UPDATE _mika_ingredientes SET nombre='".$nombre."', tipo='".$tipo."' WHERE id_ing='".$id."' AND id_page='".$this->id_page."'");
+            $info['op'] = 1;
+            $info['mensaje'] = "Ingrediente modificada exitosamente";
+        }    
+        $info['reload'] = 1;
+        $info['page'] = "_mika_crear_ingredientes.php";
+        return $info;
+        
+        
+    }
     private function _mika_crear_promos(){
         
         $id = $_POST['id'];

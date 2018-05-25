@@ -85,7 +85,7 @@
     }
     if($page == 4){
         $array[1]["nombre"] = "Ingredientes";
-        $array[1]["link"] = "pages/_izu_crear_ingredientes.php";
+        $array[1]["link"] = "pages/_mika_crear_ingredientes.php";
     }
     if($page == 4){
         $array[2]["nombre"] = "Promociones";

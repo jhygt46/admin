@@ -18,10 +18,10 @@ $admin = new Admin();
 $aux = $admin->con->sql("SELECT * FROM _mika_ingredientes WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND eliminado='0' ORDER BY orders");
 
 $list = $aux['resultado'];
-$titulo = "Promociones";
-$titulo_list = "Lista de Promociones";
-$sub_titulo1 = "Ingresar Promocion";
-$sub_titulo2 = "Modificar Promocion";
+$titulo = "Ingrediente";
+$titulo_list = "Lista de Ingredientes";
+$sub_titulo1 = "Ingresar Ingrediente";
+$sub_titulo2 = "Modificar Ingredientes";
 $accion = "_mika_crear_ingredientes";
 
 $eliminaraccion = "_mika_eliminar_ingrediente";
@@ -36,7 +36,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
     
     $id = $_GET["id"];
     $sub_titulo = $sub_titulo2;
-    $mm = $admin->con->sql("SELECT * FROM _mika_promos WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND id_prom='".$id."' AND eliminado='0'");
+    $mm = $admin->con->sql("SELECT * FROM _mika_ingredientes WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND id_ing='".$id."' AND eliminado='0'");
     $that = $mm['resultado'][0];
     
 }
