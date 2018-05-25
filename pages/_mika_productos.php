@@ -108,6 +108,20 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                         <input id="precio" type="text" value="<?php echo $that['precio']; ?>" require="" placeholder="0" />
                         <div class="mensaje"></div>
                     </label>
+                    <?php if($_SESSION['user']['info']['id_page'] == 4){ ?>
+                    
+                    <label>
+                        <span>Pollo:</span>
+                        <input id="precio" type="checkbox" value="" require="" placeholder="0" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label>
+                        <span>Camaron:</span>
+                        <input id="precio" type="checkbox" value="" require="" placeholder="0" />
+                        <div class="mensaje"></div>
+                    </label>
+                    
+                    <?php } ?>
                     <label style='margin-top:20px'>
                         <span>&nbsp;</span>
                         <a id='button' onclick="form()">Enviar</a>
