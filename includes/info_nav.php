@@ -89,7 +89,7 @@
     }
     if($page == 4){
         $array[2]["nombre"] = "Promociones";
-        $array[2]["link"] = "pages/_izu_crear_promociones.php";
+        $array[2]["link"] = "pages/_mika_crear_promos.php";
     }
     
     if(isset($array)){
