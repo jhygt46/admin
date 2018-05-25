@@ -27,7 +27,7 @@ $accion = "_mika_crear_ingredientes";
 $eliminaraccion = "_mika_eliminar_ingrediente";
 $id_list = "id_ing";
 $eliminarobjeto = "Ingredientes";
-$page_mod = "pages/_izu_crear_ingredientes.php";
+$page_mod = "pages/_mika_crear_ingredientes.php";
 /* CONFIG PAGE */
 
 $id = 0;
