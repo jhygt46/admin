@@ -101,6 +101,12 @@ class Guardar extends Core{
         if($_POST['accion'] == "_mika_eliminar_producto"){
             return $this->_mika_eliminar_producto();
         }
+        if($_POST['accion'] == "_mika_eliminar_promocion"){
+            return $this->_mika_eliminar_promocion();
+        }
+        if($_POST['accion'] == "_mika_eliminar_ingrediente"){
+            return $this->_mika_eliminar_ingrediente();
+        }
         
         
     }
@@ -497,6 +503,20 @@ class Guardar extends Core{
         $info['page'] = "_mika_crear_promos.php";
         return $info;
         
+        
+    }
+    private function _mika_eliminar_ingrediente(){
+        
+        $id = $_POST['id'];
+        $this->con->sql("UPDATE _mika_ingredientes SET eliminado='1' WHERE id_ing='".$id."' AND id_page='".$this->id_page."'");
+        
+        $info['tipo'] = "success";
+        $info['titulo'] = "Eliminado";
+        $info['texto'] = "Ingrediente ".$_POST["nombre"]." Eliminado";
+        $info['reload'] = 1;
+        $info['page'] = "_mika_crear_ingredientes.php";
+
+        return $info;
         
     }
     private function _mika_eliminar_promocion(){
