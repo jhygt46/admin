@@ -15,19 +15,19 @@ $admin = new Admin();
 /* CONFIG PAGE */
 
 //$res = $admin->arbol_categoria();
-$aux = $admin->con->sql("SELECT * FROM _mika_promos WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND eliminado='0' ORDER BY orders");
+$aux = $admin->con->sql("SELECT * FROM _mika_ingredientes WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND eliminado='0' ORDER BY orders");
 
 $list = $aux['resultado'];
 $titulo = "Promociones";
 $titulo_list = "Lista de Promociones";
 $sub_titulo1 = "Ingresar Promocion";
 $sub_titulo2 = "Modificar Promocion";
-$accion = "_mika_crear_promos";
+$accion = "_mika_crear_ingredientes";
 
-$eliminaraccion = "_mika_eliminar_promocion";
-$id_list = "id_prom";
-$eliminarobjeto = "Promociones";
-$page_mod = "pages/_mika_crear_promos.php";
+$eliminaraccion = "_mika_eliminar_ingrediente";
+$id_list = "id_ing";
+$eliminarobjeto = "Ingredientes";
+$page_mod = "pages/_izu_crear_ingredientes.php";
 /* CONFIG PAGE */
 
 $id = 0;
@@ -95,7 +95,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     </label>
                     <label>
                         <span>Tipo:</span>
-                        <input id="precio" type="text" value="<?php echo $that['precio']; ?>" require="" placeholder="3800" />
+                        <select id="tipo"><option value="1">Proteina</option><option value="2">Vegetales</option></select>
                         <div class="mensaje"></div>
                     </label>
                     <label style='margin-top:20px'>
