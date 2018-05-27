@@ -389,16 +389,35 @@ class Guardar extends Core{
         $precio = $_POST['precio'];
         $numero = $_POST['numero'];
         
-        if($id_pro == 0){
-            $this->con->sql("INSERT INTO _mika_productos (numero, nombre, precio, id_cat, id_page) VALUES ('".$numero."', '".$nombre."', '".$precio."', '".$id_cat."', '".$this->id_page."')");
-            $info['op'] = 1;
-            $info['mensaje'] = "Producto ingresado exitosamente";
-        }
         if($id_pro > 0){
             $this->con->sql("UPDATE _mika_productos SET numero='".$numero."', nombre='".$nombre."', precio='".$precio."'  WHERE id_pro='".$id_pro."' AND id_page='".$this->id_page."'");
             $info['op'] = 1;
             $info['mensaje'] = "Producto modificada exitosamente";
-        }    
+        }
+        if($id_pro == 0){
+            $pro = $this->con->sql("INSERT INTO _mika_productos (numero, nombre, precio, id_cat, id_page) VALUES ('".$numero."', '".$nombre."', '".$precio."', '".$id_cat."', '".$this->id_page."')");
+            $info['op'] = 1;
+            $info['mensaje'] = "Producto ingresado exitosamente";
+            $id_pro = $pro['insert_id'];
+        }
+        
+        if($this->id_page == 4){
+            
+            $ingredientes = $admin->con->sql("SELECT * FROM _mika_ingredientes WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND eliminado='0'");
+            for($i=0; $i<$ingredientes['count']; $i++){
+                
+                $post = $_POST['ing-'.$ingredientes['resultado'][$i]['id_ing']];
+                if($post == 0){
+                    $admin->con->sql("DELETE FROM _mika_ing_prod WHERE id_pro='".$id_pro."' AND id_ing='".$ingredientes['resultado'][$i]['id_ing']."'");
+                }
+                if($post == 1){
+                    $admin->con->sql("INSERT INTO _mika_ing_prod (id_pro, id_ing) VALUES ('".$id_pro."', '".$ingredientes['resultado'][$i]['id_ing']."')");
+                }
+                
+            }
+            
+        }
+        
         $info['reload'] = 1;
         $info['page'] = "_mika_productos.php?id=".$id_cat;
         return $info;
