@@ -400,7 +400,7 @@ class Guardar extends Core{
             $info['mensaje'] = "Producto ingresado exitosamente";
             $id_pro = $pro['insert_id'];
         }
-        
+        /*
         if($this->id_page == 4){
             
             $ingredientes = $admin->con->sql("SELECT * FROM _mika_ingredientes WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND eliminado='0'");
@@ -417,7 +417,7 @@ class Guardar extends Core{
             }
             
         }
-        
+        */
         $info['reload'] = 1;
         $info['page'] = "_mika_productos.php?id=".$id_cat;
         return $info;
