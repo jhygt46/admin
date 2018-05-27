@@ -403,8 +403,8 @@ class Guardar extends Core{
         
         if($this->id_page == 4){
             
-            //$ingredientes = $admin->con->sql("SELECT * FROM _mika_ingredientes WHERE id_page='".$this->id_page."' AND eliminado='0'");
-            /*for($i=0; $i<$ingredientes['count']; $i++){
+            $ingredientes = $this->con->sql("SELECT * FROM _mika_ingredientes WHERE id_page='".$this->id_page."' AND eliminado='0'");
+            for($i=0; $i<$ingredientes['count']; $i++){
                 
                 $post = $_POST['ing-'.$ingredientes['resultado'][$i]['id_ing']];
                 if($post == 0){
@@ -414,7 +414,7 @@ class Guardar extends Core{
                     $admin->con->sql("INSERT INTO _mika_ing_prod (id_pro, id_ing) VALUES ('".$id_pro."', '".$ingredientes['resultado'][$i]['id_ing']."')");
                 }
                 
-            }*/
+            }
             
         }
         
