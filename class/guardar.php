@@ -408,10 +408,10 @@ class Guardar extends Core{
                 
                 $post = $_POST['ing-'.$ingredientes['resultado'][$i]['id_ing']];
                 if($post == 0){
-                    $admin->con->sql("DELETE FROM _mika_ing_prod WHERE id_pro='".$id_pro."' AND id_ing='".$ingredientes['resultado'][$i]['id_ing']."'");
+                    $this->con->sql("DELETE FROM _mika_ing_prod WHERE id_pro='".$id_pro."' AND id_ing='".$ingredientes['resultado'][$i]['id_ing']."'");
                 }
                 if($post == 1){
-                    $admin->con->sql("INSERT INTO _mika_ing_prod (id_pro, id_ing) VALUES ('".$id_pro."', '".$ingredientes['resultado'][$i]['id_ing']."')");
+                    $this->con->sql("INSERT INTO _mika_ing_prod (id_pro, id_ing) VALUES ('".$id_pro."', '".$ingredientes['resultado'][$i]['id_ing']."')");
                 }
                 
             }
