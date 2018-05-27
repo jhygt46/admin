@@ -403,7 +403,7 @@ class Guardar extends Core{
         
         if($this->id_page == 4){
             
-            $ingredientes = $admin->con->sql("SELECT * FROM _mika_ingredientes WHERE id_page='".$this->id_page."' AND eliminado='0'");
+            //$ingredientes = $admin->con->sql("SELECT * FROM _mika_ingredientes WHERE id_page='".$this->id_page."' AND eliminado='0'");
             /*for($i=0; $i<$ingredientes['count']; $i++){
                 
                 $post = $_POST['ing-'.$ingredientes['resultado'][$i]['id_ing']];
