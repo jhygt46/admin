@@ -111,15 +111,15 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"]) && $_GET["id"] != 0){
                     <?php 
                     
                         if($_SESSION['user']['info']['id_page'] == 4){ 
-                        $ingredientes = $admin->con->sql("SELECT * FROM _mika_ingredientes WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND eliminado='0'");
-                        $ings = $admin->con->sql("SELECT * FROM _mika_ing_prod WHERE id_pro='".$_GET["id_pro"]."'");
-                        for($i=0; $i<$ingredientes['count']; $i++){
-                            $checked = false;
-                            for($j=0; $j<$ings['count']; $j++){
-                                if($ingredientes['resultado'][$i]['id_ing'] == $ings['resultado'][$j]['id_ing']){
-                                    $checked = true;
+                            $ingredientes = $admin->con->sql("SELECT * FROM _mika_ingredientes WHERE id_page='".$_SESSION['user']['info']['id_page']."' AND eliminado='0'");
+                            $ings = $admin->con->sql("SELECT * FROM _mika_ing_prod WHERE id_pro='".$_GET["id_pro"]."'");
+                            for($i=0; $i<$ingredientes['count']; $i++){
+                                $checked = false;
+                                for($j=0; $j<$ings['count']; $j++){
+                                    if($ingredientes['resultado'][$i]['id_ing'] == $ings['resultado'][$j]['id_ing']){
+                                        $checked = true;
+                                    }
                                 }
-                            }
                             
                     ?>
                     
